@@ -13,7 +13,7 @@ namespace WebProject
     public partial class Insertion : System.Web.UI.Page
     {
         private string current_location;
-        protected void Page_Load(object sender, EventArgs e)
+        protected void Page_Load(object sender, EventArgs e) // this line 
         {
            
             // once the page loads it should initialise with data once
@@ -26,13 +26,9 @@ namespace WebProject
                 foreach (string line in lines)
                 {
                     GasStation.Items.Add(line);
-                    // once all the 
-                    GasStationSelected(sender, e);
                 }
-                
-
+                GasStationSelected(sender, e);
             }
-
         }
         
         protected void GasStationSelected(object sender, EventArgs e)
@@ -51,10 +47,10 @@ namespace WebProject
             {
                 Location.Items.Add(line);
             }
-            
-            
-            
 
+            // update the manual module
+            ManualGasStation.Text = selectedGasStation;
+            ManualLocation.Text = Location.SelectedValue;
         }
 
         protected void GasStationLocationSelected(object sender, EventArgs e)
@@ -62,6 +58,7 @@ namespace WebProject
             // update the current_location with the selected location from dropdownlist
             current_location = Location.SelectedItem.Value;
             // change the label text to that string
+            ManualLocation.Text = current_location;
             Label1.Text ="Last selected Location: " +  current_location;
         }
 
@@ -75,6 +72,11 @@ namespace WebProject
             // EDIT: Next we need to scan an image and search for numbers
            
 
+        }
+
+        protected void btnupdate_Click(object sender, EventArgs e)
+        {
+            Label1.Text = "Select Location";
         }
     }
     

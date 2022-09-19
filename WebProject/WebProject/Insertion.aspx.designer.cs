@@ -15,6 +15,24 @@ namespace WebProject
     {
 
         /// <summary>
+        /// ManualGasStation control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label ManualGasStation;
+
+        /// <summary>
+        /// ManualLocation control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label ManualLocation;
+
+        /// <summary>
         /// GasStation control.
         /// </summary>
         /// <remarks>

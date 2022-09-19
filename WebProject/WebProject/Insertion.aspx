@@ -10,11 +10,19 @@
                             <div class="col-md-4 col-md-offset-4">
                                 <h1>Update the data with Insertion</h1>
                             </div>
+                            <div class="col-md-4 col-md-offset-6">
+                                <h1>Enter Data Manually</h1>
+                                <div>Enter Data to... <asp:Label Text="Gatve kazkokia" runat="server" ID="ManualGasStation"/> in <asp:Label Text="Circle k" runat="server" ID="ManualLocation"/> </div>
+
+                            </div>
                         </header>
 
 
                         <div class="panel-body">
                             <div class="row">
+                                
+                                
+
                                 
                                     
                                    </div>
@@ -22,21 +30,20 @@
                                     <div class="form-group">
                                         <asp:Label Text="Choose Gas Station" runat="server"/>
                                         <!-- <asp:TextBox runat ="server" Enabled="true" CssClass="form-control input-sm" placeholder="gas station Name" />-->
-                                        <asp:DropDownList runat="server" CssClass="form-control input-sm" Enabled="True" ID="GasStation" OnSelectedIndexChanged="GasStationSelected">
+                                        <asp:DropDownList runat="server" AutoPostBack="true" CssClass="form-control input-sm" Enabled="True" ID="GasStation" OnSelectedIndexChanged="GasStationSelected">
                                         </asp:DropDownList>
                                     </div>
                                     
                                     <div class="form-group">
 
                                         <asp:Label Text="Select Location" runat="server"  ID="Label1" />
-                                        <asp:DropDownList runat="server" CssClass="form-control input-sm" Enabled="True" ID="Location" OnSelectedIndexChanged="GasStationLocationSelected">
+                                        <asp:DropDownList runat="server" AutoPostBack="true" CssClass="form-control input-sm" Enabled="True" ID="Location" OnSelectedIndexChanged="GasStationLocationSelected">
                                         </asp:DropDownList>
 
                                     </div>
                                     <div class="col-md-4 col-md-offset-2">
                                         <div class="form-group">
-                                            <asp:Label Text ="Insert a photo" runat="server" /><asp:FileUpload runat="server" ID ="FileHolder"></asp:FileUpload>
-                                            
+                                            <asp:Label Text ="Insert a photo" runat="server" /><asp:FileUpload runat="server" ID ="FileHolder"></asp:FileUpload>                                         
                                         </div>
                                     </div>
                                     
@@ -47,7 +54,7 @@
 
                             <div class="row">
                                 <div class="col-md8 col-md-off">
-                                    <asp:Button Text="Update" ID="btnupdate" CssClass="btn btn-primary" Width="200" runat="server" />
+                                    <asp:Button Text="Refresh" ID="btnupdate" CssClass="btn btn-primary" Width="200" runat="server" OnClick="btnupdate_Click" />
                                     <asp:Button Text="Save" ID="btnsave" CssClass="btn btn-primary" Width="200" runat="server" OnClick="Btnsave_Click" />
 
                                 </div>
