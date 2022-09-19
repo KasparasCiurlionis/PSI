@@ -53,8 +53,8 @@
                         <li><a runat="server" href="~/">Home</a></li>
                         <li><a runat="server" href="~/About">About</a></li>
                         <li><a runat="server" href="~/Contact">Contact</a></li>
-                        <li><a runat="server" hred="~/Contact">Gas station list</a></li>
-                        <li><a runat="server" hred="~/Insertion.aspx">Insert new data</a></li>
+                        <li><a runat="server" href="~/Contact">Gas station list</a></li>
+                        <li><a runat="server" href="~/Insertion.aspx">Insert new data</a></li>
 
                     </ul>
                 </div>
