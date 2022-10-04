@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.EnterpriseServices;
 using System.IO;
 using System.Linq;
+using System.Reflection.Emit;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -15,6 +17,8 @@ namespace WebProject
         private string current_location;
         private string chosenGasStation;
         private int typeCount;
+
+        List<string> gasInfo = new List<string>();
         protected void Page_Load(object sender, EventArgs e) // this line 
         {
            
@@ -178,7 +182,8 @@ namespace WebProject
         }
 
         protected void Btnsave_Click(object sender, EventArgs e)
-        {            
+        {
+            Label2.Visible = false;
             //Reads all the gas types and prices
             ReadInput();
 
@@ -213,68 +218,56 @@ namespace WebProject
         }
         protected void ReadInput()
         {
-            List<string> gasInfo = new List<string>();
-
             switch (Int16.Parse(GasTypeCount.SelectedValue))
             {
                 case 1:
-                    gasInfo.Add(GasType1.SelectedValue);
-                    gasInfo.Add(GasPrice1.Text);
+                    PriceValidation(GasType1.SelectedValue, GasPrice1.Text);
                     break;
 
                 case 2:
-                    gasInfo.Add(GasType1.SelectedValue);
-                    gasInfo.Add(GasPrice1.Text);
-
-                    gasInfo.Add(GasType2.SelectedValue);
-                    gasInfo.Add(GasPrice2.Text);
+                    PriceValidation(GasType1.SelectedValue, GasPrice1.Text);
+                    PriceValidation(GasType2.SelectedValue, GasPrice2.Text);
                     break;
 
                 case 3:
-                    gasInfo.Add(GasType1.SelectedValue);
-                    gasInfo.Add(GasPrice1.Text);
-
-                    gasInfo.Add(GasType2.SelectedValue);
-                    gasInfo.Add(GasPrice2.Text);
-
-                    gasInfo.Add(GasType3.SelectedValue);
-                    gasInfo.Add(GasPrice3.Text);
+                    PriceValidation(GasType1.SelectedValue, GasPrice1.Text);
+                    PriceValidation(GasType2.SelectedValue, GasPrice2.Text);
+                    PriceValidation(GasType3.SelectedValue, GasPrice3.Text);
                     break;
 
                 case 4:
-                    gasInfo.Add(GasType1.SelectedValue);
-                    gasInfo.Add(GasPrice1.Text);
-
-                    gasInfo.Add(GasType2.SelectedValue);
-                    gasInfo.Add(GasPrice2.Text);
-
-                    gasInfo.Add(GasType3.SelectedValue);
-                    gasInfo.Add(GasPrice3.Text);
-
-                    gasInfo.Add(GasType4.SelectedValue);
-                    gasInfo.Add(GasPrice4.Text);
+                    PriceValidation(GasType1.SelectedValue, GasPrice1.Text);
+                    PriceValidation(GasType2.SelectedValue, GasPrice2.Text);
+                    PriceValidation(GasType3.SelectedValue, GasPrice3.Text);
+                    PriceValidation(GasType4.SelectedValue, GasPrice4.Text);
                     break;
 
                 case 5:
-                    gasInfo.Add(GasType1.SelectedValue);
-                    gasInfo.Add(GasPrice1.Text);
-
-                    gasInfo.Add(GasType2.SelectedValue);
-                    gasInfo.Add(GasPrice2.Text);
-
-                    gasInfo.Add(GasType3.SelectedValue);
-                    gasInfo.Add(GasPrice3.Text);
-
-                    gasInfo.Add(GasType4.SelectedValue);
-                    gasInfo.Add(GasPrice4.Text);
-
-                    gasInfo.Add(GasType5.SelectedValue);
-                    gasInfo.Add(GasPrice5.Text);
+                    PriceValidation(GasType1.SelectedValue, GasPrice1.Text);
+                    PriceValidation(GasType2.SelectedValue, GasPrice2.Text);
+                    PriceValidation(GasType3.SelectedValue, GasPrice3.Text);
+                    PriceValidation(GasType4.SelectedValue, GasPrice4.Text);
+                    PriceValidation(GasType5.SelectedValue, GasPrice5.Text);
                     break;
             }
 
             //edits the existing file
             EditFileInformation(gasInfo);
+        }
+
+        protected void PriceValidation(string gasType, string gasPrice)
+        {
+            Regex rx = new Regex(@"(\d\,\d{3}?){1}$");
+
+            if (rx.Match(gasPrice).Success)
+            {
+                gasInfo.Add(gasType);
+                gasInfo.Add(gasPrice);
+            }
+            else
+            {
+                Label2.Visible = true;
+            }
         }
 
         protected void EditFileInformation(List<string> gasInfo)
