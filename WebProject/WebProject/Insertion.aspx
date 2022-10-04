@@ -51,6 +51,10 @@
 
                                 <!-- Gas types and their prices-->
                                 <div>
+                                    <asp:Label ID="Label2" runat="server" Visible="false" style="color:red;" Text="Sorry, the data entered should be of x,xxx format"></asp:Label>
+                                        </div>
+
+                                <div>
                                     <asp:DropDownList ID="GasType1" runat="server" Visible=false></asp:DropDownList>
 
                                     <asp:TextBox ID="GasPrice1" runat="server" Visible=false></asp:TextBox>
