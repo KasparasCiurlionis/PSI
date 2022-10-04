@@ -2813,7 +2813,6 @@ fieldset[disabled] .checkbox-inline {
   border-radius: 3px;
 }
 select.input-sm {
-  height: 30px;
   line-height: 30px;
 }
 textarea.input-sm,
