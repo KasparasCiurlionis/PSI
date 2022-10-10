@@ -9,6 +9,7 @@ using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using WebProject.Data;
 
 namespace WebProject
 {
@@ -16,7 +17,6 @@ namespace WebProject
     {
         private string current_location;
         private string chosenGasStation;
-        private int typeCount;
 
         List<string> gasInfo = new List<string>();
         protected void Page_Load(object sender, EventArgs e) // this line 
@@ -132,21 +132,37 @@ namespace WebProject
             string location = Location.SelectedValue;
             int index = fileInformation.IndexOf(location);
 
-            foreach(var line in gasInfo)
+            var info = new List<GasInfo>()
             {
-                if (line != null)
+                new GasInfo() {gasType = "95", gasPrice = gasInfo[0], lastUpdate = DateTime.Now},
+                new GasInfo() {gasType = "98", gasPrice = gasInfo[1], lastUpdate = DateTime.Now},
+                new GasInfo() {gasType = "D", gasPrice = gasInfo[2], lastUpdate = DateTime.Now},
+                new GasInfo() {gasType = "GAS", gasPrice = gasInfo[3], lastUpdate = DateTime.Now}
+            };
+
+            
+            foreach(var gasInformation in info)
+            {
+                if(gasInformation.gasType == "95" && gasInformation.gasPrice != "-")
                 {
-                    fileInformation.Add(line);
+                    fileInformation[index + 1] = "95 " + gasInfo[0] + " " + DateTime.Now;
+                }
+
+                if(gasInformation.gasType == "98" && gasInformation.gasPrice != "-")
+                {
+                    fileInformation[index + 2] = "98 " + gasInfo[1] + " " + DateTime.Now;
+                }
+
+                if (gasInformation.gasType == "D" && gasInformation.gasPrice != "-")
+                {
+                    fileInformation[index + 3] = "D " + gasInfo[2] + " " + DateTime.Now;
+                }
+
+                if (gasInformation.gasType == "GAS" && gasInformation.gasPrice != "-")
+                {
+                    fileInformation[index + 4] = "GAS " + gasInfo[3] + " " + DateTime.Now;
                 }
             }
-            
-            //TODO: sitoje vietoje sutvarkyti apacioje esancia dali, kad kur irasyta overwritinam, o kur nk neparasyta - praskippinam
-
-            //fileInformation.Add("indexas: " + index);
-            //fileInformation[index + 1] = "95 " + gasInfo[0] + DateTime.Now;
-            //fileInformation[index + 2] = "98 " + gasInfo[1] + DateTime.Now;
-            //fileInformation[index + 3] = "D " + gasInfo[2] + DateTime.Now;
-            //fileInformation[index + 4] = "GAS " + gasInfo[3] + DateTime.Now;
 
             string path2 = Server.MapPath("~/App_Data/data/" + "temp.txt");
             using (StreamWriter writer = new StreamWriter(path2))
