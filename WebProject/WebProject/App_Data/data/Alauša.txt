@@ -1,4 +1,8 @@
 Kalvariju g. 204
+95 1,666
+98 1,965
+D 1,345
+GAS 1,110
 Kirtimu g. 23
 Pelesos g. 1
 Siaures g. 39

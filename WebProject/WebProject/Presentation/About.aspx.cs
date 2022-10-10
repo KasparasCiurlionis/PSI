@@ -13,10 +13,5 @@ namespace WebProject
         {
 
         }
-
-        protected void button1_Click(object sender, EventArgs e)
-        {
-            Label1.Text = "Hello world";
-        }
     }
 }

@@ -60,15 +60,6 @@ namespace WebProject
         protected global::System.Web.UI.WebControls.DropDownList Location;
 
         /// <summary>
-        /// GasTypeCount control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList GasTypeCount;
-
-        /// <summary>
         /// Label2 control.
         /// </summary>
         /// <remarks>
@@ -76,15 +67,6 @@ namespace WebProject
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label2;
-
-        /// <summary>
-        /// GasType1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList GasType1;
 
         /// <summary>
         /// GasPrice1 control.
@@ -96,15 +78,6 @@ namespace WebProject
         protected global::System.Web.UI.WebControls.TextBox GasPrice1;
 
         /// <summary>
-        /// GasType2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList GasType2;
-
-        /// <summary>
         /// GasPrice2 control.
         /// </summary>
         /// <remarks>
@@ -112,15 +85,6 @@ namespace WebProject
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox GasPrice2;
-
-        /// <summary>
-        /// GasType3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList GasType3;
 
         /// <summary>
         /// GasPrice3 control.
@@ -132,15 +96,6 @@ namespace WebProject
         protected global::System.Web.UI.WebControls.TextBox GasPrice3;
 
         /// <summary>
-        /// GasType4 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList GasType4;
-
-        /// <summary>
         /// GasPrice4 control.
         /// </summary>
         /// <remarks>
@@ -148,24 +103,6 @@ namespace WebProject
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox GasPrice4;
-
-        /// <summary>
-        /// GasType5 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList GasType5;
-
-        /// <summary>
-        /// GasPrice5 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox GasPrice5;
 
         /// <summary>
         /// FileHolder control.

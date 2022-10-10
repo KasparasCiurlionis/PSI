@@ -43,45 +43,26 @@
 
                                 </div>
 
-                                <div>
-                                    <asp:Label Text="Choose how many gas types this gas station has:" runat="server" />
-                                    <asp:DropDownList runat="server" AutoPostBack="true" CssClass="form-control input-sm" Enabled="true" ID="GasTypeCount" OnSelectedIndexChanged="GasTypeCountEntered">
-                                    </asp:DropDownList>
-                                </div>
-
-                                <!-- Gas types and their prices-->
+                                
+                                <!-- Gas prices-->
                                 <div>
                                     <asp:Label ID="Label2" runat="server" Visible="false" style="color:red;" Text="Sorry, the data entered should be of x,xxx format"></asp:Label>
                                         </div>
 
                                 <div>
-                                    <asp:DropDownList ID="GasType1" runat="server" Visible=false></asp:DropDownList>
-
-                                    <asp:TextBox ID="GasPrice1" runat="server" Visible=false></asp:TextBox>
+                                     <asp:TextBox ID="GasPrice1" runat="server" Visible=true></asp:TextBox>
                                 </div>
 
                                 <div>
-                                    <asp:DropDownList ID="GasType2" runat="server" Visible=false></asp:DropDownList>
-
-                                    <asp:TextBox ID="GasPrice2" runat="server" Visible=false></asp:TextBox>
+                                    <asp:TextBox ID="GasPrice2" runat="server" Visible=true></asp:TextBox>
                                 </div>
 
                                 <div>
-                                    <asp:DropDownList ID="GasType3" runat="server" Visible=false></asp:DropDownList>
-
-                                    <asp:TextBox ID="GasPrice3" runat="server" Visible=false></asp:TextBox>
+                                    <asp:TextBox ID="GasPrice3" runat="server" Visible=true></asp:TextBox>
                                 </div>
 
                                 <div>
-                                    <asp:DropDownList ID="GasType4" runat="server" Visible=false></asp:DropDownList>
-
-                                    <asp:TextBox ID="GasPrice4" runat="server" Visible=false></asp:TextBox>
-                                </div>
-
-                                <div>
-                                    <asp:DropDownList ID="GasType5" runat="server" Visible=false></asp:DropDownList>
-
-                                    <asp:TextBox ID="GasPrice5" runat="server" Visible=false></asp:TextBox>
+                                    <asp:TextBox ID="GasPrice4" runat="server" Visible=true></asp:TextBox>
                                 </div>
 
                                 <div class="col-md-4 col-md-offset-2">
@@ -93,8 +74,11 @@
 
                             </div>
                         </div>
+                                            </section>
 
+                    <hr />
 
+                    <section>
                         <div class="row">
                             <div class="col-md8 col-md-off">
                                 <asp:Button Text="Refresh" ID="btnupdate" CssClass="btn btn-primary" Width="200" runat="server" OnClick="btnupdate_Click" />
@@ -102,12 +86,12 @@
 
                             </div>
                         </div>
+                        </section>
 
 
 
 
 
-                    </section>
                 </div>
             </div>
 
