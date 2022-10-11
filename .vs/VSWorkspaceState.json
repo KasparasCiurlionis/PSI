@@ -2,8 +2,10 @@
   "ExpandedNodes": [
     "",
     "\\WebProject",
-    "\\WebProject\\WebProject"
+    "\\WebProject\\WebProject",
+    "\\WebProject\\WebProject\\Data",
+    "\\WebProject\\WebProject\\Presentation"
   ],
-  "SelectedNode": "\\WebProject\\WebProject\\Site.Master",
+  "SelectedNode": "\\WebProject\\WebProject\\Presentation\\Insertion.aspx.cs",
   "PreviewInSolutionExplorer": false
 }
