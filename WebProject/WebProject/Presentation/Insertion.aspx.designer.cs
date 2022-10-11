@@ -69,15 +69,6 @@ namespace WebProject
         protected global::System.Web.UI.WebControls.Label Label2;
 
         /// <summary>
-        /// E95Label control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label E95Label;
-
-        /// <summary>
         /// GasPrice1 control.
         /// </summary>
         /// <remarks>
@@ -85,15 +76,6 @@ namespace WebProject
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox GasPrice1;
-
-        /// <summary>
-        /// E98Label control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label E98Label;
 
         /// <summary>
         /// GasPrice2 control.
@@ -105,15 +87,6 @@ namespace WebProject
         protected global::System.Web.UI.WebControls.TextBox GasPrice2;
 
         /// <summary>
-        /// DLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label DLabel;
-
-        /// <summary>
         /// GasPrice3 control.
         /// </summary>
         /// <remarks>
@@ -121,15 +94,6 @@ namespace WebProject
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox GasPrice3;
-
-        /// <summary>
-        /// GasLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label GasLabel;
 
         /// <summary>
         /// GasPrice4 control.
@@ -150,6 +114,87 @@ namespace WebProject
         protected global::System.Web.UI.WebControls.FileUpload FileHolder;
 
         /// <summary>
+        /// btnUpload control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnUpload;
+
+        /// <summary>
+        /// AutoTextBox1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox AutoTextBox1;
+
+        /// <summary>
+        /// AutoTextLabel1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label AutoTextLabel1;
+
+        /// <summary>
+        /// AutoTextBox2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox AutoTextBox2;
+
+        /// <summary>
+        /// AutoTextLabel2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label AutoTextLabel2;
+
+        /// <summary>
+        /// AutoTextBox3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox AutoTextBox3;
+
+        /// <summary>
+        /// AutoTextLabel3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label AutoTextLabel3;
+
+        /// <summary>
+        /// AutoTextBox4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox AutoTextBox4;
+
+        /// <summary>
+        /// AutoTextLabel4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label AutoTextLabel4;
+
+        /// <summary>
         /// btnupdate control.
         /// </summary>
         /// <remarks>
@@ -166,5 +211,14 @@ namespace WebProject
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnsave;
+
+        /// <summary>
+        /// btndiscard control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btndiscard;
     }
 }

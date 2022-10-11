@@ -1,14 +1,17 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.EnterpriseServices;
 using System.IO;
 using System.Linq;
 using System.Reflection.Emit;
+using System.Security.Cryptography.X509Certificates;
 using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using WebProject.Business_logic;
 using WebProject.Data;
 
 namespace WebProject
@@ -16,8 +19,10 @@ namespace WebProject
     public partial class Insertion : System.Web.UI.Page
     {
         private string current_location;
+        private string chosenGasStation;
 
         List<string> gasInfo = new List<string>();
+        public ExistingGasModule gasModuleProcess = new ExistingGasModule();
         protected void Page_Load(object sender, EventArgs e) // this line 
         {
            
@@ -41,6 +46,7 @@ namespace WebProject
             // once we selected a proper GasStation, DropDownList Location should be updated
             // we need to check what is selected
             string selectedGasStation = GasStation.SelectedValue;
+            chosenGasStation = GasStation.SelectedValue;
             // we need to get the path to the file
             string path = Server.MapPath("~/App_Data/data/" + selectedGasStation + ".txt");
             // we need to read the file
@@ -48,17 +54,9 @@ namespace WebProject
             // we need to clear the Location dropdownlist
             Location.Items.Clear();
             // we need to add the data from the file into the Location dropdownlist
-
-            Regex rx = new Regex(@"[a-zA-Z]+ \w{1,2}. [0-9]{1,3}");
-            Regex rx2 = new Regex(@"[a-zA-Z]+$");
-
             foreach(string line in lines)
             {
-                if (rx.Match(line).Success || rx2.Match(line).Success)
-                {
-                    Location.Items.Add(line);
-                }
-                
+                Location.Items.Add(line);
             }
 
             // update the manual module
@@ -81,7 +79,7 @@ namespace WebProject
             //Reads all the gas types and prices
             ReadInput();
 
-            // an image is selected in Fileholder FileUpload
+            // an image is selected in FileUpload
             // we need to get the image
             HttpPostedFile postedFile = FileHolder.PostedFile;
             // we need to get the name of the image
@@ -117,7 +115,6 @@ namespace WebProject
             else
             {
                 Label2.Visible = true;
-                gasInfo.Add("-");
             }
         }
 
@@ -179,19 +176,188 @@ namespace WebProject
                     writer.WriteLine(line);
                 }
             }
-
-            //deletes temporaty file and saves data to the selected gass stations' one
-            if (File.Exists(path) && File.Exists(path2))
-            {
-                File.Delete(path);
-                File.Move(path2, path);
-            }
         }
 
         protected void btnupdate_Click(object sender, EventArgs e)
         {
             Label1.Text = "Select Location";
         }
+
+        protected void UploadFile(object sender, EventArgs e)
+        {
+            // getting absolute path
+            HttpPostedFile postedFile = FileHolder.PostedFile;
+            string fileName = Path.GetFileName(postedFile.FileName);
+            string fileSavePath = Server.MapPath("~/App_Data/data/" + fileName);
+            // we need to save the file in this App_data
+            FileHolder.SaveAs(fileSavePath);
+            // current gas station selected
+            string gasStation = GasStation.SelectedValue;
+            // create a module
+            
+             string module_id = ExistingGasModule.getModule(gasStation);
+            if (module_id == null)
+            {
+                Label2.Text = "Error, selected Gas Station Automated Module does not exist";
+            }
+            else// module ID exists
+            {
+                string PostOut = AutoInsert.RestPost(module_id, fileSavePath);
+                string GetOut = AutoInsert.RestGet(module_id, PostOut);
+                Dictionary<string, List<string>> data = new Dictionary<string, List<string>>();
+                data = AutoInsert.returnValues(GetOut);
+                // create a function: CalculateDictionaryKeyLength
+                int len = 0;
+                len = CalculateDictionaryKeyLength(data);
+                len = InitAutoView(len);
+                FillAutoView(data, len);
+
+                // set gasModuleProcess to True
+                gasModuleProcess.AutoModuleWorking = true;
+            }
+
+        }
+
+         public int CalculateDictionaryKeyLength(Dictionary<string, List<string>> data)
+        {
+            int len = 0;
+            foreach (KeyValuePair<string, List<string>> entry in data)
+            {
+                len++;
+            }
+
+            return len;
+        }
+        
+        public void FillAutoView (Dictionary<string, List<string>> data, int len)
+        {
+            // we should fill: Labels and TextBoxes
+            if (len >= 1)
+            {
+                // use functions returnDataKey and returnDataValue
+                // key should be written in Label, Value in TextBox
+                AutoTextLabel1.Text = returnDataKey(data, 0);
+                AutoTextBox1.Text = returnDataValue(data, 0);
+            }
+            if (len >= 2)
+            {
+                AutoTextLabel2.Text = returnDataKey(data, 1);
+                AutoTextBox2.Text = returnDataValue(data, 1);
+            }
+            if (len >= 3)
+            {
+                AutoTextLabel3.Text = returnDataKey(data, 2);
+                AutoTextBox3.Text = returnDataValue(data, 2);
+            }
+            if (len >= 4)
+            {
+                AutoTextLabel4.Text = returnDataKey(data, 3);
+                AutoTextBox4.Text = returnDataValue(data, 3);
+            }
+
+        }
+        
+        public string returnDataValue(Dictionary<string, List<string>> data, int index)
+        {
+            string value = "";
+            int i = 0;
+            // we know that every key has different value, it may be even empty
+            // we need to check if value is empty
+            foreach (KeyValuePair<string, List<string>> entry in data)
+            {
+                if(i == index)
+                {
+                    foreach (string val in entry.Value)
+                    {
+                        value = val;
+                        break;
+                    }
+                }
+                i++;
+            }
+
+            return value;
+        }
+        
+        public string returnDataKey(Dictionary<string, List<string>> data, int index)
+        {
+            string key = "";
+            int i = 0;
+            foreach (KeyValuePair<string, List<string>> entry in data)
+            {
+                if (i == index)
+                {
+                    key = entry.Key;
+                }
+                i++;
+            }
+            return key;
+        }
+        
+        public int InitAutoView(int len)
+        {
+            int amount = 0;
+            btndiscard.Visible = true;
+            // we can make visible maximum amount of 4 labels and textBoxes:
+            if (1 <= len)
+            {
+                AutoTextLabel1.Visible = true;
+                AutoTextBox1.Visible = true;
+                amount++;
+            }
+            if (2 <= len)
+            {
+                AutoTextLabel2.Visible = true;
+                AutoTextBox2.Visible = true;
+                amount++;
+            }
+            if (3 <= len)
+            {
+                AutoTextLabel3.Visible = true;
+                AutoTextBox3.Visible = true;
+                amount++;
+            }
+            if (4 <= len)
+            {
+                AutoTextLabel4.Visible = true;
+                AutoTextBox4.Visible = true;
+                amount++;
+            }
+            return amount;
+        }
+
+        public void EmptyAutoView()
+        {
+            // we should empty : Labels and TextBoxe
+            AutoTextLabel1.Text = "";
+            AutoTextBox1.Text = "";
+            AutoTextLabel2.Text = "";
+            AutoTextBox2.Text = "";
+            AutoTextLabel3.Text = "";
+            AutoTextBox3.Text = "";
+            AutoTextLabel4.Text = "";
+            AutoTextBox4.Text = "";
+            
+        }
+
+        public void Btndiscard_Click(object sander, EventArgs e)
+        {
+            // this should empty all the view
+            EmptyAutoView();
+            // make everything not visible
+            AutoTextBox1.Visible = false;
+            AutoTextLabel1.Visible = false;
+            AutoTextBox2.Visible = false;
+            AutoTextLabel2.Visible = false;
+            AutoTextBox3.Visible = false;
+            AutoTextLabel3.Visible = false;
+            AutoTextBox4.Visible = false;
+            AutoTextLabel4.Visible = false;
+            btndiscard.Visible = false;
+            // change boolean value to false
+            gasModuleProcess.AutoModuleWorking = false;
+
+        }
     }
-    
-}
+
+    }

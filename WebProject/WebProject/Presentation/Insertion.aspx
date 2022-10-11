@@ -14,9 +14,8 @@
         <h1 style="text-align: left">Enter Data Manually</h1>
         <div style="text-align: left">
             Enter Data to...
-            <b>
-            <asp:Label Text="Gatve kazkokia" runat="server" ID="ManualGasStation" /></b>
-            in <b><asp:Label Text="Circle k" runat="server" ID="ManualLocation" /></b>
+            <asp:Label Text="Gatve kazkokia" runat="server" ID="ManualGasStation" />
+            in<asp:Label Text="Circle k" runat="server" ID="ManualLocation" />
         </div>
     </section>
 
@@ -44,34 +43,51 @@
         </div>
 
         <div>
-            <asp:Label ID="E95Label" runat="server" Text="E95"></asp:Label>
             <asp:TextBox ID="GasPrice1" runat="server" Visible="true"></asp:TextBox>
         </div>
 
         <div>
-            <asp:Label ID="E98Label" runat="server" Text="E98"></asp:Label>
             <asp:TextBox ID="GasPrice2" runat="server" Visible="true"></asp:TextBox>
         </div>
 
         <div>
-            <asp:Label ID="DLabel" runat="server" Text="D"></asp:Label>
             <asp:TextBox ID="GasPrice3" runat="server" Visible="true"></asp:TextBox>
         </div>
 
         <div>
-            <asp:Label ID="GasLabel" runat="server" Text="GAS"></asp:Label>
             <asp:TextBox ID="GasPrice4" runat="server" Visible="true"></asp:TextBox>
         </div>
 
-        <div class="col-md-4 col-md-offset-2">
+        <div class="col">
             <div class="form-group">
                 <asp:Label Text="Insert a photo" runat="server" /><asp:FileUpload runat="server" ID="FileHolder"></asp:FileUpload>
+                <asp:Button Text="Upload" ID="btnUpload" CssClass="btn btn-primary" Width="200" runat="server" OnClick="UploadFile" />
+
             </div>
         </div>
     </section>
 
-    <div></div>
-
+    <div>
+    </div>
+    <div class="form-group">
+            <asp:TextBox ID ="AutoTextBox1" Visible="false" CssClass="form-control input-sm" runat="server" BackColor="#CCCCCC" />
+            <asp:Label ID ="AutoTextLabel1" Visible="false" Text="" runat="server" />
+        </div>
+    <div class="form-group">
+            <asp:TextBox ID ="AutoTextBox2" Visible="false" CssClass="form-control input-sm" runat="server" BackColor="#CCCCCC" />
+            <asp:Label ID ="AutoTextLabel2" Visible="false" Text="" runat="server" />
+        </div>
+    <div class="form-group">
+            <asp:TextBox ID ="AutoTextBox3" Visible="false" CssClass="form-control input-sm" runat="server" BackColor="#CCCCCC" />
+            <asp:Label ID ="AutoTextLabel3" Visible="false" Text="" runat="server" />
+        </div>
+    <div class="form-group">
+            <asp:TextBox ID ="AutoTextBox4" Visible="false" CssClass="form-control input-sm" runat="server" BackColor="#CCCCCC" />
+            <asp:Label ID ="AutoTextLabel4" Visible="false" Text="" runat="server" />
+        </div>
+        
+        
+        
 
     <hr />
 
@@ -79,6 +95,8 @@
     <section>
         <asp:Button Text="Refresh" ID="btnupdate" CssClass="btn btn-primary" Width="200" runat="server" OnClick="btnupdate_Click" />
         <asp:Button Text="Save" ID="btnsave" CssClass="btn btn-primary" Width="200" runat="server" OnClick="Btnsave_Click" />
+                     <asp:Button Text="Discard" ID="btndiscard" CssClass="btn btn-primary" Width="200" runat="server" Visible="false" OnClick="Btndiscard_Click" BackColor ="#FF5050" />
+
     </section>
 
 </asp:Content>
