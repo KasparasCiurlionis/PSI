@@ -117,6 +117,7 @@ namespace WebProject
             else
             {
                 Label2.Visible = true;
+                gasInfo.Add("-");
             }
         }
 
