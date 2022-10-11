@@ -14,8 +14,9 @@
         <h1 style="text-align: left">Enter Data Manually</h1>
         <div style="text-align: left">
             Enter Data to...
-            <asp:Label Text="Gatve kazkokia" runat="server" ID="ManualGasStation" />
-            in<asp:Label Text="Circle k" runat="server" ID="ManualLocation" />
+            <b>
+            <asp:Label Text="Gatve kazkokia" runat="server" ID="ManualGasStation" /></b>
+            in <b><asp:Label Text="Circle k" runat="server" ID="ManualLocation" /></b>
         </div>
     </section>
 
@@ -43,18 +44,22 @@
         </div>
 
         <div>
+            <asp:Label ID="E95Label" runat="server" Text="E95"></asp:Label>
             <asp:TextBox ID="GasPrice1" runat="server" Visible="true"></asp:TextBox>
         </div>
 
         <div>
+            <asp:Label ID="E98Label" runat="server" Text="E98"></asp:Label>
             <asp:TextBox ID="GasPrice2" runat="server" Visible="true"></asp:TextBox>
         </div>
 
         <div>
+            <asp:Label ID="DLabel" runat="server" Text="D"></asp:Label>
             <asp:TextBox ID="GasPrice3" runat="server" Visible="true"></asp:TextBox>
         </div>
 
         <div>
+            <asp:Label ID="GasLabel" runat="server" Text="GAS"></asp:Label>
             <asp:TextBox ID="GasPrice4" runat="server" Visible="true"></asp:TextBox>
         </div>
 

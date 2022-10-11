@@ -16,7 +16,6 @@ namespace WebProject
     public partial class Insertion : System.Web.UI.Page
     {
         private string current_location;
-        private string chosenGasStation;
 
         List<string> gasInfo = new List<string>();
         protected void Page_Load(object sender, EventArgs e) // this line 
@@ -42,7 +41,6 @@ namespace WebProject
             // once we selected a proper GasStation, DropDownList Location should be updated
             // we need to check what is selected
             string selectedGasStation = GasStation.SelectedValue;
-            chosenGasStation = GasStation.SelectedValue;
             // we need to get the path to the file
             string path = Server.MapPath("~/App_Data/data/" + selectedGasStation + ".txt");
             // we need to read the file
@@ -50,9 +48,17 @@ namespace WebProject
             // we need to clear the Location dropdownlist
             Location.Items.Clear();
             // we need to add the data from the file into the Location dropdownlist
+
+            Regex rx = new Regex(@"[a-zA-Z]+ \w{1,2}. [0-9]{1,3}");
+            Regex rx2 = new Regex(@"[a-zA-Z]+$");
+
             foreach(string line in lines)
             {
-                Location.Items.Add(line);
+                if (rx.Match(line).Success || rx2.Match(line).Success)
+                {
+                    Location.Items.Add(line);
+                }
+                
             }
 
             // update the manual module
@@ -171,6 +177,13 @@ namespace WebProject
                 {
                     writer.WriteLine(line);
                 }
+            }
+
+            //deletes temporaty file and saves data to the selected gass stations' one
+            if (File.Exists(path) && File.Exists(path2))
+            {
+                File.Delete(path);
+                File.Move(path2, path);
             }
         }
 

@@ -69,6 +69,15 @@ namespace WebProject
         protected global::System.Web.UI.WebControls.Label Label2;
 
         /// <summary>
+        /// E95Label control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label E95Label;
+
+        /// <summary>
         /// GasPrice1 control.
         /// </summary>
         /// <remarks>
@@ -76,6 +85,15 @@ namespace WebProject
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox GasPrice1;
+
+        /// <summary>
+        /// E98Label control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label E98Label;
 
         /// <summary>
         /// GasPrice2 control.
@@ -87,6 +105,15 @@ namespace WebProject
         protected global::System.Web.UI.WebControls.TextBox GasPrice2;
 
         /// <summary>
+        /// DLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label DLabel;
+
+        /// <summary>
         /// GasPrice3 control.
         /// </summary>
         /// <remarks>
@@ -94,6 +121,15 @@ namespace WebProject
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox GasPrice3;
+
+        /// <summary>
+        /// GasLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label GasLabel;
 
         /// <summary>
         /// GasPrice4 control.
