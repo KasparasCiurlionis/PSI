@@ -18,14 +18,7 @@ namespace WebProject
 {
     public partial class Insertion : System.Web.UI.Page
     {
-<<<<<<< HEAD
-        //aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-
-=======
-        // Olgierd change test
-        // olgierd second test
-        // trying to make 3rd commit from another file
->>>>>>> parent of 115c15a (nesamone)
+        // olgierd's branch
         private string current_location;
         private string chosenGasStation;
 
