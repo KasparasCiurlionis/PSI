@@ -20,6 +20,7 @@ namespace WebProject
     {
         // Olgierd change test
         // olgierd second test
+        // trying to make 3rd commit from another file
         private string current_location;
         private string chosenGasStation;
 
