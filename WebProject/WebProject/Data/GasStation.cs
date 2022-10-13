@@ -11,6 +11,8 @@ namespace WebProject
         
         public String[] location;
 
+
+
         public GasStation(String name, String[] location)
         {
             this.name = name;

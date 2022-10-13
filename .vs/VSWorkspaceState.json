@@ -2,8 +2,13 @@
   "ExpandedNodes": [
     "",
     "\\WebProject",
-    "\\WebProject\\WebProject"
+    "\\WebProject\\WebProject",
+    "\\WebProject\\WebProject\\Data",
+    "\\WebProject\\WebProject\\Presentation"
   ],
+<<<<<<< HEAD
+=======
   "SelectedNode": "\\WebProject\\WebProject\\Site.Master",
+>>>>>>> cb49ec272cbc16b310490fa0fe890602d9f8cd12
   "PreviewInSolutionExplorer": false
 }
