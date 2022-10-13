@@ -19,6 +19,7 @@ namespace WebProject
     public partial class Insertion : System.Web.UI.Page
     {
         // Olgierd change test
+        // olgierd second test
         private string current_location;
         private string chosenGasStation;
 
