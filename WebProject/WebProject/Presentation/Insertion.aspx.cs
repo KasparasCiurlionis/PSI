@@ -18,8 +18,11 @@ namespace WebProject
 {
     public partial class Insertion : System.Web.UI.Page
     {
-        //aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+        // Olgierd change test
+        // olgierd second test
+        // trying to make 3rd commit from another file
 
+        //rasau krc kazkoki komentara
         private string current_location;
         private string chosenGasStation;
 
