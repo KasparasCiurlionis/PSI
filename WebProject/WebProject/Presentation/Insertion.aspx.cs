@@ -65,6 +65,7 @@ namespace WebProject
             // update the manual module
             ManualGasStation.Text = selectedGasStation;
             ManualLocation.Text = Location.SelectedValue;
+            UpdateGasStationLabelView();
         }
 
         protected void GasStationLocationSelected(object sender, EventArgs e)
@@ -74,7 +75,65 @@ namespace WebProject
             // change the label text to that string
             ManualLocation.Text = current_location;
             Label1.Text ="Last selected Location: " +  current_location;
+            UpdateGasStationLabelView();
         }
+
+        protected void NullGasStationLabelView()
+        {
+            // update the manual module
+            GasLabel1.Visible = false;
+            GasLabel2.Visible = false;
+            GasLabel3.Visible = false;
+            GasLabel4.Visible = false;
+            GasPrice1.Visible = false;
+            GasPrice2.Visible = false;
+            GasPrice3.Visible = false;
+            GasPrice4.Visible = false;
+            GasPrice1.Text = "";
+            GasPrice2.Text = "";
+            GasPrice3.Text = "";
+            GasPrice4.Text = "";
+            
+
+        }
+        protected void UpdateGasStationLabelView()
+        {
+            NullGasStationLabelView();
+            var SelectedGasStationStatus = GetSelectedGasStationStatus();
+            var gasTypes = SelectedGasStationStatus.GetGasTypes();
+            // get the length of the array
+            int length = gasTypes.Length;
+            for(int i = 0; i < length; i++)
+            {
+                if(i == 0)
+                {
+                    GasLabel1.Text = gasTypes[i];
+                    GasLabel1.Visible = true;
+                    GasPrice1.Visible = true;
+                }
+                if (i == 1)
+                {
+                    GasLabel2.Text = gasTypes[i];
+                    GasLabel2.Visible = true;
+                    GasPrice2.Visible = true;
+                    
+                }
+                if (i == 2)
+                {
+                    GasLabel3.Text = gasTypes[i];
+                    GasLabel3.Visible = true;
+                    GasPrice3.Visible = true;
+                    
+                }
+                if (i == 3)
+                {
+                    GasLabel4.Text = gasTypes[i];
+                    GasLabel4.Visible = true;
+                    GasPrice4.Visible = true;
+                }
+            }
+        }
+        
 
         protected void Btnsave_Click(object sender, EventArgs e)
         {
@@ -138,10 +197,73 @@ namespace WebProject
             }
         }
 
+
+        // create a function GetSelectedGasStationStatus() that returns SelectedGasStationStatus
+        private SelectedGasStationStatus GetSelectedGasStationStatus()
+        {
+            // get the selected gas station from the dropdownlist
+            string selectedGasStation = GasStation.SelectedValue;
+            // create a switch statement
+            switch (selectedGasStation)
+            {
+                case "Circle K":
+                    return SelectedGasStationStatus.CircleKGas;
+                case "Neste Lietuva":
+                    return SelectedGasStationStatus.NesteGas;
+                case "Viada":
+                    return SelectedGasStationStatus.Viada;
+                case "Baltic Petroleum":
+                    return SelectedGasStationStatus.BalticPetroleum;
+                case "Alauša":
+                    return SelectedGasStationStatus.Alausa;
+                default:
+                    throw new ArgumentException("Unknown gas station status");
+            }
+        }
+        private static GasStationItemContainer<string, string, DateTime>[] FillGenericContainers(string[] gasTypes, GasStationItemContainer<string, string, DateTime>[] genericContainers, List<string> gasPrices)
+        {
+            for (int i = 0; i < gasTypes.Length; i++)
+            {
+                genericContainers[i] = new GasStationItemContainer<string, string, DateTime>();
+                genericContainers[i].Item1 = gasTypes[i];
+                if (gasPrices[i] == "-") // realizing this contition in case of future changes
+                {
+                    genericContainers[i].Item2 = "-";
+                }
+                else
+                {
+                    genericContainers[i].Item2 = gasPrices[i];
+                }
+                genericContainers[i].Item3 = DateTime.Now;
+                
+            }
+            return genericContainers;
+        }
+
+        private static List<string> UpdateFileInformation(List<string> fileInformation, GasStationDataContainer<string, GasStationItemContainer<string, string, DateTime>[]> gasStationDataContainer)
+        {
+            // lets find the index of the location
+            int index = fileInformation.IndexOf(gasStationDataContainer.Item1);
+            // now lets update the data
+            for (int i = 0; i < gasStationDataContainer.Item2.Length; i++)
+            {
+                fileInformation[index + i + 1] = gasStationDataContainer.Item2[i].Item1 + " " + gasStationDataContainer.Item2[i].Item2 + " " + gasStationDataContainer.Item2[i].Item3;
+            }
+
+
+            return fileInformation;
+        }
+
+
         protected void EditFileInformation(List<string> gasInfo)
         {
+            string SelectedGasStation = GasStation.SelectedValue;
+            var SelectedGasStationStatus = GetSelectedGasStationStatus();
+            var gasTypes = SelectedGasStationStatus.GetGasTypes();
+           
             string path = Server.MapPath("~/App_Data/data/" + GasStation.SelectedValue + ".txt");
             List<string> fileInformation = new List<string>();
+            
 
             using (StreamReader reader = new StreamReader(path))
             {
@@ -152,41 +274,15 @@ namespace WebProject
                     line = reader.ReadLine();
                 }
             }
-
-            string location = Location.SelectedValue;
-            int index = fileInformation.IndexOf(location);
-
-            var info = new List<GasInfo>()
-            {
-                new GasInfo() {gasType = "95", gasPrice = gasInfo[0], lastUpdate = DateTime.Now},
-                new GasInfo() {gasType = "98", gasPrice = gasInfo[1], lastUpdate = DateTime.Now},
-                new GasInfo() {gasType = "D", gasPrice = gasInfo[2], lastUpdate = DateTime.Now},
-                new GasInfo() {gasType = "GAS", gasPrice = gasInfo[3], lastUpdate = DateTime.Now}
-            };
-
             
-            foreach(var gasInformation in info)
-            {
-                if(gasInformation.gasType == "95" && gasInformation.gasPrice != "-")
-                {
-                    fileInformation[index + 1] = "95 " + gasInfo[0] + " " + DateTime.Now;
-                }
+            GasStationDataContainer<string, GasStationItemContainer<string, string, DateTime>[]> gasStationDataContainer = new GasStationDataContainer<string, GasStationItemContainer<string, string, DateTime>[]>();
+            GasStationItemContainer<string, string, DateTime>[] genericContainers = new GasStationItemContainer<string, string, DateTime>[gasTypes.Length];
 
-                if(gasInformation.gasType == "98" && gasInformation.gasPrice != "-")
-                {
-                    fileInformation[index + 2] = "98 " + gasInfo[1] + " " + DateTime.Now;
-                }
+            genericContainers = FillGenericContainers(gasTypes, genericContainers, gasInfo);
+            gasStationDataContainer.Item1 = Location.SelectedValue; ;
+            gasStationDataContainer.Item2 = genericContainers;
 
-                if (gasInformation.gasType == "D" && gasInformation.gasPrice != "-")
-                {
-                    fileInformation[index + 3] = "D " + gasInfo[2] + " " + DateTime.Now;
-                }
-
-                if (gasInformation.gasType == "GAS" || gasInformation.gasType == "LPG" && gasInformation.gasPrice != "-")
-                {
-                    fileInformation[index + 4] = "GAS " + gasInfo[3] + " " + DateTime.Now;
-                }
-            }
+            fileInformation = UpdateFileInformation(fileInformation, gasStationDataContainer);
 
             string path2 = Server.MapPath("~/App_Data/data/" + "temp.txt");
             using (StreamWriter writer = new StreamWriter(path2))
