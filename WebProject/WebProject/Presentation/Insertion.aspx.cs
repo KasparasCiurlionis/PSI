@@ -27,7 +27,7 @@ namespace WebProject
             {
                 // add some data into the GasStation dropdownlist
                 // the data is located in app_data folder
-                string path = Server.MapPath("~/App_Data/data/Gas Station.txt");
+                string path = Server.MapPath("~/App_Data/Gas Station.txt");
                 string[] lines = File.ReadAllLines(path);
                 foreach (string line in lines)
                 {
