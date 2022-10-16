@@ -614,3 +614,27 @@ C:\Users\olgie\Desktop\New folder (3)\WebProject\WebProject\bin\System.Text.Enco
 C:\Users\olgie\Desktop\New folder (3)\WebProject\WebProject\bin\System.Text.Json.xml
 C:\Users\olgie\Desktop\New folder (3)\WebProject\WebProject\bin\System.Threading.Tasks.Extensions.xml
 C:\Users\olgie\Desktop\New folder (3)\WebProject\WebProject\bin\System.ValueTuple.xml
+C:\Users\dvynu\OneDrive\Desktop\testing\WebProject\WebProject\bin\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\dvynu\OneDrive\Desktop\testing\WebProject\WebProject\bin\Microsoft.Rest.ClientRuntime.Azure.dll
+C:\Users\dvynu\OneDrive\Desktop\testing\WebProject\WebProject\bin\Microsoft.Rest.ClientRuntime.dll
+C:\Users\dvynu\OneDrive\Desktop\testing\WebProject\WebProject\bin\RestSharp.dll
+C:\Users\dvynu\OneDrive\Desktop\testing\WebProject\WebProject\bin\System.Buffers.dll
+C:\Users\dvynu\OneDrive\Desktop\testing\WebProject\WebProject\bin\System.Memory.dll
+C:\Users\dvynu\OneDrive\Desktop\testing\WebProject\WebProject\bin\System.Numerics.Vectors.dll
+C:\Users\dvynu\OneDrive\Desktop\testing\WebProject\WebProject\bin\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\dvynu\OneDrive\Desktop\testing\WebProject\WebProject\bin\System.Text.Encodings.Web.dll
+C:\Users\dvynu\OneDrive\Desktop\testing\WebProject\WebProject\bin\System.Text.Json.dll
+C:\Users\dvynu\OneDrive\Desktop\testing\WebProject\WebProject\bin\System.Threading.Tasks.Extensions.dll
+C:\Users\dvynu\OneDrive\Desktop\testing\WebProject\WebProject\bin\System.ValueTuple.dll
+C:\Users\dvynu\OneDrive\Desktop\testing\WebProject\WebProject\bin\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\dvynu\OneDrive\Desktop\testing\WebProject\WebProject\bin\Microsoft.Rest.ClientRuntime.xml
+C:\Users\dvynu\OneDrive\Desktop\testing\WebProject\WebProject\bin\Microsoft.Rest.ClientRuntime.Azure.xml
+C:\Users\dvynu\OneDrive\Desktop\testing\WebProject\WebProject\bin\RestSharp.xml
+C:\Users\dvynu\OneDrive\Desktop\testing\WebProject\WebProject\bin\System.Buffers.xml
+C:\Users\dvynu\OneDrive\Desktop\testing\WebProject\WebProject\bin\System.Memory.xml
+C:\Users\dvynu\OneDrive\Desktop\testing\WebProject\WebProject\bin\System.Numerics.Vectors.xml
+C:\Users\dvynu\OneDrive\Desktop\testing\WebProject\WebProject\bin\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\dvynu\OneDrive\Desktop\testing\WebProject\WebProject\bin\System.Text.Encodings.Web.xml
+C:\Users\dvynu\OneDrive\Desktop\testing\WebProject\WebProject\bin\System.Text.Json.xml
+C:\Users\dvynu\OneDrive\Desktop\testing\WebProject\WebProject\bin\System.Threading.Tasks.Extensions.xml
+C:\Users\dvynu\OneDrive\Desktop\testing\WebProject\WebProject\bin\System.ValueTuple.xml
