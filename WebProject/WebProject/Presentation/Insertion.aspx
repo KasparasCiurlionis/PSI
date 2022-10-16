@@ -44,22 +44,22 @@
         </div>
 
         <div>
-            <asp:Label ID="E95Label" runat="server" Text="E95"></asp:Label>
+            <asp:Label ID="GasLabel1" runat="server" Text=""></asp:Label>
             <asp:TextBox ID="GasPrice1" runat="server" Visible="true"></asp:TextBox>
         </div>
 
         <div>
-            <asp:Label ID="E98Label" runat="server" Text="E98"></asp:Label>
+            <asp:Label ID="GasLabel2" runat="server" Text=""></asp:Label>
             <asp:TextBox ID="GasPrice2" runat="server" Visible="true"></asp:TextBox>
         </div>
 
         <div>
-            <asp:Label ID="DLabel" runat="server" Text="D"></asp:Label>
+            <asp:Label ID="GasLabel3" runat="server" Text=""></asp:Label>
             <asp:TextBox ID="GasPrice3" runat="server" Visible="true"></asp:TextBox>
         </div>
 
         <div>
-            <asp:Label ID="GasLabel" runat="server" Text="GAS"></asp:Label>
+            <asp:Label ID="GasLabel4" runat="server" Text=""></asp:Label>
             <asp:TextBox ID="GasPrice4" runat="server" Visible="true"></asp:TextBox>
         </div>
 
