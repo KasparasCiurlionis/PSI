@@ -48,7 +48,12 @@ namespace WebProject
                     {
                         if (adress!=null)
                         {
-                            GasStation station = new GasStation(adress, types);
+                            Location location = new Location();
+                            var serializedParent = JsonConvert.SerializeObject(location);
+                            GasStation station = JsonConvert.DeserializeObject<GasStation>(serializedParent);
+                            station.setAddress(adress);
+                            station.setPrices(types);
+                            
                             stations.Add(station);
                         }
                         adress = word;
