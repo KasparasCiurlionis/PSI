@@ -279,8 +279,7 @@ namespace WebProject
             GasStationDataContainer<string, GasStationItemContainer<string, string, DateTime>[]> gasStationDataContainer = new GasStationDataContainer<string, GasStationItemContainer<string, string, DateTime>[]>();
             GasStationItemContainer<string, string, DateTime>[] genericContainers = new GasStationItemContainer<string, string, DateTime>[gasTypes.Length];
 
-            genericContainers = FillGenericContainers(gasTypes, genericContainers, gasInfo);
-            gasStationDataContainer.Item1 = Location.SelectedValue; ;
+            genericContainers = FillGenericContainers(genericContainers: genericContainers, gasPrices: gasInfo, gasTypes: gasTypes); // named argument usage of : gasTypes, genericContainers, gasInfo            gasStationDataContainer.Item1 = Location.SelectedValue; ;
             gasStationDataContainer.Item2 = genericContainers;
 
             fileInformation = UpdateFileInformation(fileInformation, gasStationDataContainer);
