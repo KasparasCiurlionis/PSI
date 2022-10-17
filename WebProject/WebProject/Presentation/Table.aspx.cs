@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Reflection.Emit;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
@@ -12,48 +14,46 @@ namespace WebProject
 {
     public partial class Table : System.Web.UI.Page
     {
+        public string selectedGasStation;
         protected void Page_Load(object sender, EventArgs e)
         {
            
-            List<HtmlTableRow> rows = processData.process();
             
+
+            if (!IsPostBack)
+            {
+                List<HtmlTableRow> rows = processData.process("All");
+
+               
+
+                // add some data into the GasStation dropdownlist
+                // the data is located in app_data folder
+                string path = Server.MapPath("~/App_Data/Gas Station.txt");
+                string[] lines = File.ReadAllLines(path);
+                GasStation.Items.Add("All");
+                foreach (string line in lines)
+                {
+                    GasStation.Items.Add(line);
+                }
+                GasStationSelected(sender, e);
+            }
+
+        }
+
+        protected void GasStationSelected(object sender, EventArgs e)
+        {
+            // once we selected a proper GasStation, DropDownList Location should be updated
+            // we need to check what is selected
+            selectedGasStation = GasStation.SelectedValue;
+            List<HtmlTableRow> rows = processData.process(selectedGasStation);
+
             for (int i = 0; i < rows.Count; i++)
             {
                 Table1.Rows.Add(rows[i]);
             }
-            /*
-            foreach (string file in Directory.EnumerateFiles(Server.MapPath("~/App_Data/data/"), "*.txt"))
-            {
-                string contents = File.ReadAllText(file);
-                HtmlTableRow row = new HtmlTableRow();
-                string[] words = contents.Split('\n');
-                
-
-               HtmlTableCell cell = new HtmlTableCell();
-                cell.Controls.Add(new LiteralControl(Path.GetFileNameWithoutExtension(file) + " "));
-                
-                
-
-                row.Cells.Add(cell);
-
-                foreach (var word in words)
-                {
-
-
-                    // Create a new cell and add it to the HtmlTableRow 
-                    // Cells collection'
-                    HtmlTableCell cell2 = new HtmlTableCell();
-                    cell2.Controls.Add(new LiteralControl(word + " "));
-                        row.Cells.Add(cell2);
-                    
-                }
-            }
-
-                */
-            // Add the row to the HtmlTable Rows collection.
-
-
 
         }
+
+        
     }
 }

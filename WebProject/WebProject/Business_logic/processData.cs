@@ -10,7 +10,7 @@ namespace WebProject
 {
     public class processData
     {
-        public static List<HtmlTableRow> process()
+        public static List<HtmlTableRow> process(string selectedGasStation)
         {
             List<GasStations> list = GasData.getData();
             List<HtmlTableRow> rows = new List<HtmlTableRow>();
@@ -30,10 +30,13 @@ namespace WebProject
                 firstRow.Cells.Add(firstCell);
             }
             rows.Add(firstRow);
+            
+                if (selectedGasStation!="All") {
+                list = list.Where(s => s.getName() == (selectedGasStation+" "))
+                                  .ToList<GasStations>();
+                }
             foreach (GasStations stations in list)
             {
-
-                
                 HtmlTableRow row = new HtmlTableRow();
                 foreach (var station in stations)
                 {
