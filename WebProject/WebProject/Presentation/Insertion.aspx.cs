@@ -260,6 +260,7 @@ namespace WebProject
             string SelectedGasStation = GasStation.SelectedValue;
             var SelectedGasStationStatus = GetSelectedGasStationStatus();
             var gasTypes = SelectedGasStationStatus.GetGasTypes();
+
            
             string path = Server.MapPath("~/App_Data/data/" + GasStation.SelectedValue + ".txt");
             List<string> fileInformation = new List<string>();
