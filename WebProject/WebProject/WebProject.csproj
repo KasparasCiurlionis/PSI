@@ -206,8 +206,14 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="Data\ExistingGasModule.cs" />
+<<<<<<< HEAD
     <Compile Include="Data\GasInfo.cs" />
     <Compile Include="Data\GasStations.cs" />
+=======
+    <Compile Include="Data\GasStationDataContainer.cs" />
+    <Compile Include="Data\GasStationItemContainer.cs" />
+    <Compile Include="Data\GasTypes.cs" />
+>>>>>>> 2489680d2d41a8dcdaddb766882b0ae75aafcd6b
     <Compile Include="Data\JsonEntity\PredictedBox.cs" />
     <Compile Include="Data\JsonEntity\RawOcr.cs" />
     <Compile Include="Data\JsonEntity\Root.cs" />
@@ -220,6 +226,8 @@
     <Compile Include="Data\Repositories\CheckValidation.cs" />
     <Compile Include="Data\Repositories\ParseGasDataFromPicture.cs" />
     <Compile Include="Data\Repositories\ResultValidation.cs" />
+    <Compile Include="Data\SelectedGasStationStatus.cs" />
+    <Compile Include="Data\SelectedGasStationStatusExtensions.cs" />
     <Compile Include="Presentation\About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
