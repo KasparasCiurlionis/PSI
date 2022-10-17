@@ -10,9 +10,9 @@ namespace WebProject
 {
     public class processData
     {
-        public static List<HtmlTableRow> process()
+        public static List<HtmlTableRow> process(string selectedGasStation)
         {
-            List<GasStation> list = GasData.getData();
+            List<GasStations> list = GasData.getData();
             List<HtmlTableRow> rows = new List<HtmlTableRow>();
             List<string> keywords = new List<string> { "Location", "Compony" };
             HtmlTableRow firstRow = new HtmlTableRow();
@@ -30,45 +30,31 @@ namespace WebProject
                 firstRow.Cells.Add(firstCell);
             }
             rows.Add(firstRow);
-            foreach (GasStation station in list)
+            
+                if (selectedGasStation!="All") {
+                list = list.Where(s => s.getName() == (selectedGasStation+" "))
+                                  .ToList<GasStations>();
+                }
+            foreach (GasStations stations in list)
             {
-
-                string[] types = new string[gasTypes.Length];
                 HtmlTableRow row = new HtmlTableRow();
-                foreach (var word in station.location)
+                foreach (var station in stations)
                 {
-
-                    bool isNew = true;
+                    row = new HtmlTableRow();
+                    HtmlTableCell cell = new HtmlTableCell();
+                    HtmlTableCell cell2 = new HtmlTableCell();
+                    cell2.Controls.Add(new LiteralControl(station.getAddress() + " "));
+                    row.Cells.Add(cell2);
+                    cell.Controls.Add(new LiteralControl(stations.getName()));
+                    row.Cells.Add(cell);
+    
                     for (int i = 0; i < gasTypes.Length; i++)
                     {
-                        if (word.StartsWith(gasTypes[i] + " "))
-                        {
-                            types[i] = word.Substring(gasTypes[i].Length);
-                            isNew = false;
-                        }
+                        HtmlTableCell cell3 = new HtmlTableCell();
+                        cell3.Controls.Add(new LiteralControl(station.prices[i]));
+                        row.Cells.Add(cell3);
                     }
-
-                    if (isNew)
-                    {
-                        if (row.Controls.Count > 0)
-                        {
-                            for (int i = 0; i < gasTypes.Length; i++)
-                            {
-                                HtmlTableCell cell3 = new HtmlTableCell();
-                                cell3.Controls.Add(new LiteralControl(types[i]));
-                                row.Cells.Add(cell3);
-                            }
-                            rows.Add(row);
-                        }
-                        row = new HtmlTableRow();
-                        HtmlTableCell cell = new HtmlTableCell();
-                        HtmlTableCell cell2 = new HtmlTableCell();
-                        cell2.Controls.Add(new LiteralControl(word + " "));
-                        row.Cells.Add(cell2);
-                        cell.Controls.Add(new LiteralControl(station.name));
-                        row.Cells.Add(cell);
-
-                    }
+                    rows.Add(row);  
                 }
 
             }

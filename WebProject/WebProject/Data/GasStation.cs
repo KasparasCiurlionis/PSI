@@ -2,41 +2,40 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using WebProject.Data;
 
 namespace WebProject
 {
-    public class GasStation
+    public class GasStation : Location
     {
-        public String name;
-        
-        public String[] location;
+        public String address;
+        public String[] prices;
 
 
-
-        public GasStation(String name, String[] location)
-        {
-            this.name = name;
-            this.location = location;
+        public GasStation(String address, String[] prices, Coords coords = new Coords()) : base(coords)
+        { 
+            this.address = address;
+            this.prices = prices;
         }
 
         // generate setters and getters
-        public String getName()
+        public String getAddress()
         {
-            return name;
+            return address;
+        }
+  
+        public void setAddress(String address)
+        {
+            this.address = address;
         }
 
-        public String[] getLocation()
-        {
-            return location;
+        public String[] getPrices() {
+            return prices;
         }
 
-        public void setName(String name)
+        public void setPrices(String[] prices)
         {
-            this.name = name;
-        }
-        public void setLocation(String[] location)
-        {
-            this.location = location;
+            this.prices = prices;
         }
     }
 }

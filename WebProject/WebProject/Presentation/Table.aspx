@@ -15,7 +15,14 @@
         
        </table>
         
-     
+     <section>
+        <div class="form-group">
+            <asp:Label Text="Choose Gas Station" runat="server" />
+            <!-- <asp:TextBox runat ="server" Enabled="true" CssClass="form-control input-sm" placeholder="gas station Name" />-->
+            <asp:DropDownList runat="server" AutoPostBack="true" CssClass="form-control input-sm" Enabled="True" ID="GasStation" OnSelectedIndexChanged="GasStationSelected">
+            </asp:DropDownList>
+        </div>
+    </section>
 
   
      

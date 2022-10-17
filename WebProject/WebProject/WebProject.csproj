@@ -206,9 +206,10 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="Data\ExistingGasModule.cs" />
-    <Compile Include="Data\GasStationDataContainer.cs" />
-    <Compile Include="Data\GasStationItemContainer.cs" />
-    <Compile Include="Data\GasTypes.cs" />
+	  <Compile Include="Data\GasStationDataContainer.cs" />
+	  <Compile Include="Data\GasStationItemContainer.cs" />
+	  <Compile Include="Data\GasTypes.cs" />
+	  <Compile Include="Data\GasStations.cs" />
     <Compile Include="Data\JsonEntity\PredictedBox.cs" />
     <Compile Include="Data\JsonEntity\RawOcr.cs" />
     <Compile Include="Data\JsonEntity\Root.cs" />
@@ -217,6 +218,7 @@
     <Compile Include="Data\JsonEntity\Size.cs" />
     <Compile Include="Data\JsonEntity\UnmoderatedImage.cs" />
     <Compile Include="Data\JsonEntity\UploadedFiles.cs" />
+    <Compile Include="Data\Location.cs" />
     <Compile Include="Data\Repositories\CheckValidation.cs" />
     <Compile Include="Data\Repositories\ParseGasDataFromPicture.cs" />
     <Compile Include="Data\Repositories\ResultValidation.cs" />
