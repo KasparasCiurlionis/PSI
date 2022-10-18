@@ -20,7 +20,14 @@ namespace WebProject
             string path = System.AppDomain.CurrentDomain.BaseDirectory+"/App_Data/Data";
             string[] gasTypes = File.ReadAllLines(System.AppDomain.CurrentDomain.BaseDirectory + "/App_Data/Gas Types.txt");
             List<GasStations> data=new List<GasStations>();
-            foreach (string file in Directory.EnumerateFiles(path, "*.txt"))
+
+            IEnumerable<String> fileQuery =
+                from file in Directory.EnumerateFiles(path)
+                where file.EndsWith(".txt")
+                select file;
+
+
+            foreach (string file in fileQuery)
             {
                 List<GasStation> stations = new List<GasStation>();
                 string contents = File.ReadAllText(file);
