@@ -9,6 +9,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using static System.Collections.Specialized.BitVector32;
 using Newtonsoft.Json;
+using WebProject.Data;
 
 namespace WebProject
 {
@@ -24,14 +25,17 @@ namespace WebProject
                 List<GasStation> stations = new List<GasStation>();
                 string contents = File.ReadAllText(file);
                 string name = (Path.GetFileNameWithoutExtension(file) + " ");
+
+                List<Location> coordinates = LocationData.getData(name);
+
                 string[] locations = contents.Split('\n');
 
 
 
                 string[] types = new string[gasTypes.Length];
                 string adress = null;
-                
 
+                int index = 0;
                 foreach (var word in locations)
                 {
 
@@ -49,16 +53,17 @@ namespace WebProject
                     {
                         if (adress!=null)
                         {
-                            Location location = new Location();
+                            Location location = coordinates[index];
                             var serializedParent = JsonConvert.SerializeObject(location);
                             GasStation station = JsonConvert.DeserializeObject<GasStation>(serializedParent);
                             station.setAddress(adress);
                             station.setPrices(types);
                             
                             stations.Add(station);
+                            index++;
                         }
                         adress = word;
-
+                        
                     }
                 }
                 data.Add(new GasStations(stations.ToArray(), name)); 
