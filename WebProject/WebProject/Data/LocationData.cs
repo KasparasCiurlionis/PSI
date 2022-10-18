@@ -14,7 +14,9 @@ namespace WebProject.Data
             
             List<Location> data = new List<Location>();
 
-            string contents = File.ReadAllText(path + "/" + name + ".txt");
+            string name1 = name.Remove(name.Length - 1);
+
+            string contents = File.ReadAllText(path + "\\" + name1 + ".txt");
             string[] temp = contents.Split('\n');
             for (int i = 0; i < temp.Length; i++)
             {
