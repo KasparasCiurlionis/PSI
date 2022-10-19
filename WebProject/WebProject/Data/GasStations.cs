@@ -41,6 +41,14 @@ namespace WebProject
         {
             return new GasEnum(_gasStation);
         }
+
+        internal IEnumerable<GasStation> getStations()
+        {
+            // we need to get the stations
+            return _gasStation;
+
+
+        }
     }
 
     public class GasEnum : IEnumerator
