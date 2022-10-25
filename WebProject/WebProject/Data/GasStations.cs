@@ -37,18 +37,18 @@ namespace WebProject
             return (IEnumerator)GetEnumerator();
         }
 
-        public GasEnum GetEnumerator()
+        public GasEnumerator GetEnumerator()
         {
-            return new GasEnum(_gasStation);
+            return new GasEnumerator(_gasStation);
         }
     }
 
-    public class GasEnum : IEnumerator
+    public class GasEnumerator : IEnumerator
     {
         private GasStation[] _gasStation;
         int position = -1;
 
-        public GasEnum(GasStation[] list)
+        public GasEnumerator(GasStation[] list)
         {
             _gasStation = list;
         }

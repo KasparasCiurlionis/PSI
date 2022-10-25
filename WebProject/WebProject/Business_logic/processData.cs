@@ -10,7 +10,7 @@ using System.Web.UI.HtmlControls;
 
 namespace WebProject
 {
-    public class processData
+    public class ProcessData
     {
         public static List<HtmlTableRow> process(string selectedGasStation)
         {
@@ -37,6 +37,8 @@ namespace WebProject
                 list = list.Where(s => s.getName() == (selectedGasStation+" "))
                                   .ToList<GasStations>();
                 }
+
+
             foreach (GasStations stations in list)
             {
                 HtmlTableRow row = new HtmlTableRow();
