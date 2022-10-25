@@ -207,10 +207,10 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="Data\LocationData.cs" />
     <Compile Include="Data\ExistingGasModule.cs" />
-	  <Compile Include="Data\GasStationDataContainer.cs" />
-	  <Compile Include="Data\GasStationItemContainer.cs" />
-	  <Compile Include="Data\GasTypes.cs" />
-	  <Compile Include="Data\GasStations.cs" />
+    <Compile Include="Data\GasStationDataContainer.cs" />
+    <Compile Include="Data\GasStationItemContainer.cs" />
+    <Compile Include="Data\GasTypes.cs" />
+    <Compile Include="Data\GasStations.cs" />
     <Compile Include="Data\JsonEntity\PredictedBox.cs" />
     <Compile Include="Data\JsonEntity\RawOcr.cs" />
     <Compile Include="Data\JsonEntity\Root.cs" />
@@ -259,7 +259,7 @@
     <Compile Include="Presentation\Insertion.aspx.designer.cs">
       <DependentUpon>Insertion.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Business_logic\processData.cs" />
+    <Compile Include="Business_logic\ProcessData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>

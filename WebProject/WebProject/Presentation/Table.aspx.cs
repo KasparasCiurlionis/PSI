@@ -22,7 +22,7 @@ namespace WebProject
 
             if (!IsPostBack)
             {
-                List<HtmlTableRow> rows = processData.process("All");
+                List<HtmlTableRow> rows = ProcessData.process("All");
 
                
 
@@ -45,7 +45,7 @@ namespace WebProject
             // once we selected a proper GasStation, DropDownList Location should be updated
             // we need to check what is selected
             selectedGasStation = GasStation.SelectedValue;
-            List<HtmlTableRow> rows = processData.process(selectedGasStation);
+            List<HtmlTableRow> rows = ProcessData.process(selectedGasStation);
 
             for (int i = 0; i < rows.Count; i++)
             {
