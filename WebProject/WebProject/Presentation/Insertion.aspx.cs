@@ -11,6 +11,11 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using WebProject.Data;
 using WebProject.Data.Repositories;
+using System.Data.SqlClient;
+using System.Configuration;
+using System.Data;
+using WebProject.Business_logic;
+using Microsoft.Ajax.Utilities;
 
 namespace WebProject
 {
@@ -25,48 +30,38 @@ namespace WebProject
             // once the page loads it should initialise with data once
             if (!IsPostBack)
             {
-                // add some data into the GasStation dropdownlist
-                // the data is located in app_data folder
-                string path = Server.MapPath("~/App_Data/Gas Station.txt");
-                string[] lines = File.ReadAllLines(path);
-                foreach (string line in lines)
+                 
+                GasStation.Items.Clear();
+                foreach (var item in RetrieveGasStations.getGasStations())
                 {
-                    GasStation.Items.Add(line);
+                    // now we can add items to the DropDownList
+                    GasStation.Items.Add(item.getName());
                 }
                 GasStationSelected(sender, e);
+
             }
         }
         
         protected void GasStationSelected(object sender, EventArgs e)
         {
-            // once we selected a proper GasStation, DropDownList Location should be updated
-            // we need to check what is selected
             string selectedGasStation = GasStation.SelectedValue;
-            // we need to get the path to the file
-            string path = Server.MapPath("~/App_Data/data/" + selectedGasStation + ".txt");
-            // we need to read the file
-            string[] lines = File.ReadAllLines(path);
-            // we need to clear the Location dropdownlist
             Location.Items.Clear();
-            // we need to add the data from the file into the Location dropdownlist
 
-            Regex rx = new Regex(@"[a-zA-Z]+ \w{1,2}. [0-9]{1,3}");
-            Regex rx2 = new Regex(@"[a-zA-Z]+$");
+            List<string> locations = new List<string>();
+            int pkey = RetrieveGasStations.getGasStationID(selectedGasStation);
+            var obj = RetrieveGasStationLocations.getGasStationLocations(selectedGasStation, pkey);
 
-            foreach(string line in lines)
+            // use enum to iterate through the array?
+            foreach (var item in obj.getStations())
             {
-                if (rx.Match(line).Success || rx2.Match(line).Success)
-                {
-                    Location.Items.Add(line);
-                }
-                
+                Location.Items.Add(item.getAddress());
             }
-
             // update the manual module
             ManualGasStation.Text = selectedGasStation;
             ManualLocation.Text = Location.SelectedValue;
             UpdateGasStationLabelView();
         }
+
 
         protected void GasStationLocationSelected(object sender, EventArgs e)
         {
@@ -158,10 +153,7 @@ namespace WebProject
                 PriceValidation(GasPrice1.Text);
                 PriceValidation(GasPrice2.Text);
                 PriceValidation(GasPrice3.Text);
-                PriceValidation(GasPrice4.Text);
-
-                //edits the existing file
-                EditFileInformation(gasInfo);
+                PriceValidation(GasPrice4.Text);              
             }
             else
             {
@@ -169,13 +161,27 @@ namespace WebProject
                 PriceValidation(AutoTextBox2.Text);
                 PriceValidation(AutoTextBox3.Text);
                 PriceValidation(AutoTextBox4.Text);
-
-                //edits the existing file
-                EditFileInformation(gasInfo);
-                EmptyAutoView();
-                RemoveAutoView();
-
             }
+            
+            string SelectedGasStation = GasStation.SelectedValue;
+            var SelectedGasStationStatus = GetSelectedGasStationStatus();
+            var gasTypes = SelectedGasStationStatus.GetGasTypes();
+            List<int> gasTypesListID = RetrieveGasStationLocationPrice.getGasTypesID(gasTypes);
+            List<string> temp = gasInfo;
+            List<float> gasInfoList = gasInfo.Select(float.Parse).ToList();
+            // TO-DO: it works a bit incorrect: for example: we got 4 types overall, but photo (or user input) has 2 types filled
+            // so this should pass a struct of 2 types and 2 prices
+
+            UpdateGasStationLocationPrice.updateGasStationLocationPrice(
+                RetrieveGasStations.getGasStationID(GasStation.Text),
+                RetrieveGasStationLocations.getGasStationLocationID(Location.Text),
+                gasTypesListID,
+                gasInfoList
+                );
+            EmptyAutoView();
+            RemoveAutoView();
+            UpdateGasStationLabelView();
+            
         }
 
         protected void PriceValidation(string gasPrice)
@@ -188,12 +194,12 @@ namespace WebProject
             }
             else if(gasPrice == "")
             {
-                gasInfo.Add("-");
+                //gasInfo.Add(null);
             }
             else
             {
                 Label2.Visible = true;
-                gasInfo.Add("-");
+                //gasInfo.Add(null);
             }
         }
 
@@ -206,13 +212,13 @@ namespace WebProject
             // create a switch statement
             switch (selectedGasStation)
             {
-                case "Circle K":
+                case "Circle_K":
                     return SelectedGasStationStatus.CircleKGas;
-                case "Neste Lietuva":
+                case "Neste":
                     return SelectedGasStationStatus.NesteGas;
                 case "Viada":
                     return SelectedGasStationStatus.Viada;
-                case "Baltic Petroleum":
+                case "Baltic_Petroleum":
                     return SelectedGasStationStatus.BalticPetroleum;
                 case "Alauša":
                     return SelectedGasStationStatus.Alausa;
@@ -220,88 +226,6 @@ namespace WebProject
                     throw new ArgumentException("Unknown gas station status");
             }
         }
-        private static GasStationItemContainer<string, string, DateTime>[] FillGenericContainers(string[] gasTypes, GasStationItemContainer<string, string, DateTime>[] genericContainers, List<string> gasPrices)
-        {
-            for (int i = 0; i < gasTypes.Length; i++)
-            {
-                genericContainers[i] = new GasStationItemContainer<string, string, DateTime>();
-                genericContainers[i].Item1 = gasTypes[i];
-                if (gasPrices[i] == "-") // realizing this contition in case of future changes
-                {
-                    genericContainers[i].Item2 = "-";
-                }
-                else
-                {
-                    genericContainers[i].Item2 = gasPrices[i];
-                }
-                genericContainers[i].Item3 = DateTime.Now;
-                
-            }
-            return genericContainers;
-        }
-
-        private static List<string> UpdateFileInformation(List<string> fileInformation, GasStationDataContainer<string, GasStationItemContainer<string, string, DateTime>[]> gasStationDataContainer)
-        {
-            // lets find the index of the location
-            int index = fileInformation.IndexOf(gasStationDataContainer.Item1);
-            // now lets update the data
-            for (int i = 0; i < gasStationDataContainer.Item2.Length; i++)
-            {
-                fileInformation[index + i + 1] = gasStationDataContainer.Item2[i].Item1 + " " + gasStationDataContainer.Item2[i].Item2 + " " + gasStationDataContainer.Item2[i].Item3;
-            }
-
-
-            return fileInformation;
-        }
-
-
-        protected void EditFileInformation(List<string> gasInfo)
-        {
-            string SelectedGasStation = GasStation.SelectedValue;
-            var SelectedGasStationStatus = GetSelectedGasStationStatus();
-            var gasTypes = SelectedGasStationStatus.GetGasTypes();
-
-           
-            string path = Server.MapPath("~/App_Data/data/" + GasStation.SelectedValue + ".txt");
-            List<string> fileInformation = new List<string>();
-            
-
-            using (StreamReader reader = new StreamReader(path))
-            {
-                String line = reader.ReadLine();
-                while (line != null)
-                {
-                    fileInformation.Add(line);
-                    line = reader.ReadLine();
-                }
-            }
-            
-            GasStationDataContainer<string, GasStationItemContainer<string, string, DateTime>[]> gasStationDataContainer = new GasStationDataContainer<string, GasStationItemContainer<string, string, DateTime>[]>();
-            GasStationItemContainer<string, string, DateTime>[] genericContainers = new GasStationItemContainer<string, string, DateTime>[gasTypes.Length];
-
-            genericContainers = FillGenericContainers(genericContainers: genericContainers, gasPrices: gasInfo, gasTypes: gasTypes); // named argument usage of : gasTypes, genericContainers, gasInfo            gasStationDataContainer.Item1 = Location.SelectedValue; ;
-            gasStationDataContainer.Item2 = genericContainers;
-            gasStationDataContainer.Item1 = Location.SelectedValue;
-
-            fileInformation = UpdateFileInformation(fileInformation, gasStationDataContainer);
-
-            string path2 = Server.MapPath("~/App_Data/data/" + "temp.txt");
-            using (StreamWriter writer = new StreamWriter(path2))
-            {
-                foreach(var line in fileInformation)
-                {
-                    writer.WriteLine(line);
-                }
-            }
-
-            //deletes temporaty file and saves data to the selected gass stations' one
-            if (File.Exists(path) && File.Exists(path2))
-            {
-                File.Delete(path);
-                File.Move(path2, path);
-            }
-        }
-
         protected void btnupdate_Click(object sender, EventArgs e)
         {
             Label1.Text = "Select Location";

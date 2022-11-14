@@ -8,6 +8,7 @@ namespace WebProject.Data
 {
     public static class SelectedGasStationStatusExtensions
     {
+        
         public static string[] GetGasTypes(this SelectedGasStationStatus gasStationStatus)
         {
             switch (gasStationStatus)

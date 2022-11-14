@@ -10,12 +10,24 @@ namespace WebProject
     {
         public String address;
         public String[] prices;
+        public int id;
 
 
-        public GasStation(String address, String[] prices, Coords coords = new Coords()) : base(coords)
+        public GasStation(String address, String[] prices, Coords coords = new Coords(), int id = 0) : base(coords)
         { 
             this.address = address;
             this.prices = prices;
+            this.id = id;
+        }
+
+        public int getID()
+        {
+            return id;
+        }
+
+        public void setID(int id)
+        {
+            this.id = id;
         }
 
         // generate setters and getters
@@ -37,5 +49,6 @@ namespace WebProject
         {
             this.prices = prices;
         }
+
     }
 }

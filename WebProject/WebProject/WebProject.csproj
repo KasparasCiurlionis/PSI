@@ -147,6 +147,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\Database1.mdf" />
+    <Content Include="App_Data\Database1_log.ldf">
+      <DependentUpon>Database1.mdf</DependentUpon>
+    </Content>
     <Content Include="Presentation\About.aspx" />
     <Content Include="Presentation\Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -205,12 +209,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="Business_logic\RetrieveGasStationLocationPrice.cs" />
+    <Compile Include="Business_logic\RetrieveGasStationLocations.cs" />
+    <Compile Include="Business_logic\RetrieveGasStations.cs" />
+    <Compile Include="Business_logic\UpdateGasStationLocationPrice.cs" />
     <Compile Include="Data\LocationData.cs" />
     <Compile Include="Data\ExistingGasModule.cs" />
-	  <Compile Include="Data\GasStationDataContainer.cs" />
-	  <Compile Include="Data\GasStationItemContainer.cs" />
-	  <Compile Include="Data\GasTypes.cs" />
-	  <Compile Include="Data\GasStations.cs" />
+    <Compile Include="Data\GasStationDataContainer.cs" />
+    <Compile Include="Data\GasStationItemContainer.cs" />
+    <Compile Include="Data\GasTypes.cs" />
+    <Compile Include="Data\GasStations.cs" />
     <Compile Include="Data\JsonEntity\PredictedBox.cs" />
     <Compile Include="Data\JsonEntity\RawOcr.cs" />
     <Compile Include="Data\JsonEntity\Root.cs" />
@@ -290,9 +298,7 @@
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
