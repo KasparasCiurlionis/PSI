@@ -13,12 +13,13 @@ namespace WebProject.Business_logic
     ConfigurationManager.ConnectionStrings["myConnectionString"].ConnectionString;
 
         // it should get: Key of Gas Station, Key of Location and array of prices and types of gas
-        public static void updateGasStationLocationPrice(int GasStationID, int LocationID, List<int> GasType, List <float> GasPrice)
+        public static void updateGasStationLocationPrice(int GasStationID, int LocationID, List<int> GasType, List<float> GasPrice)
         {
             DateTime date = DateTime.Now;
 
             // do it but also update the date
             string query = "UPDATE Prices SET Price = @GasPrice, DateModified = @date WHERE LocationID = @LocationID AND GasTypeID = @GasTypeID";
+            try {
             using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
                 try
@@ -38,10 +39,17 @@ namespace WebProject.Business_logic
                         connection.Close();
                     }
                 }
-                catch (Exception ex)
+                catch (SqlException ex)
                 {
-                    throw ex;
-                }
+                    Console.WriteLine("Inner Exception: " + ex.Message);
+                    Console.WriteLine("Query executed: " + query);
+                    connection.Close();
+                } // updating database: failed, no purpose to run ''finally'' block
+            }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Outer Exception: " + ex.Message);
             }
         }
         
