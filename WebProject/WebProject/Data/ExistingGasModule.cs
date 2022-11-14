@@ -70,16 +70,16 @@ namespace WebProject.Data
             GasModules gasModule = null;
             switch (gasStation)
             {
-                case "Circle K":
+                case "Circle_K":
                     gasModule = new CircleK();
                     break;
-                case "Neste Lietuva":
+                case "Neste":
                     gasModule = new Neste();
                     break;
                 case "Viada":
                     gasModule = new Viada();
                     break;
-                case "Baltic Petroleum":
+                case "Baltic_Petroleum":
                     gasModule = new BalticPetroleum();
                     break;
                 case "Alauša":

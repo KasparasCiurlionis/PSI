@@ -10,17 +10,40 @@ namespace WebProject
     public class GasStations : IEnumerable
     {
         String name;
+        int id;
         private GasStation[] _gasStation;
-        public GasStations( GasStation[] pArray, string name)
+        public GasStations( GasStation[] pArray, string name, int id = 0)
         {
-            _gasStation = new GasStation[pArray.Length];
-
-            for (int i = 0; i < pArray.Length; i++)
+            // check if pArray is null
+            if (pArray != null)
             {
-                _gasStation[i] = pArray[i];
+                _gasStation = new GasStation[pArray.Length];
+
+                for (int i = 0; i < pArray.Length; i++)
+                {
+                    _gasStation[i] = pArray[i];
+                }
             }
 
+            this.id = id;
             this.name = name;
+        }
+
+        // make getters and setters for _gasStation
+
+        public void setStations(GasStation[] gasStation)
+        {
+            _gasStation = gasStation;
+        }
+
+        public int getID()
+        {
+            return id;
+        }
+
+        public void setID(int id)
+        {
+            this.id = id;
         }
 
         public String getName()
