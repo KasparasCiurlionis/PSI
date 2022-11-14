@@ -16,7 +16,6 @@ namespace WebProject.Business_logic
         public static void updateGasStationLocationPrice(int GasStationID, int LocationID, List<int> GasType, List<float> GasPrice)
         {
             DateTime date = DateTime.Now;
-
             // do it but also update the date
             string query = "UPDATE Prices SET Price = @GasPrice, DateModified = @date WHERE LocationID = @LocationID AND GasTypeID = @GasTypeID";
             try {
