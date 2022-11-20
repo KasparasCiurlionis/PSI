@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
   
 
-      <h3>HtmlTable Example</h3>
+      <h3>Gas prices</h3>
        <style>
            table, tr, td{
                border: 1px solid black;

@@ -83,7 +83,6 @@ namespace WebProject
                                   .ToList<GasStations>();
                 }
 
-
             foreach (GasStations stations in list)
             {
                 HtmlTableRow row = new HtmlTableRow();
@@ -105,7 +104,6 @@ namespace WebProject
                     }
                     rows.Add(row);  
                 }
-
             }  
             return rows;
         }

@@ -16,6 +16,7 @@ using System.Configuration;
 using System.Data;
 using WebProject.Business_logic;
 using Microsoft.Ajax.Utilities;
+using System.Diagnostics;
 
 namespace WebProject
 {
@@ -26,11 +27,10 @@ namespace WebProject
         List<string> gasInfo = new List<string>();
         protected void Page_Load(object sender, EventArgs e) // this line 
         {
-           
+
             // once the page loads it should initialise with data once
             if (!IsPostBack)
             {
-                 
                 GasStation.Items.Clear();
                 foreach (var item in RetrieveGasStations.getGasStations())
                 {
@@ -41,7 +41,7 @@ namespace WebProject
 
             }
         }
-        
+
         protected void GasStationSelected(object sender, EventArgs e)
         {
             string selectedGasStation = GasStation.SelectedValue;
@@ -69,7 +69,7 @@ namespace WebProject
             current_location = Location.SelectedItem.Value;
             // change the label text to that string
             ManualLocation.Text = current_location;
-            Label1.Text ="Last selected Location: " +  current_location;
+            Label1.Text = "Last selected Location: " + current_location;
             UpdateGasStationLabelView();
         }
 
@@ -88,7 +88,7 @@ namespace WebProject
             GasPrice2.Text = "";
             GasPrice3.Text = "";
             GasPrice4.Text = "";
-            
+
 
         }
         protected void UpdateGasStationLabelView()
@@ -98,9 +98,9 @@ namespace WebProject
             var gasTypes = SelectedGasStationStatus.GetGasTypes();
             // get the length of the array
             int length = gasTypes.Length;
-            for(int i = 0; i < length; i++)
+            for (int i = 0; i < length; i++)
             {
-                if(i == 0)
+                if (i == 0)
                 {
                     GasLabel1.Text = gasTypes[i];
                     GasLabel1.Visible = true;
@@ -111,14 +111,14 @@ namespace WebProject
                     GasLabel2.Text = gasTypes[i];
                     GasLabel2.Visible = true;
                     GasPrice2.Visible = true;
-                    
+
                 }
                 if (i == 2)
                 {
                     GasLabel3.Text = gasTypes[i];
                     GasLabel3.Visible = true;
                     GasPrice3.Visible = true;
-                    
+
                 }
                 if (i == 3)
                 {
@@ -128,7 +128,6 @@ namespace WebProject
                 }
             }
         }
-        
 
         protected void Btnsave_Click(object sender, EventArgs e)
         {
@@ -141,9 +140,6 @@ namespace WebProject
             HttpPostedFile postedFile = FileHolder.PostedFile;
             // we need to get the name of the image
             string fileName = Path.GetFileName(postedFile.FileName);
-            // EDIT: Next we need to scan an image and search for numbers
-           
-
         }
 
         protected void ReadInput()
@@ -153,7 +149,7 @@ namespace WebProject
                 PriceValidation(GasPrice1.Text);
                 PriceValidation(GasPrice2.Text);
                 PriceValidation(GasPrice3.Text);
-                PriceValidation(GasPrice4.Text);              
+                PriceValidation(GasPrice4.Text);
             }
             else
             {
@@ -162,7 +158,7 @@ namespace WebProject
                 PriceValidation(AutoTextBox3.Text);
                 PriceValidation(AutoTextBox4.Text);
             }
-            
+
             string SelectedGasStation = GasStation.SelectedValue;
             var SelectedGasStationStatus = GetSelectedGasStationStatus();
             var gasTypes = SelectedGasStationStatus.GetGasTypes();
@@ -181,7 +177,6 @@ namespace WebProject
             EmptyAutoView();
             RemoveAutoView();
             UpdateGasStationLabelView();
-            
         }
 
         protected void PriceValidation(string gasPrice)
@@ -192,7 +187,7 @@ namespace WebProject
             {
                 gasInfo.Add(gasPrice);
             }
-            else if(gasPrice == "")
+            else if (gasPrice == "")
             {
                 //gasInfo.Add(null);
             }
@@ -230,14 +225,21 @@ namespace WebProject
         {
             Label1.Text = "Select Location";
         }
+
+        public EventHandler ClickEvent;
+
         protected void UploadFile(object sender, EventArgs e)
         {
-            // getting absolute path
             HttpPostedFile postedFile = FileHolder.PostedFile;
             string fileName = Path.GetFileName(postedFile.FileName);
             string fileSavePath = Server.MapPath("~/App_Data/data/" + fileName);
-            // we need to save the file in this App_data
-            FileHolder.SaveAs(fileSavePath);
+
+            UploadHandling<Var> uploadHandling= new UploadHandling<Var>(); // publisher
+            MessageService mesService = new MessageService(); // subscriber
+            uploadHandling.FileUploaded += mesService.FileUpload;
+
+            uploadHandling.Upload(fileName, fileSavePath, GasStation.SelectedValue, FileHolder.PostedFile);
+                       
             // current gas station selected
             string gasStation = GasStation.SelectedValue;
             // create a module
@@ -262,6 +264,17 @@ namespace WebProject
             }
 
         }
+
+        public void UpdateMessageToUser(string str)
+        {
+            Label2.Visible = true;
+            Label2.Text = str;
+        }
+        public void ResetMessageToUser()
+        {
+            Label2.Visible = false;
+            Label2.Text = "";
+        }
         public void RemoveAutoView()
         {
             AutoTextBox1.Visible = false;
@@ -279,13 +292,11 @@ namespace WebProject
             // this should empty all the view
             EmptyAutoView();
             RemoveAutoView();
-            // make everything not visible
-            // change boolean value to false
-
         }
+
         public void EmptyAutoView()
         {
-            // we should empty : Labels and TextBoxe
+            // we should empty : Labels and TextBox
             AutoTextLabel1.Text = "";
             AutoTextBox1.Text = "";
             AutoTextLabel2.Text = "";

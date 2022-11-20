@@ -228,11 +228,13 @@
     <Compile Include="Data\JsonEntity\UnmoderatedImage.cs" />
     <Compile Include="Data\JsonEntity\UploadedFiles.cs" />
     <Compile Include="Data\Location.cs" />
+    <Compile Include="Data\MessageService.cs" />
     <Compile Include="Data\Repositories\CheckValidation.cs" />
     <Compile Include="Data\Repositories\ParseGasDataFromPicture.cs" />
     <Compile Include="Data\Repositories\ResultValidation.cs" />
     <Compile Include="Data\SelectedGasStationStatus.cs" />
     <Compile Include="Data\SelectedGasStationStatusExtensions.cs" />
+    <Compile Include="Data\UploadHandling.cs" />
     <Compile Include="Presentation\About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

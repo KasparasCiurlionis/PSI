@@ -17,9 +17,6 @@ namespace WebProject
         public string selectedGasStation;
         protected void Page_Load(object sender, EventArgs e)
         {
-           
-            
-
             if (!IsPostBack)
             {
                 List<HtmlTableRow> rows = ProcessData.process("All");
@@ -37,7 +34,6 @@ namespace WebProject
                 }
                 GasStationSelected(sender, e);
             }
-
         }
 
         protected void GasStationSelected(object sender, EventArgs e)
@@ -53,7 +49,5 @@ namespace WebProject
             }
 
         }
-
-        
     }
 }
