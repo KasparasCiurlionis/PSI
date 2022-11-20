@@ -40,6 +40,7 @@ namespace WebProject.Business_logic
                 catch (Exception ex)
                 {
                     ExceptionLogger.log<Exception>(ex);
+                    throw ex;
                 }
             }
 
