@@ -239,11 +239,11 @@ namespace WebProject
             string fileName = Path.GetFileName(postedFile.FileName);
             string fileSavePath = Server.MapPath("~/App_Data/data/" + fileName);
 
-            var UploadHandling = new UploadHandling(); // publisher
-            var MessageService = new MessageService(); // subscriber
-            UploadHandling.FileUploaded += MessageService.OnFileUploaded;
+            UploadHandling<Var> uploadHandling= new UploadHandling<Var>(); // publisher
+            MessageService mesService = new MessageService(); // subscriber
+            uploadHandling.FileUploaded += mesService.FileUpload;
 
-            UploadHandling.Upload(fileName, fileSavePath, GasStation.SelectedValue, FileHolder.PostedFile);
+            uploadHandling.Upload(fileName, fileSavePath, GasStation.SelectedValue, FileHolder.PostedFile);
                        
             // current gas station selected
             string gasStation = GasStation.SelectedValue;
