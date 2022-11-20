@@ -129,7 +129,6 @@ namespace WebProject
             }
         }
 
-
         protected void Btnsave_Click(object sender, EventArgs e)
         {
             Label2.Visible = false;
@@ -141,9 +140,6 @@ namespace WebProject
             HttpPostedFile postedFile = FileHolder.PostedFile;
             // we need to get the name of the image
             string fileName = Path.GetFileName(postedFile.FileName);
-            // EDIT: Next we need to scan an image and search for numbers
-
-
         }
 
         protected void ReadInput()
@@ -181,7 +177,6 @@ namespace WebProject
             EmptyAutoView();
             RemoveAutoView();
             UpdateGasStationLabelView();
-
         }
 
         protected void PriceValidation(string gasPrice)
@@ -270,8 +265,6 @@ namespace WebProject
 
         }
 
-        
-        
         public void UpdateMessageToUser(string str)
         {
             Label2.Visible = true;
@@ -299,13 +292,11 @@ namespace WebProject
             // this should empty all the view
             EmptyAutoView();
             RemoveAutoView();
-            // make everything not visible
-            // change boolean value to false
-
         }
+
         public void EmptyAutoView()
         {
-            // we should empty : Labels and TextBoxe
+            // we should empty : Labels and TextBox
             AutoTextLabel1.Text = "";
             AutoTextBox1.Text = "";
             AutoTextLabel2.Text = "";

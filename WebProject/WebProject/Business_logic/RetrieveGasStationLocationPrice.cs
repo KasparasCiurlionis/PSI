@@ -10,7 +10,7 @@ namespace WebProject.Business_logic
     public class RetrieveGasStationLocationPrice
     {
         private readonly static string ConnectionString =
-    ConfigurationManager.ConnectionStrings["myConnectionString"].ConnectionString;
+        ConfigurationManager.ConnectionStrings["myConnectionString"].ConnectionString;
 
         public static List<int> getGasTypesID(string[] gasTypes)
         {
