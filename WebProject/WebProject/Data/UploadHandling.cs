@@ -7,22 +7,22 @@ using System.Linq.Expressions;
 using System.Web;
 
 namespace WebProject.Data
-{
-    public class UploadEventArgs : EventArgs
-    {
-        public string FileName { get; set; }
-        public string Path { get; set; }
-    }
-    
-    public class UploadHandling
-    {
+{  
+    public class UploadHandling<T>
+    {  
+        public class UploadEventArgs : EventArgs
+        {
+            public string FileName { get; set; }
+            public string Path { get; set; }
+        }
+
         // 1. Define the Delegate
         // 2 . Define the Event based on that delegate
         // 3. Raise the event
 
-        public delegate void FileUploadedEventHandler(object source, UploadEventArgs args);
+        public delegate void FileUploadedEventHandler<obj, eventArguments>(obj source, eventArguments args);
 
-        public event FileUploadedEventHandler FileUploaded;
+        public event FileUploadedEventHandler<UploadHandling<T>, UploadEventArgs> FileUploaded;
         
         public void Upload(string fileName, string path, string GasStationName, HttpPostedFile postedFile) // turetu registruoti?
         {

@@ -11,7 +11,7 @@ namespace WebProject.Business_logic
     public class RetrieveGasStationLocations
     {
         private readonly static string ConnectionString =
-    ConfigurationManager.ConnectionStrings["myConnectionString"].ConnectionString;
+        ConfigurationManager.ConnectionStrings["myConnectionString"].ConnectionString;
 
         public static GasStations getGasStationLocations(string GasStationName , int GasStationID)
         {
