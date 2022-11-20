@@ -24,12 +24,12 @@ namespace WebProject
             {
                 List<HtmlTableRow> rows = ProcessData.process("All");
 
-               
+
 
                 // add some data into the GasStation dropdownlist
                 // the data is located in app_data folder
-                string path = Server.MapPath("~/App_Data/Gas Station.txt");
-                string[] lines = File.ReadAllLines(path);
+
+                List<String> lines = GasData.getBrand(); 
                 GasStation.Items.Add("All");
                 foreach (string line in lines)
                 {

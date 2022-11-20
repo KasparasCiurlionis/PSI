@@ -2,21 +2,25 @@
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
+using System.Web.UI.WebControls;
 
 namespace WebProject
 {
     public class ProcessData
     {
+
         public static List<HtmlTableRow> process(string selectedGasStation)
         {
             List<GasStations> list = GasData.getData();
             List<HtmlTableRow> rows = new List<HtmlTableRow>();
             List<string> keywords = new List<string> { "Location", "Compony" };
+            /*
             // ******************** Olgierd's additional linq method usage with query
             // trying to create a linq ienumerable method and write down a query with select
             IEnumerable<GasStations> query =
@@ -50,10 +54,14 @@ namespace WebProject
                 }
             }
             // ***********************
-            
-            
-            
-            
+            */
+
+
+
+
+           
+
+
             HtmlTableRow firstRow = new HtmlTableRow();
             for (int i = 0; i < keywords.Count(); i++)
             {
@@ -61,7 +69,7 @@ namespace WebProject
                 firstCell.Controls.Add(new LiteralControl(keywords[i]));
                 firstRow.Cells.Add(firstCell);
             }
-            string[] gasTypes = File.ReadAllLines(System.AppDomain.CurrentDomain.BaseDirectory + "/App_Data/Gas Types.txt");
+            string[] gasTypes = GasData.getTypes().ToArray();
             for (int i = 0; i < gasTypes.Count(); i++)
             {
                 HtmlTableCell firstCell = new HtmlTableCell();
@@ -71,7 +79,7 @@ namespace WebProject
             rows.Add(firstRow);
             
                 if (selectedGasStation!="All") {
-                list = list.Where(s => s.getName() == (selectedGasStation+" "))
+                list = list.Where(s => s.getName() == (selectedGasStation))
                                   .ToList<GasStations>();
                 }
 
@@ -89,7 +97,7 @@ namespace WebProject
                     cell.Controls.Add(new LiteralControl(stations.getName()));
                     row.Cells.Add(cell);
     
-                    for (int i = 0; i < gasTypes.Length; i++)
+                    for (int i = 0; i < gasTypes.Count(); i++)
                     {
                         HtmlTableCell cell3 = new HtmlTableCell();
                         cell3.Controls.Add(new LiteralControl(station.prices[i]));
