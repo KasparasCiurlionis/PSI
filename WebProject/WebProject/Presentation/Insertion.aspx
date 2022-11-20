@@ -99,4 +99,8 @@
         <asp:Button Text="Discard" ID="btndiscard" CssClass="btn btn-primary" Width="200" runat="server" Visible="false" OnClick="Btndiscard_Click" BackColor ="#FF5050" />
     </section>
 
+    <div>
+            <asp:Label ID ="testigo" Visible="false" Text="saved sucesfully" runat="server" />
+     </div>
+
 </asp:Content>
