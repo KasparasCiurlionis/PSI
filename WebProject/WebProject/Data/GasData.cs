@@ -58,9 +58,7 @@ namespace WebProject
                 }
                 catch (Exception ex)
                 {
-                    // You might want to pass these errors
-                    // back out to the caller.
-                    Console.WriteLine("Error: {0}", ex.Message);
+                    ExceptionLogger.log<Exception>(ex);
                 }
 
                 return gasStations;
@@ -95,9 +93,7 @@ namespace WebProject
                 }
                 catch (Exception ex)
                 {
-                    // You might want to pass these errors
-                    // back out to the caller.
-                    Console.WriteLine("Error: {0}", ex.Message);
+                    ExceptionLogger.log<Exception>(ex);
                 }
 
                 return gasStation;
@@ -137,9 +133,7 @@ namespace WebProject
                 }
                 catch (Exception ex)
                 {
-                    // You might want to pass these errors
-                    // back out to the caller.
-                    Console.WriteLine("Error: {0}", ex.Message);
+                    ExceptionLogger.log<Exception>(ex);
                 }
 
                 return prices;
@@ -175,9 +169,7 @@ namespace WebProject
                 }
                 catch (Exception ex)
                 {
-                    // You might want to pass these errors
-                    // back out to the caller.
-                    Console.WriteLine("Error: {0}", ex.Message);
+                    ExceptionLogger.log<Exception>(ex);
                 }
             }
             return gasTypes;
@@ -211,9 +203,7 @@ namespace WebProject
                 }
                 catch (Exception ex)
                 {
-                    // You might want to pass these errors
-                    // back out to the caller.
-                    Console.WriteLine("Error: {0}", ex.Message);
+                    ExceptionLogger.log<Exception>(ex);
                 }
             }
             return gasTypes;
