@@ -17,6 +17,7 @@ using System.Data;
 using WebProject.Business_logic;
 using Microsoft.Ajax.Utilities;
 using System.Diagnostics;
+using System.Threading;
 
 namespace WebProject
 {
@@ -24,7 +25,7 @@ namespace WebProject
     {
         private string current_location;
 
-        List<string> gasInfo = new List<string>();
+        private static Lazy<List<string>> lazyGasInfo = new Lazy<List<string>>();
         protected void Page_Load(object sender, EventArgs e) // this line 
         {
 
@@ -89,7 +90,6 @@ namespace WebProject
             GasPrice3.Text = "";
             GasPrice4.Text = "";
 
-
         }
         protected void UpdateGasStationLabelView()
         {
@@ -132,54 +132,73 @@ namespace WebProject
         protected void Btnsave_Click(object sender, EventArgs e)
         {
             Label2.Visible = false;
-            //Reads all the gas types and prices
-            ReadInput();
 
-            // an image is selected in Fileholder FileUpload
-            // we need to get the image
-            HttpPostedFile postedFile = FileHolder.PostedFile;
-            // we need to get the name of the image
-            string fileName = Path.GetFileName(postedFile.FileName);
+            if (InputNotEmpty()) // we need to add the data to Lazy obj only then, when the input is not empty
+            {
+                lazyGasInfo.Value.AddRange(ReadAndGetInput());
+                string SelectedGasStation = GasStation.SelectedValue;
+                var SelectedGasStationStatus = GetSelectedGasStationStatus();
+                var gasTypes = SelectedGasStationStatus.GetGasTypes();
+                List<int> gasTypesListID = RetrieveGasStationLocationPrice.getGasTypesID(gasTypes);
+                List<string> temp = lazyGasInfo.Value;
+                List<float> gasInfoList = lazyGasInfo.Value.Select(float.Parse).ToList();
+                // TO-DO: it works a bit incorrect: for example: we got 4 types overall, but photo (or user input) has 2 types filled
+                // so this should pass a struct of 2 types and 2 prices
+
+                UpdateGasStationLocationPrice.updateGasStationLocationPrice(
+                    RetrieveGasStations.getGasStationID(GasStation.Text),
+                    RetrieveGasStationLocations.getGasStationLocationID(Location.Text),
+                    gasTypesListID,
+                    gasInfoList
+                    );
+                EmptyAutoView();
+                RemoveAutoView();
+                UpdateGasStationLabelView();
+            }
         }
 
-        protected void ReadInput()
+
+        protected List<string> ReadAndGetInput(List<string> gasInfo = null)
         {
+            // if gasInfo is null, then create a new List<string>
+            if (gasInfo == null)
+            {
+                gasInfo = new List<string>();
+            }
             if (AutoTextBox1.Text == "") // if TextBox output from OCR is empty
             {
-                PriceValidation(GasPrice1.Text);
-                PriceValidation(GasPrice2.Text);
-                PriceValidation(GasPrice3.Text);
-                PriceValidation(GasPrice4.Text);
+                gasInfo = PriceValidation(GasPrice1.Text, gasInfo);
+                gasInfo = PriceValidation(GasPrice2.Text, gasInfo);
+                gasInfo =  PriceValidation(GasPrice3.Text, gasInfo);
+                gasInfo = PriceValidation(GasPrice4.Text, gasInfo);
             }
             else
             {
-                PriceValidation(AutoTextBox1.Text);
-                PriceValidation(AutoTextBox2.Text);
-                PriceValidation(AutoTextBox3.Text);
-                PriceValidation(AutoTextBox4.Text);
+                gasInfo = PriceValidation(AutoTextBox1.Text, gasInfo);
+                gasInfo = PriceValidation(AutoTextBox2.Text, gasInfo);
+                gasInfo = PriceValidation(AutoTextBox3.Text, gasInfo);
+                gasInfo = PriceValidation(AutoTextBox4.Text, gasInfo);
             }
 
-            string SelectedGasStation = GasStation.SelectedValue;
-            var SelectedGasStationStatus = GetSelectedGasStationStatus();
-            var gasTypes = SelectedGasStationStatus.GetGasTypes();
-            List<int> gasTypesListID = RetrieveGasStationLocationPrice.getGasTypesID(gasTypes);
-            List<string> temp = gasInfo;
-            List<float> gasInfoList = gasInfo.Select(float.Parse).ToList();
-            // TO-DO: it works a bit incorrect: for example: we got 4 types overall, but photo (or user input) has 2 types filled
-            // so this should pass a struct of 2 types and 2 prices
-
-            UpdateGasStationLocationPrice.updateGasStationLocationPrice(
-                RetrieveGasStations.getGasStationID(GasStation.Text),
-                RetrieveGasStationLocations.getGasStationLocationID(Location.Text),
-                gasTypesListID,
-                gasInfoList
-                );
-            EmptyAutoView();
-            RemoveAutoView();
-            UpdateGasStationLabelView();
+            return gasInfo;
         }
 
-        protected void PriceValidation(string gasPrice)
+        protected bool InputNotEmpty()
+        {
+
+            if (GasPrice1.Text != "" || GasPrice2.Text != "" || GasPrice3.Text != "" || GasPrice4.Text != ""
+          || AutoTextBox1.Text != "" || AutoTextBox2.Text != "" || AutoTextBox3.Text != "" || AutoTextBox4.Text != "")
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+    
+
+        protected List<string> PriceValidation(string gasPrice, List<string> gasInfo)
         {
             Regex rx = new Regex(@"(\d\.\d{3}?){1}$");
 
@@ -196,6 +215,7 @@ namespace WebProject
                 Label2.Visible = true;
                 //gasInfo.Add(null);
             }
+            return gasInfo;
         }
 
 
