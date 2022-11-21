@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Insertion.aspx.cs" Inherits="WebProject.Insertion" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Insertion.aspx.cs" Inherits="WebProject.Insertion" Async="true" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <hr />
@@ -8,8 +8,6 @@
             <h1 style="text-align: left">Update the data with Insertion</h1>
         </header>
     </section>
-
-
     <section class="panel">
         <h1 style="text-align: left">Enter Data Manually</h1>
         <div style="text-align: left">
