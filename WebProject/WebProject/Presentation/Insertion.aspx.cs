@@ -50,7 +50,7 @@ namespace WebProject
 
             List<string> locations = new List<string>();
             int pkey = RetrieveGasStations.getGasStationID(selectedGasStation);
-            var obj = RetrieveGasStationLocations.getGasStationLocations(selectedGasStation, pkey);
+            var obj = RetrieveGasStationLocations.getGasStationLocations(selectedGasStation, pkey, new GasStation());
 
             // use enum to iterate through the array?
             foreach (var item in obj.getStations())

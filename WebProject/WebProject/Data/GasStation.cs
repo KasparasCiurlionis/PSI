@@ -6,19 +6,20 @@ using WebProject.Data;
 
 namespace WebProject
 {
-    public class GasStation : Location
+    public class GasStation : Location, IGasStation
     {
         public String address;
         public String[] prices;
         public int id;
 
-
+        /*
         public GasStation(String address, String[] prices, Coords coords = new Coords(), int id = 0) : base(coords)
         { 
             this.address = address;
             this.prices = prices;
             this.id = id;
         }
+        */
 
         public int getID()
         {
@@ -50,5 +51,15 @@ namespace WebProject
             this.prices = prices;
         }
 
+    }
+
+    public interface IGasStation
+    {
+        int getID();
+        void setID(int id);
+        String getAddress();
+        void setAddress(String address);
+        String[] getPrices();
+        void setPrices(String[] prices);
     }
 }

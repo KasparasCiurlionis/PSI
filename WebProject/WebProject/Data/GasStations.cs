@@ -12,13 +12,13 @@ namespace WebProject
     {
         String name;
         int id;
-        private GasStation[] _gasStation;
-        public GasStations( GasStation[] pArray, string name, int id = 0)
+        private IGasStation[] _gasStation;
+        public GasStations( IGasStation[] pArray, string name, int id = 0)
         {
             // check if pArray is null
             if (pArray != null)
             {
-                _gasStation = new GasStation[pArray.Length];
+                _gasStation = new IGasStation[pArray.Length];
 
                 for (int i = 0; i < pArray.Length; i++)
                 {
@@ -32,7 +32,7 @@ namespace WebProject
 
         // make getters and setters for _gasStation
 
-        public void setStations(GasStation[] gasStation)
+        public void setStations(IGasStation[] gasStation)
         {
             _gasStation = gasStation;
         }
@@ -66,7 +66,7 @@ namespace WebProject
             return new GasEnumerator(_gasStation);
         }
 
-        internal IEnumerable<GasStation> getStations()
+        internal IEnumerable<IGasStation> getStations()
         {
             // we need to get the stations
             return _gasStation;
@@ -77,10 +77,10 @@ namespace WebProject
 
     public class GasEnumerator : IEnumerator
     {
-        private GasStation[] _gasStation;
+        private IGasStation[] _gasStation;
         int position = -1;
 
-        public GasEnumerator(GasStation[] list)
+        public GasEnumerator(IGasStation[] list)
         {
             _gasStation = list;
         }
@@ -104,7 +104,7 @@ namespace WebProject
             }
         }
 
-        public GasStation Current
+        public IGasStation Current
         {
             get
             {

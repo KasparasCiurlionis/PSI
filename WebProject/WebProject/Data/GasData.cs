@@ -16,6 +16,7 @@ using System.Runtime.Remoting.Messaging;
 using System.Diagnostics;
 using System.Drawing;
 using System.Net.Http.Headers;
+using Microsoft.Ajax.Utilities;
 
 namespace WebProject
 {
@@ -23,8 +24,11 @@ namespace WebProject
     {
         private readonly static string ConnectionString =
     ConfigurationManager.ConnectionStrings["myConnectionString"].ConnectionString;
-        public static List<GasStations> getData()
+
+        private static IGasStation gasStaionInj;
+        public static List<GasStations> getData(IGasStation gas)
         {
+            gasStaionInj = gas;
             List<GasStations> data = createGasStations(); 
 
             return data;
@@ -66,9 +70,9 @@ namespace WebProject
         }
 
         //read all station addreses from DB from a specific brand, create a GasStation for each of them, put them in a list
-        static List<GasStation> createStation(string stationName)
+        static List<IGasStation> createStation(string stationName)
         {
-            List<GasStation> gasStation = new List<GasStation>();
+            List<IGasStation> gasStation = new List<IGasStation>();
             using (var conn = new SqlConnection(ConnectionString))
             {
                 string sqlString = @"select LocationName from Locations, GasStations WHERE Locations.GasStationID = GasStations.GasStationID AND GasStationName = '" + stationName + "'";
@@ -85,7 +89,10 @@ namespace WebProject
                         {
 
                             string test = reader.GetValue(0).ToString();
-                            gasStation.Add(new GasStation(reader.GetValue(0).ToString(), createPrices(reader.GetValue(0).ToString())));
+                            IGasStation station = gasStaionInj;
+                            station.setAddress(reader.GetValue(0).ToString());
+                            station.setPrices(createPrices(reader.GetValue(0).ToString()));
+                            gasStation.Add(station);
 
 
                         }
