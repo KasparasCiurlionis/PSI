@@ -85,7 +85,7 @@ namespace WebProject
                         {
 
                             string test = reader.GetValue(0).ToString();
-                            gasStation.Add(new GasStation(reader.GetValue(0).ToString(), createPrices(reader.GetValue(0).ToString())));
+                            gasStation.Add(new GasStation(reader.GetValue(0).ToString(), CreatePrices(reader.GetValue(0).ToString())));
 
 
                         }
@@ -101,7 +101,7 @@ namespace WebProject
         }
 
         //read all gas prices from DB from a specific station, create a price array 
-        static string[] createPrices(string LocationName)
+        static string[] CreatePrices(string LocationName)
         {
             
             List<String> gasTypes = getTypes();
