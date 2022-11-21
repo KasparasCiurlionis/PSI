@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Data.SqlTypes;
 using System.Linq;
 using System.Web;
+using WebProject.Data;
 
 namespace WebProject.Business_logic
 {
@@ -37,6 +38,7 @@ namespace WebProject.Business_logic
                 }
                 catch (Exception ex)
                 {
+                    ExceptionLogger.log<Exception>(ex);
                     throw ex;
                 }
             }
@@ -64,6 +66,7 @@ namespace WebProject.Business_logic
                 }
                 catch (Exception ex)
                 {
+                    ExceptionLogger.log<Exception>(ex);
                     throw ex;
                 }
             }

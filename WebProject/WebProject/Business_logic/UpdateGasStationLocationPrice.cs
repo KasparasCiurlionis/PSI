@@ -4,6 +4,7 @@ using System.Configuration;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
+using WebProject.Data;
 
 namespace WebProject.Business_logic
 {
@@ -42,12 +43,14 @@ namespace WebProject.Business_logic
                 {
                     Console.WriteLine("Inner Exception: " + ex.Message);
                     Console.WriteLine("Query executed: " + query);
+                    ExceptionLogger.log<SqlException>(ex);
                     connection.Close();
                 } // updating database: failed, no purpose to run ''finally'' block
             }
             }
             catch (Exception ex)
             {
+                ExceptionLogger.log<Exception>(ex);
                 Console.WriteLine("Outer Exception: " + ex.Message);
             }
         }

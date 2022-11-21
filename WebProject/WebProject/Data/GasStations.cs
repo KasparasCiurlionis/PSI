@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Web;
+using WebProject.Data;
 
 namespace WebProject
 {
@@ -111,9 +112,10 @@ namespace WebProject
                 {
                     return _gasStation[position];
                 }
-                catch (IndexOutOfRangeException)
+                catch (IndexOutOfRangeException ex)
                 {
-                    throw new InvalidOperationException();
+                    ExceptionLogger.log<IndexOutOfRangeException>(ex);
+                    throw ex;
                 }
             }
         }
