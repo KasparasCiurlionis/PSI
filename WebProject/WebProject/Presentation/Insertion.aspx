@@ -40,7 +40,7 @@
 
         <!-- Gas prices-->
         <div>
-            <asp:Label ID="Label2" runat="server" Visible="false" Style="color: red;" Text="Sorry, the data entered should be of x,xxx format"></asp:Label>
+            <asp:Label ID="Label2" runat="server" Visible="false" Style="color: red;" Text="Sorry, the data entered should be of x.xxx format"></asp:Label>
         </div>
 
         <div>

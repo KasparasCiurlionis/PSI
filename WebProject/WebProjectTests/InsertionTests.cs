@@ -36,9 +36,9 @@ namespace WebProjectUnit.Tests
             List<string> gasInfo = new List<string>();
 
             var result = insertion.PriceValidation(gasPrice, gasInfo);
-            //var last = result.Last();
+            var last = result.Last();
 
-            Assert.IsNull(result);
+            Assert.IsTrue(last.Equals("-"));
         }
 
         /*[TestMethod()]
