@@ -198,7 +198,7 @@ namespace WebProject
         }
     
 
-        protected List<string> PriceValidation(string gasPrice, List<string> gasInfo)
+        public List<string> PriceValidation(string gasPrice, List<string> gasInfo)
         {
             Regex rx = new Regex(@"(\d\.\d{3}?){1}$");
 
@@ -208,16 +208,20 @@ namespace WebProject
             }
             else if (gasPrice == "")
             {
-                //gasInfo.Add(null);
+                gasInfo = null;
             }
-            else
+            else if(!rx.Match(gasPrice).Success)
             {
-                Label2.Visible = true;
-                //gasInfo.Add(null);
+                gasInfo = null;
+                InvalidInput();
             }
             return gasInfo;
         }
 
+        public void InvalidInput()
+        {
+            Label2.Visible = true;
+        }
 
         // create a function GetSelectedGasStationStatus() that returns SelectedGasStationStatus
         private SelectedGasStationStatus GetSelectedGasStationStatus()
