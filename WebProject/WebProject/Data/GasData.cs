@@ -62,7 +62,7 @@ namespace WebProject
                 }
                 catch (Exception ex)
                 {
-                    ExceptionLogger.log<Exception>(ex);
+                    _ = ExceptionLogger.log<Exception>(ex);
                 }
 
                 return gasStations;
@@ -87,9 +87,10 @@ namespace WebProject
                     {
                         while (reader.Read())
                         {
-
+                            
                             string test = reader.GetValue(0).ToString();
-                            IGasStation station = gasStaionInj;
+                            var objStr = JsonConvert.SerializeObject(gasStaionInj);
+                            GasStation station = JsonConvert.DeserializeObject<GasStation>(objStr);
                             station.setAddress(reader.GetValue(0).ToString());
                             station.setPrices(createPrices(reader.GetValue(0).ToString()));
                             gasStation.Add(station);
@@ -100,7 +101,7 @@ namespace WebProject
                 }
                 catch (Exception ex)
                 {
-                    ExceptionLogger.log<Exception>(ex);
+                    _ = ExceptionLogger.log<Exception>(ex);
                 }
 
                 return gasStation;
@@ -140,7 +141,7 @@ namespace WebProject
                 }
                 catch (Exception ex)
                 {
-                    ExceptionLogger.log<Exception>(ex);
+                    _ = ExceptionLogger.log<Exception>(ex);
                 }
 
                 return prices;
@@ -176,7 +177,7 @@ namespace WebProject
                 }
                 catch (Exception ex)
                 {
-                    ExceptionLogger.log<Exception>(ex);
+                    _ = ExceptionLogger.log<Exception>(ex);
                 }
             }
             return gasTypes;
@@ -210,7 +211,7 @@ namespace WebProject
                 }
                 catch (Exception ex)
                 {
-                    ExceptionLogger.log<Exception>(ex);
+                    _ = ExceptionLogger.log<Exception>(ex);
                 }
             }
             return gasTypes;
