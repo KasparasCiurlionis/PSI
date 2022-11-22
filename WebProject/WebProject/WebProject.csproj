@@ -209,10 +209,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
-    <Compile Include="Business_logic\RetrieveGasStationLocationPrice.cs" />
-    <Compile Include="Business_logic\RetrieveGasStationLocations.cs" />
-    <Compile Include="Business_logic\RetrieveGasStations.cs" />
-    <Compile Include="Business_logic\UpdateGasStationLocationPrice.cs" />
+    <Compile Include="Business_logic\GasStationsInformation.cs" />
+    <Compile Include="Business_logic\GasStationLocationPriceUpdate.cs" />
     <Compile Include="Data\ExceptionLogger.cs" />
     <Compile Include="Data\LocationData.cs" />
     <Compile Include="Data\ExistingGasModule.cs" />

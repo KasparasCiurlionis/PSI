@@ -150,13 +150,13 @@ namespace WebProject
         protected global::System.Web.UI.WebControls.FileUpload FileHolder;
 
         /// <summary>
-        /// btnUpload control.
+        /// BtnUpload control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnUpload;
+        protected global::System.Web.UI.WebControls.Button BtnUpload;
 
         /// <summary>
         /// AutoTextBox1 control.
@@ -231,13 +231,13 @@ namespace WebProject
         protected global::System.Web.UI.WebControls.Label AutoTextLabel4;
 
         /// <summary>
-        /// btnupdate control.
+        /// Btnupdate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnupdate;
+        protected global::System.Web.UI.WebControls.Button Btnupdate;
 
         /// <summary>
         /// btnsave control.

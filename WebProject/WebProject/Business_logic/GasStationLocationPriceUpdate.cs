@@ -2,19 +2,16 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Web;
 using WebProject.Data;
 
 namespace WebProject.Business_logic
 {
-    public class UpdateGasStationLocationPrice
+    public class GasStationLocationPriceUpdate
     {
-        private readonly static string ConnectionString =
-    ConfigurationManager.ConnectionStrings["myConnectionString"].ConnectionString;
+        private readonly static string ConnectionString = ConfigurationManager.ConnectionStrings["myConnectionString"].ConnectionString;
 
         // it should get: Key of Gas Station, Key of Location and array of prices and types of gas
-        public static void updateGasStationLocationPrice(int GasStationID, int LocationID, List<int> GasType, List<float> GasPrice)
+        public static void UpdateGasStationLocationPrice(int GasStationID, int LocationID, List<int> GasType, List<float> GasPrice)
         {
             DateTime date = DateTime.Now;
             // do it but also update the date

@@ -20,7 +20,6 @@ namespace WebProject.Data
 
         static void dologging<T>(T text)
         {
-            
             string file = System.AppDomain.CurrentDomain.BaseDirectory + "/App_Data/ExceptionLog.txt";
             if (!File.Exists(file))
             {

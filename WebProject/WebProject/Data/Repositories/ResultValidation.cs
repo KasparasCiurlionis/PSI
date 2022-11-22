@@ -102,5 +102,10 @@ namespace WebProject.Data.Repositories
             // cannot see the function, its located in file: CheckValidation.cs
             // to make it visible 
         }
+
+        public static implicit operator ConsoleCancelEventArgs(ResultValidation v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

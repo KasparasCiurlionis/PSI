@@ -1,23 +1,12 @@
-﻿using System;
-using System.Collections;
+﻿using Microsoft.Ajax.Utilities;
+using System;
 using System.Collections.Generic;
-using System.EnterpriseServices;
 using System.IO;
-using System.Linq;
-using System.Reflection.Emit;
 using System.Text.RegularExpressions;
 using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
+using WebProject.Business_logic;
 using WebProject.Data;
 using WebProject.Data.Repositories;
-using System.Data.SqlClient;
-using System.Configuration;
-using System.Data;
-using WebProject.Business_logic;
-using Microsoft.Ajax.Utilities;
-using System.Diagnostics;
-using System.Threading;
 
 namespace WebProject
 {
@@ -33,7 +22,7 @@ namespace WebProject
             if (!IsPostBack)
             {
                 GasStation.Items.Clear();
-                foreach (var item in RetrieveGasStations.getGasStations())
+                foreach (var item in GasStationsInformation.GetGasStations())
                 {
                     // now we can add items to the DropDownList
                     GasStation.Items.Add(item.getName());
@@ -49,8 +38,8 @@ namespace WebProject
             Location.Items.Clear();
 
             List<string> locations = new List<string>();
-            int pkey = RetrieveGasStations.getGasStationID(selectedGasStation);
-            var obj = RetrieveGasStationLocations.getGasStationLocations(selectedGasStation, pkey);
+            int pkey = GasStationsInformation.GetGasStationID(selectedGasStation);
+            var obj = GasStationsInformation.GetGasStationLocations(selectedGasStation, pkey);
 
             // use enum to iterate through the array?
             foreach (var item in obj.getStations())
@@ -129,7 +118,7 @@ namespace WebProject
             }
         }
 
-        protected void Btnsave_Click(object sender, EventArgs e)
+        public void Btnsave_Click(object sender, EventArgs e)
         {
             Label2.Visible = false;
 
@@ -139,7 +128,7 @@ namespace WebProject
                 string SelectedGasStation = GasStation.SelectedValue;
                 var SelectedGasStationStatus = GetSelectedGasStationStatus();
                 var gasTypes = SelectedGasStationStatus.GetGasTypes();
-                List<int> gasTypesListID = RetrieveGasStationLocationPrice.getGasTypesID(gasTypes);
+                List<int> gasTypesListID = GasStationsInformation.GetGasTypesID(gasTypes);
                 List<float> gasInfoList = new List<float>();
                 foreach (var element in lazyGasInfo.Value)
                 {
@@ -159,9 +148,9 @@ namespace WebProject
                 // TO-DO: it works a bit incorrect: for example: we got 4 types overall, but photo (or user input) has 2 types filled
                 // so this should pass a struct of 2 types and 2 prices
 
-                UpdateGasStationLocationPrice.updateGasStationLocationPrice(
-                    RetrieveGasStations.getGasStationID(GasStation.Text),
-                    RetrieveGasStationLocations.getGasStationLocationID(Location.Text),
+                GasStationLocationPriceUpdate.UpdateGasStationLocationPrice(
+                    GasStationsInformation.GetGasStationID(GasStation.Text),
+                    GasStationsInformation.GetGasStationLocationID(Location.Text),
                     gasTypesListID,
                     gasInfoList
                     );
@@ -170,7 +159,6 @@ namespace WebProject
                 UpdateGasStationLabelView();
             }
         }
-
 
         protected List<string> ReadAndGetInput(List<string> gasInfo = null)
         {
@@ -197,11 +185,11 @@ namespace WebProject
             return gasInfo;
         }
 
-        public bool InputNotEmpty()
+        protected bool InputNotEmpty()
         {
 
             if (GasPrice1.Text != "" || GasPrice2.Text != "" || GasPrice3.Text != "" || GasPrice4.Text != ""
-          || AutoTextBox1.Text != "" || AutoTextBox2.Text != "" || AutoTextBox3.Text != "" || AutoTextBox4.Text != "")
+            || AutoTextBox1.Text != "" || AutoTextBox2.Text != "" || AutoTextBox3.Text != "" || AutoTextBox4.Text != "")
             {
                 return true;
             }
@@ -211,7 +199,6 @@ namespace WebProject
             }
         }
     
-
         public List<string> PriceValidation(string gasPrice, List<string> gasInfo)
         {
             Regex rx = new Regex(@"(\d\.\d{3}?){1}$");
@@ -251,7 +238,7 @@ namespace WebProject
                     throw new ArgumentException("Unknown gas station status");
             }
         }
-        protected void btnupdate_Click(object sender, EventArgs e)
+        protected void Btnupdate_Click(object sender, EventArgs e)
         {
             Label1.Text = "Select Location";
         }
@@ -368,7 +355,7 @@ namespace WebProject
             }
             return amount;
         }
-        public string returnDataKey(Dictionary<string, List<string>> data, int index)
+        public string ReturnDataKey(Dictionary<string, List<string>> data, int index)
         {
             string key = "";
             int i = 0;
@@ -382,7 +369,7 @@ namespace WebProject
             }
             return key;
         }
-        public string returnDataValue(Dictionary<string, List<string>> data, int index)
+        public string ReturnDataValue(Dictionary<string, List<string>> data, int index)
         {
             string value = "";
             int i = 0;
@@ -410,23 +397,23 @@ namespace WebProject
             {
                 // use functions returnDataKey and returnDataValue
                 // key should be written in Label, Value in TextBox
-                AutoTextLabel1.Text = returnDataKey(data, 0);
-                AutoTextBox1.Text = returnDataValue(data, 0);
+                AutoTextLabel1.Text = ReturnDataKey(data, 0);
+                AutoTextBox1.Text = ReturnDataValue(data, 0);
             }
             if (len >= 2)
             {
-                AutoTextLabel2.Text = returnDataKey(data, 1);
-                AutoTextBox2.Text = returnDataValue(data, 1);
+                AutoTextLabel2.Text = ReturnDataKey(data, 1);
+                AutoTextBox2.Text = ReturnDataValue(data, 1);
             }
             if (len >= 3)
             {
-                AutoTextLabel3.Text = returnDataKey(data, 2);
-                AutoTextBox3.Text = returnDataValue(data, 2);
+                AutoTextLabel3.Text = ReturnDataKey(data, 2);
+                AutoTextBox3.Text = ReturnDataValue(data, 2);
             }
             if (len >= 4)
             {
-                AutoTextLabel4.Text = returnDataKey(data, 3);
-                AutoTextBox4.Text = returnDataValue(data, 3);
+                AutoTextLabel4.Text = ReturnDataKey(data, 3);
+                AutoTextBox4.Text = ReturnDataValue(data, 3);
             }
 
         }

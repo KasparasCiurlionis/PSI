@@ -66,7 +66,7 @@
         <div class="col">
             <div class="form-group">
                 <asp:Label Text="Insert a photo" runat="server" /><asp:FileUpload runat="server" ID="FileHolder"></asp:FileUpload>
-                <asp:Button Text="Upload" ID="btnUpload" CssClass="btn btn-primary" Width="200" runat="server" OnClick="UploadFile" />
+                <asp:Button Text="Upload" ID="BtnUpload" CssClass="btn btn-primary" Width="200" runat="server" OnClick="UploadFile" />
             </div>
         </div>
     </section>
@@ -94,7 +94,7 @@
 
 
     <section>
-        <asp:Button Text="Refresh" ID="btnupdate" CssClass="btn btn-primary" Width="200" runat="server" OnClick="btnupdate_Click" />
+        <asp:Button Text="Refresh" ID="Btnupdate" CssClass="btn btn-primary" Width="200" runat="server" OnClick="Btnupdate_Click" />
         <asp:Button Text="Save" ID="btnsave" CssClass="btn btn-primary" Width="200" runat="server" OnClick="Btnsave_Click" />
         <asp:Button Text="Discard" ID="btndiscard" CssClass="btn btn-primary" Width="200" runat="server" Visible="false" OnClick="Btndiscard_Click" BackColor ="#FF5050" />
     </section>

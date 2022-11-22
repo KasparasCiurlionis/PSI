@@ -1,26 +1,18 @@
-﻿using Microsoft.Ajax.Utilities;
-using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.IO;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
-using System.Web.UI.WebControls;
 
 namespace WebProject
 {
     public class ProcessData
     {
-
-        public static List<HtmlTableRow> process(string selectedGasStation)
+        public static List<HtmlTableRow> Process(string selectedGasStation)
         {
             List<GasStations> list = GasData.getData();
             List<HtmlTableRow> rows = new List<HtmlTableRow>();
-            List<string> keywords = new List<string> { "Location", "Compony" };
-    
+            List<string> keywords = new List<string> { "Location", "Company" };
+
             HtmlTableRow firstRow = new HtmlTableRow();
             for (int i = 0; i < keywords.Count(); i++)
             {
@@ -36,11 +28,12 @@ namespace WebProject
                 firstRow.Cells.Add(firstCell);
             }
             rows.Add(firstRow);
-            
-                if (selectedGasStation!="All") {
+
+            if (selectedGasStation != "All")
+            {
                 list = list.Where(s => s.getName() == (selectedGasStation))
                                   .ToList<GasStations>();
-                }
+            }
 
             foreach (GasStations stations in list)
             {
@@ -54,16 +47,16 @@ namespace WebProject
                     row.Cells.Add(cell2);
                     cell.Controls.Add(new LiteralControl(stations.getName()));
                     row.Cells.Add(cell);
-    
+
                     for (int i = 0; i < gasTypes.Count(); i++)
                     {
                         HtmlTableCell cell3 = new HtmlTableCell();
                         cell3.Controls.Add(new LiteralControl(station.prices[i]));
                         row.Cells.Add(cell3);
                     }
-                    rows.Add(row);  
+                    rows.Add(row);
                 }
-            }  
+            }
             return rows;
         }
     }

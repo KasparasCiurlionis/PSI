@@ -19,9 +19,7 @@ namespace WebProject
         {
             if (!IsPostBack)
             {
-                List<HtmlTableRow> rows = ProcessData.process("All");
-
-
+                List<HtmlTableRow> rows = ProcessData.Process("All");
 
                 // add some data into the GasStation dropdownlist
                 // the data is located in app_data folder
@@ -41,7 +39,7 @@ namespace WebProject
             // once we selected a proper GasStation, DropDownList Location should be updated
             // we need to check what is selected
             selectedGasStation = GasStation.SelectedValue;
-            List<HtmlTableRow> rows = ProcessData.process(selectedGasStation);
+            List<HtmlTableRow> rows = ProcessData.Process(selectedGasStation);
 
             for (int i = 0; i < rows.Count; i++)
             {
