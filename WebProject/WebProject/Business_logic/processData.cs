@@ -15,9 +15,9 @@ namespace WebProject
     public class ProcessData
     {
 
-        public static List<HtmlTableRow> process(string selectedGasStation)
+        public static List<HtmlTableRow> process(string selectedGasStation, IGasStation gasStation)
         {
-            List<GasStations> list = GasData.getData();
+            List<GasStations> list = GasData.getData(gasStation);
             List<HtmlTableRow> rows = new List<HtmlTableRow>();
             List<string> keywords = new List<string> { "Location", "Compony" };
             /*
@@ -99,7 +99,7 @@ namespace WebProject
                     for (int i = 0; i < gasTypes.Count(); i++)
                     {
                         HtmlTableCell cell3 = new HtmlTableCell();
-                        cell3.Controls.Add(new LiteralControl(station.prices[i]));
+                        cell3.Controls.Add(new LiteralControl(station.getPrices()[i]));
                         row.Cells.Add(cell3);
                     }
                     rows.Add(row);  

@@ -5,6 +5,7 @@ using System.Configuration;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
+using WebProject.Data;
 
 namespace WebProject.Business_logic
 {
@@ -13,7 +14,7 @@ namespace WebProject.Business_logic
         private readonly static string ConnectionString =
         ConfigurationManager.ConnectionStrings["myConnectionString"].ConnectionString;
 
-        public static GasStations getGasStationLocations(string GasStationName , int GasStationID)
+        public static GasStations getGasStationLocations(string GasStationName , int GasStationID, IGasStation iGasStation)
         {
             // we know that GasStations contains a place for the name, id and array for locations
             // lets store one name, one id and then proceed for locations with their id's
@@ -27,10 +28,14 @@ namespace WebProject.Business_logic
                 {
                     connection.Open();
                     SqlDataReader reader = command.ExecuteReader();
-                    List<GasStation> gasStationLocations = new List<GasStation>();
+                    List<IGasStation> gasStationLocations = new List<IGasStation>();
                     while (reader.Read())
                     {
-                        gasStationLocations.Add(new GasStation(reader["LocationName"].ToString(), null, new Coords(0,0) , Convert.ToInt32(reader["LocationID"].ToString())));
+                        IGasStation gasStation = iGasStation;
+                        gasStation.setAddress(reader["LocationName"].ToString());
+                        gasStation.setID(Convert.ToInt32(reader["LocationID"].ToString()));
+                        gasStationLocations.Add(gasStation);
+                        //gasStationLocations.Add(new GasStation(reader["LocationName"].ToString(), null, new Coords(0,0) , Convert.ToInt32(reader["LocationID"].ToString())));
                     }
 
                     reader.Close();
@@ -40,6 +45,7 @@ namespace WebProject.Business_logic
                 }
                 catch (Exception ex)
                 {
+                    ExceptionLogger.log<Exception>(ex);
                     throw ex;
                 }
             }
@@ -68,6 +74,7 @@ namespace WebProject.Business_logic
                 }
                 catch (Exception ex)
                 {
+                    ExceptionLogger.log<Exception>(ex);
                     throw ex;
                 }
             }

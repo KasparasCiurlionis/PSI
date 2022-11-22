@@ -52,7 +52,7 @@ namespace WebProject
 
             List<string> locations = new List<string>();
             int pkey = RetrieveGasStations.getGasStationID(selectedGasStation);
-            var obj = RetrieveGasStationLocations.getGasStationLocations(selectedGasStation, pkey);
+            var obj = RetrieveGasStationLocations.getGasStationLocations(selectedGasStation, pkey, new GasStation());
 
             // use enum to iterate through the array?
             foreach (var item in obj.getStations())
@@ -142,8 +142,22 @@ namespace WebProject
                 var SelectedGasStationStatus = GetSelectedGasStationStatus();
                 var gasTypes = SelectedGasStationStatus.GetGasTypes();
                 List<int> gasTypesListID = RetrieveGasStationLocationPrice.getGasTypesID(gasTypes);
-                List<string> temp = lazyGasInfo.Value;
-                List<float> gasInfoList = lazyGasInfo.Value.Select(float.Parse).ToList();
+
+                List<float> gasInfoList = new List<float>();
+                foreach (var element in lazyGasInfo.Value)
+                {
+                    if (element != "-")
+                    {
+                        gasInfoList.Add(float.Parse(element));
+
+                        //gasInfoList.Add(lazyGasInfo.Value.ElementAt.Select(float.Parse).ToList());
+                    }
+                    else if (element == "-")
+                    {
+                        //TODO: read this specific price from DataBase and write it again
+                        //because it is impossible to jump over one element
+                    }
+                }
                 // TO-DO: it works a bit incorrect: for example: we got 4 types overall, but photo (or user input) has 2 types filled
                 // so this should pass a struct of 2 types and 2 prices
 
@@ -200,7 +214,7 @@ namespace WebProject
         }
     
 
-        protected List<string> PriceValidation(string gasPrice, List<string> gasInfo)
+        public List<string> PriceValidation(string gasPrice, List<string> gasInfo)
         {
             Regex rx = new Regex(@"(\d\.\d{3}?){1}$");
 
@@ -210,16 +224,15 @@ namespace WebProject
             }
             else if (gasPrice == "")
             {
-                //gasInfo.Add(null);
+                gasInfo.Add("-");
             }
-            else
+            else if(!rx.Match(gasPrice).Success)
             {
+                gasInfo = null;
                 Label2.Visible = true;
-                //gasInfo.Add(null);
             }
             return gasInfo;
         }
-
 
         // create a function GetSelectedGasStationStatus() that returns SelectedGasStationStatus
         private SelectedGasStationStatus GetSelectedGasStationStatus()

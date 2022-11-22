@@ -43,6 +43,7 @@ namespace WebProject.Data
                 catch (Exception ex)
                 {
                     Debug.WriteLine("File not saved: " + ex.Message);
+                    ExceptionLogger.log<Exception>(ex);
                 }
             }
 
