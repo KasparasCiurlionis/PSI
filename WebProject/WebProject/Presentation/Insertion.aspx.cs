@@ -25,7 +25,7 @@ namespace WebProject
 {
     public partial class Insertion : System.Web.UI.Page
     {
-        private string current_location; // some comment
+        private string current_location;
 
         private static Lazy<List<string>> lazyGasInfo = new Lazy<List<string>>();
         protected void Page_Load(object sender, EventArgs e) // this line 
