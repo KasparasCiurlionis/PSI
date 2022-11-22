@@ -18,6 +18,8 @@ using WebProject.Business_logic;
 using Microsoft.Ajax.Utilities;
 using System.Diagnostics;
 using System.Threading;
+using System.Threading.Tasks;
+using System.Security.Cryptography.X509Certificates;
 
 namespace WebProject
 {
@@ -259,9 +261,66 @@ namespace WebProject
             Label1.Text = "Select Location";
         }
 
-        public EventHandler ClickEvent;
 
-        protected void UploadFile(object sender, EventArgs e)
+        private async void RunAsyncTasks(string module_id, string fileSavePath)
+        {
+            var InitView = InitPreliminaryViewTask();
+            var UploadTaskResult = UploadToServerTask(module_id, fileSavePath);
+            await UploadTaskResult;
+            string result = UploadTaskResult.Result;
+            var RecieveTaskResult = RecieveFromServerTask(module_id, UploadTaskResult.Result);
+            await RecieveTaskResult;
+            var DeserializeAndFill = DeserializeAndFillTask(RecieveTaskResult.Result);
+
+            await Task.WhenAll(InitView, UploadTaskResult, RecieveTaskResult, DeserializeAndFill);
+        }
+
+        public async Task InitPreliminaryViewTask()
+        {
+            await Task.Run(() =>
+            {
+                InitPreliminaryAutoView();
+            });
+        }
+
+        public static async Task <string> UploadToServerTask(string module_id, string fileSavePath)
+        {
+            string Out = "";
+            await Task.Run(() =>
+            {
+                string PostOut = ParseGasDataFromPicture.RestPost(module_id, fileSavePath);
+                Out = PostOut;
+            });
+            return Out;
+        }
+
+        public static async Task <string> RecieveFromServerTask(string module_id, string PostOut)
+        {
+            string Out = "";
+            await Task.Run(() =>
+            {
+                string GetOut = ParseGasDataFromPicture.RestGet(module_id, PostOut);
+                Out = GetOut;
+            });
+            return Out;
+        }
+
+        // make it return the Dictionary<string, List<string>> data
+        public async Task DeserializeAndFillTask(string GetOut)
+        {
+            Dictionary<string, List<string>> data = new Dictionary<string, List<string>>();
+            await Task.Run(() =>
+            {
+                data = ParseGasDataFromPicture.returnValues(GetOut);
+                int len = 0;
+                len = CorrectAutoView(CalculateDictionaryKeyLength(data));
+                FillAutoView(data, len);
+            });
+        }
+
+        public EventHandler ClickEvent;
+        
+        protected async void UploadFile(object sender, EventArgs e)
         {
             HttpPostedFile postedFile = FileHolder.PostedFile;
             string fileName = Path.GetFileName(postedFile.FileName);
@@ -272,29 +331,18 @@ namespace WebProject
             uploadHandling.FileUploaded += mesService.FileUpload;
 
             uploadHandling.Upload(fileName, fileSavePath, GasStation.SelectedValue, FileHolder.PostedFile);
-                       
-            // current gas station selected
             string gasStation = GasStation.SelectedValue;
-            // create a module
-
             string module_id = ExistingGasModule.getModule(gasStation);
             if (module_id == null)
-            {
-                Label2.Visible = true;
-                Label2.Text = "Error, selected Gas Station Automated Module does not exist";
+            {           
+                    Label2.Visible = true;
+                    Label2.Text = "Error, selected Gas Station Automated Module does not exist";
             }
             else// module ID exists
             {
-                string PostOut = ParseGasDataFromPicture.RestPost(module_id, fileSavePath);
-                string GetOut = ParseGasDataFromPicture.RestGet(module_id, PostOut);
-                Dictionary<string, List<string>> data = new Dictionary<string, List<string>>();
-                data = ParseGasDataFromPicture.returnValues(GetOut);
-                // create a function: CalculateDictionaryKeyLength
-                int len = 0;
-                len = CalculateDictionaryKeyLength(data);
-                len = InitAutoView(len);
-                FillAutoView(data, len);
-            }
+                RunAsyncTasks(module_id, fileSavePath); // runs view, upload and response tasks
+                
+            }  
 
         }
 
@@ -340,36 +388,58 @@ namespace WebProject
             AutoTextBox4.Text = "";
 
         }
-        public int InitAutoView(int len)
+
+        public void InitPreliminaryAutoView()
+        {
+            UpdateMessageToUser("Processing...");
+            AutoTextBox1.Visible = true;
+            AutoTextLabel1.Visible = true;
+            AutoTextBox2.Visible = true;
+            AutoTextLabel2.Visible = true;
+            AutoTextBox3.Visible = true;
+            AutoTextLabel3.Visible = true;
+            AutoTextBox4.Visible = true;
+            AutoTextLabel4.Visible = true;
+            
+        }
+        public int CorrectAutoView(int len)
         {
             int amount = 0;
             btndiscard.Visible = true;
             // we can make visible maximum amount of 4 labels and textBoxes:
-            if (1 <= len)
+            // we already have 4 labels and textBoxes visible
+            // if we recieved smaller amount, we should make the rest invisible
+            if (len == 1)
             {
-                AutoTextLabel1.Visible = true;
-                AutoTextBox1.Visible = true;
-                amount++;
+                AutoTextBox2.Visible = false;
+                AutoTextLabel2.Visible = false;
+                AutoTextBox3.Visible = false;
+                AutoTextLabel3.Visible = false;
+                AutoTextBox4.Visible = false;
+                AutoTextLabel4.Visible = false;
+                amount = 1;
             }
-            if (2 <= len)
+            else if (len == 2)
             {
-                AutoTextLabel2.Visible = true;
-                AutoTextBox2.Visible = true;
-                amount++;
+                AutoTextBox3.Visible = false;
+                AutoTextLabel3.Visible = false;
+                AutoTextBox4.Visible = false;
+                AutoTextLabel4.Visible = false;
+                amount = 2;
             }
-            if (3 <= len)
+            else if (len == 3)
             {
-                AutoTextLabel3.Visible = true;
-                AutoTextBox3.Visible = true;
-                amount++;
+                AutoTextBox4.Visible = false;
+                AutoTextLabel4.Visible = false;
+                amount = 3;
             }
-            if (4 <= len)
+            else
             {
-                AutoTextLabel4.Visible = true;
-                AutoTextBox4.Visible = true;
-                amount++;
+                amount = 4;
             }
-            return amount;
+
+
+                return amount;
         }
         public string returnDataKey(Dictionary<string, List<string>> data, int index)
         {
