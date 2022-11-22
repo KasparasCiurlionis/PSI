@@ -6,6 +6,7 @@ using WebProject.Data;
 
 namespace WebProject
 {
+    [Serializable] 
     public class GasStation : Location, IGasStation
     {
         public String address;
@@ -52,7 +53,7 @@ namespace WebProject
         }
 
     }
-
+    
     public interface IGasStation
     {
         int getID();
