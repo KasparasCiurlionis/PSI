@@ -1,4 +1,5 @@
 ﻿using Microsoft.Ajax.Utilities;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -31,8 +32,8 @@ namespace WebProject.Business_logic
                     List<IGasStation> gasStationLocations = new List<IGasStation>();
                     while (reader.Read())
                     {
-                        IGasStation gasStation = iGasStation;
-                        gasStation.setAddress(reader["LocationName"].ToString());
+                        var objStr = JsonConvert.SerializeObject(iGasStation);
+                        GasStation gasStation = JsonConvert.DeserializeObject<GasStation>(objStr); gasStation.setAddress(reader["LocationName"].ToString());
                         gasStation.setID(Convert.ToInt32(reader["LocationID"].ToString()));
                         gasStationLocations.Add(gasStation);
                         //gasStationLocations.Add(new GasStation(reader["LocationName"].ToString(), null, new Coords(0,0) , Convert.ToInt32(reader["LocationID"].ToString())));
