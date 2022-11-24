@@ -1,16 +1,16 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using RestSharp;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Web;
-using Newtonsoft.Json;
-using RestSharp;
 
 namespace WebProject.Data.Repositories
 {
-    public class ParseGasDataFromPicture
+    public class PictureParserService : IPictureParserService
     {
-        public static string RestPost(string model_id, string path)
+        public string RestPost(string model_id, string path)
         {
             var client = new RestClient("https://app.nanonets.com/api/v2/OCR/Model/" + model_id + "/LabelFile/");
             var request = new RestRequest();
@@ -19,11 +19,11 @@ namespace WebProject.Data.Repositories
             request.AddHeader("accept", "Multipart/form-data");
             request.AddFile("file", path);
             RestResponse response = client.Execute(request);
-
             return response.Content;
+
         }
 
-        public static string RestGet(string model_id, string postOutput)
+        public string RestGet(string model_id, string postOutput)
         {
             string request_file_id = "";
             List<string> ssplit = new List<string>(
@@ -41,7 +41,7 @@ namespace WebProject.Data.Repositories
             return output;
         }
 
-        public static Dictionary<string, List<string>> returnValues(string output)
+        public Dictionary<string, List<string>> ConstructDictionaryFromJson(string output)
         {
             var json = JsonConvert.DeserializeObject(output);
 
@@ -93,7 +93,8 @@ namespace WebProject.Data.Repositories
             data = ResultValidation.ValidateResult(data, amountOfResults, amountOfFields);
             return data;
         }
+
+
     }
 
-    
 }

@@ -20,6 +20,7 @@ using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Security.Cryptography.X509Certificates;
+using Unity;
 
 namespace WebProject
 {
@@ -264,13 +265,23 @@ namespace WebProject
 
         private async void RunAsyncTasks(string module_id, string fileSavePath)
         {
+
+            // create a container
+            var container = new UnityContainer();
+            // register the types
+            container.RegisterType<IPictureParserService, PictureParserService>();
+            container.RegisterType<PictureParserClient>();
+
+            // resolve the dependencies
+            var client = container.Resolve<PictureParserClient>();
+
             var InitView = InitPreliminaryViewTask();
-            var UploadTaskResult = UploadToServerTask(module_id, fileSavePath);
+            var UploadTaskResult = UploadToServerTask(module_id, fileSavePath, client);
             await UploadTaskResult;
             string result = UploadTaskResult.Result;
-            var RecieveTaskResult = RecieveFromServerTask(module_id, UploadTaskResult.Result);
+            var RecieveTaskResult = RecieveFromServerTask(module_id, UploadTaskResult.Result, client);
             await RecieveTaskResult;
-            var DeserializeAndFill = DeserializeAndFillTask(RecieveTaskResult.Result);
+            var DeserializeAndFill = DeserializeAndFillTask(RecieveTaskResult.Result, client);
 
             await Task.WhenAll(InitView, UploadTaskResult, RecieveTaskResult, DeserializeAndFill);
         }
@@ -283,35 +294,36 @@ namespace WebProject
             });
         }
 
-        public static async Task <string> UploadToServerTask(string module_id, string fileSavePath)
+        public static async Task <string> UploadToServerTask(string module_id, string fileSavePath, PictureParserClient client)
         {
             string Out = "";
             await Task.Run(() =>
             {
-                string PostOut = ParseGasDataFromPicture.RestPost(module_id, fileSavePath);
+                string PostOut = client.Post(module_id, fileSavePath);
                 Out = PostOut;
             });
             return Out;
         }
 
-        public static async Task <string> RecieveFromServerTask(string module_id, string PostOut)
+        public static async Task<string> RecieveFromServerTask(string module_id, string PostOut, PictureParserClient client)
         {
             string Out = "";
             await Task.Run(() =>
             {
-                string GetOut = ParseGasDataFromPicture.RestGet(module_id, PostOut);
+                string GetOut = client.Get(module_id, PostOut);
                 Out = GetOut;
             });
             return Out;
         }
 
+
         // make it return the Dictionary<string, List<string>> data
-        public async Task DeserializeAndFillTask(string GetOut)
+        public async Task DeserializeAndFillTask(string GetOut, PictureParserClient client)
         {
             Dictionary<string, List<string>> data = new Dictionary<string, List<string>>();
             await Task.Run(() =>
             {
-                data = ParseGasDataFromPicture.returnValues(GetOut);
+                data = client.Construct(GetOut);
                 int len = 0;
                 len = CorrectAutoView(CalculateDictionaryKeyLength(data));
                 FillAutoView(data, len);
@@ -516,3 +528,6 @@ namespace WebProject
     }
 
 }
+
+// dep inj
+// 
