@@ -9,7 +9,7 @@ namespace WebProject.Data
     public static class SelectedGasStationStatusExtensions
     {
         
-        public static string[] GetGasTypes(this SelectedGasStationStatus gasStationStatus)
+        public static string[] GetGasTypes(this SelectedGasStationStatus gasStationStatus, SelectedGasStationStatus result = SelectedGasStationStatus.CircleKGas)
         {
             switch (gasStationStatus)
             {

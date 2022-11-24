@@ -7,17 +7,9 @@ namespace WebProject.Data
 {
     public class ExistingGasModule
     {
-        public bool autoModuleWorking;
-        public bool AutoModuleWorking
-        {
-            get { return autoModuleWorking; }
-            set { autoModuleWorking = value; }
-        }
-        // to change the value of autoModuleWorking type: ExistingGasModule.AutoModuleWorking = true/false
-
+        
         public static string CircleKModuleID = "856a88e1-8fae-4bf9-be3e-cd68e90051b0";
         public static string NesteModuleID = "2eabd2b8-7475-43c8-9791-7359d578dec2";
-
 
 
         public interface GasModules
