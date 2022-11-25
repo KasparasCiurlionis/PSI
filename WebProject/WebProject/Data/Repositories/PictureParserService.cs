@@ -43,6 +43,7 @@ namespace WebProject.Data.Repositories
 
         public Dictionary<string, List<string>> ConstructDictionaryFromJson(string output)
         {
+            string str = output;
             var json = JsonConvert.DeserializeObject(output);
 
             JsonEntity.Root root = JsonConvert.DeserializeObject<JsonEntity.Root>(output);
@@ -91,6 +92,7 @@ namespace WebProject.Data.Repositories
             // the result is printed, but not validated
             // lets validate the result
             data = ResultValidation.ValidateResult(data, amountOfResults, amountOfFields);
+
             return data;
         }
 

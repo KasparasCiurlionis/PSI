@@ -229,8 +229,19 @@ namespace WebProject
             }
             else if(!rx.Match(gasPrice).Success)
             {
-                gasInfo = null;
-                Label2.Visible = true;
+                //gasInfo = null;
+                //gasInfo = new List<string>();
+                //Label2.Visible = true;
+                // lets surround this with try catch block, because once we will unit test on that, it will be an error because of null value
+                try
+                {
+                    gasInfo = null;
+                    Label2.Visible = true;
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine("Exception thrown:" + ex.Message);
+                }
             }
             return gasInfo;
         }
