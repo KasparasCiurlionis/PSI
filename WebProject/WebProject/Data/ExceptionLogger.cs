@@ -36,20 +36,30 @@ namespace WebProject.Data
             }
         }
 
-        public static async void bl_ProcessCompleted<T>(object sender, T e)
+        private static void bl_ProcessCompleted<T>(object sender, T e)
+        {
+            transitionalAsync<T>(e);
+        }
+
+        private static async Task transitionalAsync<T>(T e)
         {
             await logAsync<T>(e);
         }
     }
 
-    public class ProcessLogger<T>
+    public interface IProcessLogger<T>
+    {
+        void StartProcess(T text);
+        event EventHandler<T> ProcessCompleted;
+    }
+    public class ProcessLogger<T> : IProcessLogger<T>
     {
         // declaring an event using built-in EventHandler
         public event EventHandler<T> ProcessCompleted;
 
         public void StartProcess(T text)
         {
-                OnProcessCompleted(text);
+            OnProcessCompleted(text);
         }
 
         protected virtual void OnProcessCompleted(T text)
