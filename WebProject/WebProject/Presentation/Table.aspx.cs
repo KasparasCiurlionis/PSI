@@ -50,7 +50,7 @@ namespace WebProject
 
 
             var client2 = new RestClient("http://localhost:5050"); 
-            var request2 = new RestRequest("/WeatherForecast?i=" + GasStation.Items.IndexOf(GasStation.Items.FindByText(selectedGasStation)), Method.Get);
+            var request2 = new RestRequest("/WeatherForecast?id=" + GasStation.Items.IndexOf(GasStation.Items.FindByText(selectedGasStation)), Method.Get);
             RestResponse response2 = client2.Execute(request2);
             List<List<string>> output = JsonConvert.DeserializeObject<List<List<string>>>(response2.Content);
             
