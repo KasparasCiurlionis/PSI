@@ -1,14 +1,19 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using RestSharp;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Reflection.Emit;
+using System.Text;
 using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
+using static System.Collections.Specialized.BitVector32;
 
 namespace WebProject
 {
@@ -21,7 +26,7 @@ namespace WebProject
             {
                 List<HtmlTableRow> rows = ProcessData.process("All", new GasStation());
 
-
+                
 
                 // add some data into the GasStation dropdownlist
                 // the data is located in app_data folder
@@ -41,13 +46,28 @@ namespace WebProject
             // once we selected a proper GasStation, DropDownList Location should be updated
             // we need to check what is selected
             selectedGasStation = GasStation.SelectedValue;
-            List<HtmlTableRow> rows = ProcessData.process(selectedGasStation, new GasStation());
+            
 
-            for (int i = 0; i < rows.Count; i++)
+
+            var client2 = new RestClient("http://localhost:5050"); 
+            var request2 = new RestRequest("/WeatherForecast?i=" + GasStation.Items.IndexOf(GasStation.Items.FindByText(selectedGasStation)), Method.Get);
+            RestResponse response2 = client2.Execute(request2);
+            List<List<string>> output = JsonConvert.DeserializeObject<List<List<string>>>(response2.Content);
+            
+
+            
+
+            foreach (var rows in output)
             {
-                Table1.Rows.Add(rows[i]);
+                HtmlTableRow row = new HtmlTableRow();
+                foreach (var cells in rows)
+                {
+                    HtmlTableCell cell = new HtmlTableCell();
+                    cell.Controls.Add(new LiteralControl(cells));
+                    row.Cells.Add(cell);
+                }
+                Table1.Rows.Add(row);
             }
-
         }
     }
 }
