@@ -50,9 +50,22 @@ namespace WebProject
 
 
             var client2 = new RestClient("http://localhost:5050"); 
-            var request2 = new RestRequest("/WeatherForecast?id=" + GasStation.Items.IndexOf(GasStation.Items.FindByText(selectedGasStation)), Method.Get);
+            var request2 = new RestRequest("/GasStationTable?id=" + GasStation.Items.IndexOf(GasStation.Items.FindByText(selectedGasStation)), Method.Get);
+            List<List<string>> output=null;
             RestResponse response2 = client2.Execute(request2);
-            List<List<string>> output = JsonConvert.DeserializeObject<List<List<string>>>(response2.Content);
+            try
+            {
+                output = JsonConvert.DeserializeObject<List<List<string>>>(response2.Content);
+            }
+            catch (Exception)
+            {
+                List<List<string>> outp=new List<List<string>>();
+                List<string> outp2 = new List<string>();
+                outp2.Add("Server error");
+                outp.Add(outp2);
+                output = outp;
+            }
+            
             
 
             

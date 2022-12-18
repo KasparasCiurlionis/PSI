@@ -18,7 +18,7 @@ using ConfigurationManager = System.Configuration.ConfigurationManager;
 
 namespace WebApplication1
 {
-    public class GasData
+    public class GasData 
     {
         private readonly static string ConnectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\dvynu\\OneDrive\\Desktop\\New folder (3)\\WebProject\\WebProject\\App_Data\\Database1.mdf\";Integrated Security = True";
     //ConfigurationManager.ConnectionStrings["myConnectionString"].ConnectionString;
@@ -38,7 +38,7 @@ namespace WebApplication1
             List<GasStations> gasStations = new List<GasStations>();
             using (var conn = new SqlConnection(ConnectionString))
             {
-                string sqlString = @"select GasStationName from GasStations WHERE GasStationName IS NOT NULL";
+                string sqlString = @"select GasStationName1 from GasStations WHERE GasStationName IS NOT NULL";
                 try
                 {
                     SqlCommand command = new SqlCommand(sqlString, conn);
@@ -60,7 +60,7 @@ namespace WebApplication1
                 }
                 catch (Exception ex)
                 {
-                    _ = ExceptionLogger.log<Exception>(ex);
+                    throw;
                 }
 
                 return gasStations;
@@ -99,7 +99,7 @@ namespace WebApplication1
                 }
                 catch (Exception ex)
                 {
-                    _ = ExceptionLogger.log<Exception>(ex);
+                    throw;
                 }
 
                 return gasStation;
@@ -139,7 +139,7 @@ namespace WebApplication1
                 }
                 catch (Exception ex)
                 {
-                    _ = ExceptionLogger.log<Exception>(ex);
+                    throw;
                 }
 
                 return prices;
@@ -175,7 +175,7 @@ namespace WebApplication1
                 }
                 catch (Exception ex)
                 {
-                    _ = ExceptionLogger.log<Exception>(ex);
+                    throw;
                 }
             }
             return gasTypes;
@@ -209,7 +209,7 @@ namespace WebApplication1
                 }
                 catch (Exception ex)
                 {
-                    _ = ExceptionLogger.log<Exception>(ex);
+                    throw;
                 }
             }
             return gasTypes;

@@ -24,11 +24,11 @@ namespace WebApplication1.Data
             string file = System.AppDomain.CurrentDomain.BaseDirectory + "/App_Data/ExceptionLog.txt";
             if (!File.Exists(file))
             {
-                File.CreateText(file);
+                //File.CreateText(file);
             }
-            using (StreamWriter sw = File.AppendText(file))
+            //using (StreamWriter sw = File.AppendText(file))
             {
-                sw.WriteLine(text.ToString());
+                //sw.WriteLine(text.ToString());
 
             }
         } 
