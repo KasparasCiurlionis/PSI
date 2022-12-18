@@ -38,7 +38,7 @@ namespace WebApplication1
             List<GasStations> gasStations = new List<GasStations>();
             using (var conn = new SqlConnection(ConnectionString))
             {
-                string sqlString = @"select GasStationName1 from GasStations WHERE GasStationName IS NOT NULL";
+                string sqlString = @"select GasStationName from GasStations WHERE GasStationName IS NOT NULL";
                 try
                 {
                     SqlCommand command = new SqlCommand(sqlString, conn);
