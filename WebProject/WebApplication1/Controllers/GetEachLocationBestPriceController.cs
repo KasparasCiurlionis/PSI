@@ -26,9 +26,19 @@ namespace WebApplication1.Controllers
         public List<Price> Get()
         {
             List<Price> prices = new List<Price>();
-            // make a list but with maximum amount of 10
             prices = Functions.getEachLocationBestPrice();
-            return prices;
+            List<Price> result = new List<Price>();
+            foreach (Price current in prices)
+            {
+                Price price = new Price();
+                price.PriceID = current.PriceID;
+                price.Price1 = current.Price1;
+                price.GasTypeID = current.GasTypeID;
+                price.LocationID = current.LocationID;
+                result.Add(price);
+            }
+
+            return result;
         }
 
     }

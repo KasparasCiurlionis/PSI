@@ -53,23 +53,11 @@ namespace WebProject
             var request2 = new RestRequest("/GasStationTable?id=" + GasStation.Items.IndexOf(GasStation.Items.FindByText(selectedGasStation)), Method.Get);
             List<List<string>> output=null;
             RestResponse response2 = client2.Execute(request2);
-            try
-            {
-                output = JsonConvert.DeserializeObject<List<List<string>>>(response2.Content);
-            }
-            catch (Exception)
-            {
-                List<List<string>> outp=new List<List<string>>();
-                List<string> outp2 = new List<string>();
-                outp2.Add("Server error");
-                outp.Add(outp2);
-                output = outp;
-            }
-            
+            List<List<string>> output = JsonConvert.DeserializeObject<List<List<string>>>(response2.Content);
             
 
-            
 
+            
             foreach (var rows in output)
             {
                 HtmlTableRow row = new HtmlTableRow();
