@@ -28,11 +28,11 @@ namespace WebApplication1.Data
             string file = "C:\\Users\\olgie\\Desktop\\New folder (2)\\WebProject\\WebApplication1\\App_Data\\ExceptionLog.txt";
             if (!File.Exists(file))
             {
-                File.CreateText(file);
+                //File.CreateText(file);
             }
-            using (StreamWriter sw = File.AppendText(file))
+            //using (StreamWriter sw = File.AppendText(file))
             {
-                sw.WriteLine(text.ToString());
+                //sw.WriteLine(text.ToString());
 
             }
         } 

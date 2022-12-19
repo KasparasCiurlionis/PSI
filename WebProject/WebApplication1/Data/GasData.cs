@@ -18,12 +18,11 @@ using ConfigurationManager = System.Configuration.ConfigurationManager;
 
 namespace WebApplication1
 {
-    public class GasData
+    public class GasData 
     {
-        private readonly static string ConnectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\olgie\\Desktop\\New folder (2)\\WebProject\\WebProject\\App_Data\\Database1.mdf\";Integrated Security = True";
-        // this connection string is enother user's absolute path
-        //private readonly static string ConnectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\dvynu\\OneDrive\\Desktop\\New folder (3)\\WebProject\\WebProject\\App_Data\\Database1.mdf\";Integrated Security = True";
-        // lets make it relative
+        private readonly static string ConnectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\dvynu\\OneDrive\\Desktop\\New folder (3)\\WebProject\\WebProject\\App_Data\\Database1.mdf\";Integrated Security = True";
+    //ConfigurationManager.ConnectionStrings["myConnectionString"].ConnectionString;
+
         private static IGasStation gasStaionInj;
         public static List<GasStations> getData(IGasStation gas)
         {
@@ -61,7 +60,7 @@ namespace WebApplication1
                 }
                 catch (Exception ex)
                 {
-                    _ = ExceptionLogger.log<Exception>(ex);
+                    throw;
                 }
 
                 return gasStations;
@@ -100,7 +99,7 @@ namespace WebApplication1
                 }
                 catch (Exception ex)
                 {
-                    _ = ExceptionLogger.log<Exception>(ex);
+                    throw;
                 }
 
                 return gasStation;
@@ -140,7 +139,7 @@ namespace WebApplication1
                 }
                 catch (Exception ex)
                 {
-                    _ = ExceptionLogger.log<Exception>(ex);
+                    throw;
                 }
 
                 return prices;
@@ -176,7 +175,7 @@ namespace WebApplication1
                 }
                 catch (Exception ex)
                 {
-                    _ = ExceptionLogger.log<Exception>(ex);
+                    throw;
                 }
             }
             return gasTypes;
@@ -210,7 +209,7 @@ namespace WebApplication1
                 }
                 catch (Exception ex)
                 {
-                    _ = ExceptionLogger.log<Exception>(ex);
+                    throw;
                 }
             }
             return gasTypes;
