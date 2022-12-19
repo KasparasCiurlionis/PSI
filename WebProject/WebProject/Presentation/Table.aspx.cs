@@ -1,14 +1,19 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using RestSharp;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Reflection.Emit;
+using System.Text;
 using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
+using static System.Collections.Specialized.BitVector32;
 
 namespace WebProject
 {
@@ -21,7 +26,7 @@ namespace WebProject
             {
                 List<HtmlTableRow> rows = ProcessData.process("All", new GasStation());
 
-
+                
 
                 // add some data into the GasStation dropdownlist
                 // the data is located in app_data folder
@@ -41,13 +46,41 @@ namespace WebProject
             // once we selected a proper GasStation, DropDownList Location should be updated
             // we need to check what is selected
             selectedGasStation = GasStation.SelectedValue;
-            List<HtmlTableRow> rows = ProcessData.process(selectedGasStation, new GasStation());
+            
 
-            for (int i = 0; i < rows.Count; i++)
+
+            var client2 = new RestClient("http://localhost:5050"); 
+            var request2 = new RestRequest("/GasStationTable?id=" + GasStation.Items.IndexOf(GasStation.Items.FindByText(selectedGasStation)), Method.Get);
+            List<List<string>> output=null;
+            RestResponse response2 = client2.Execute(request2);
+            try
             {
-                Table1.Rows.Add(rows[i]);
+                output = JsonConvert.DeserializeObject<List<List<string>>>(response2.Content);
             }
+            catch (Exception)
+            {
+                List<List<string>> outp=new List<List<string>>();
+                List<string> outp2 = new List<string>();
+                outp2.Add("Server error");
+                outp.Add(outp2);
+                output = outp;
+            }
+            
+            
 
+            
+
+            foreach (var rows in output)
+            {
+                HtmlTableRow row = new HtmlTableRow();
+                foreach (var cells in rows)
+                {
+                    HtmlTableCell cell = new HtmlTableCell();
+                    cell.Controls.Add(new LiteralControl(cells));
+                    row.Cells.Add(cell);
+                }
+                Table1.Rows.Add(row);
+            }
         }
     }
 }
