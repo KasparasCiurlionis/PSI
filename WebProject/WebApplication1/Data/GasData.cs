@@ -20,7 +20,7 @@ namespace WebApplication1
 {
     public class GasData 
     {
-        private readonly static string ConnectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\dvynu\\OneDrive\\Desktop\\New folder (3)\\WebProject\\WebProject\\App_Data\\Database1.mdf\";Integrated Security = True";
+        private readonly static string ConnectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\""+ Environment.CurrentDirectory + "\\App_Data\\Database1.mdf\";Integrated Security = True";
     //ConfigurationManager.ConnectionStrings["myConnectionString"].ConnectionString;
 
         private static IGasStation gasStaionInj;

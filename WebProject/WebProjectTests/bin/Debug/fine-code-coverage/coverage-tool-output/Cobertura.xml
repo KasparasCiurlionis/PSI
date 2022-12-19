@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
-<coverage line-rate="0.210598525124335" branch-rate="0.094661921708185" lines-covered="1228" lines-valid="5831" branches-covered="266" branches-valid="2810" complexity="2365" version="0" timestamp="1669332401">
+<coverage line-rate="0.209842788790157" branch-rate="0.0947293447293447" lines-covered="1228" lines-valid="5852" branches-covered="266" branches-valid="2808" complexity="2366" version="0" timestamp="1671463433">
   <sources />
   <packages>
     <package name="Unity.Abstractions" line-rate="0.0646464646464646" branch-rate="0.0206043956043956" complexity="752">
@@ -807,17 +807,6 @@
           </methods>
           <lines />
         </class>
-        <class name="Unity.Lifetime.SingletonLifetimeManager" filename="C:\projects\unity\Abstractions\src\Lifetime\Managers\SingletonLifetimeManager.cs" line-rate="1" branch-rate="1" complexity="2">
-          <methods>
-            <method name="OnCreateLifetimeManager" signature="()" line-rate="1" branch-rate="1" complexity="1">
-              <lines />
-            </method>
-            <method name="ToString" signature="()" line-rate="1" branch-rate="1" complexity="1">
-              <lines />
-            </method>
-          </methods>
-          <lines />
-        </class>
         <class name="Unity.Lifetime.SynchronizedLifetimeManager" filename="C:\projects\unity\Abstractions\src\Lifetime\Abstracts\SynchronizedLifetimeManager.cs" line-rate="1" branch-rate="1" complexity="6">
           <methods>
             <method name="TryGetValue" signature="(Unity.Lifetime.ILifetimeContainer)" line-rate="1" branch-rate="1" complexity="NaN">
@@ -845,6 +834,17 @@
               <lines />
             </method>
             <method name=".cctor" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines />
+            </method>
+          </methods>
+          <lines />
+        </class>
+        <class name="Unity.Lifetime.SingletonLifetimeManager" filename="C:\projects\unity\Abstractions\src\Lifetime\Managers\SingletonLifetimeManager.cs" line-rate="1" branch-rate="1" complexity="2">
+          <methods>
+            <method name="OnCreateLifetimeManager" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines />
+            </method>
+            <method name="ToString" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines />
             </method>
           </methods>
@@ -3209,9 +3209,9 @@
         </class>
       </classes>
     </package>
-    <package name="WebProject" line-rate="0.22848200312989" branch-rate="0.2" complexity="267">
+    <package name="WebProject" line-rate="0.224788298691301" branch-rate="0.202020202020202" complexity="268">
       <classes>
-        <class name="WebProject._Default" filename="C:\Users\olgie\Desktop\New folder (3)\WebProject\WebProject\Default.aspx.cs" line-rate="0" branch-rate="1" complexity="NaN">
+        <class name="WebProject._Default" filename="C:\Users\kuora\Desktop\psi\PSI\WebProject\WebProject\Default.aspx.cs" line-rate="0" branch-rate="1" complexity="NaN">
           <methods>
             <method name="Page_Load" signature="(System.Object,System.EventArgs)" line-rate="0" branch-rate="1" complexity="NaN">
               <lines>
@@ -3225,7 +3225,7 @@
             <line number="15" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="WebProject.About" filename="C:\Users\olgie\Desktop\New folder (3)\WebProject\WebProject\Presentation\About.aspx.cs" line-rate="0" branch-rate="1" complexity="NaN">
+        <class name="WebProject.About" filename="C:\Users\kuora\Desktop\psi\PSI\WebProject\WebProject\Presentation\About.aspx.cs" line-rate="0" branch-rate="1" complexity="NaN">
           <methods>
             <method name="Page_Load" signature="(System.Object,System.EventArgs)" line-rate="0" branch-rate="1" complexity="NaN">
               <lines>
@@ -3239,7 +3239,7 @@
             <line number="15" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="WebProject.BundleConfig" filename="C:\Users\olgie\Desktop\New folder (3)\WebProject\WebProject\App_Start\BundleConfig.cs" line-rate="0" branch-rate="1" complexity="NaN">
+        <class name="WebProject.BundleConfig" filename="C:\Users\kuora\Desktop\psi\PSI\WebProject\WebProject\App_Start\BundleConfig.cs" line-rate="0" branch-rate="1" complexity="NaN">
           <methods>
             <method name="RegisterBundles" signature="(System.Web.Optimization.BundleCollection)" line-rate="0" branch-rate="1" complexity="NaN">
               <lines>
@@ -3285,7 +3285,7 @@
             <line number="36" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="WebProject.Business_logic.RetrieveGasStationLocationPrice" filename="C:\Users\olgie\Desktop\New folder (3)\WebProject\WebProject\Business_logic\RetrieveGasStationLocationPrice.cs" line-rate="0" branch-rate="0" complexity="1">
+        <class name="WebProject.Business_logic.RetrieveGasStationLocationPrice" filename="C:\Users\kuora\Desktop\psi\PSI\WebProject\WebProject\Business_logic\RetrieveGasStationLocationPrice.cs" line-rate="0" branch-rate="0" complexity="1">
           <methods>
             <method name="getGasTypesID" signature="(System.String[])" line-rate="0" branch-rate="0" complexity="NaN">
               <lines>
@@ -3355,7 +3355,7 @@
             <line number="47" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="WebProject.Business_logic.RetrieveGasStationLocations" filename="C:\Users\olgie\Desktop\New folder (3)\WebProject\WebProject\Business_logic\RetrieveGasStationLocations.cs" line-rate="0" branch-rate="0" complexity="1">
+        <class name="WebProject.Business_logic.RetrieveGasStationLocations" filename="C:\Users\kuora\Desktop\psi\PSI\WebProject\WebProject\Business_logic\RetrieveGasStationLocations.cs" line-rate="0" branch-rate="0" complexity="1">
           <methods>
             <method name="getGasStationLocations" signature="(System.String,System.Int32,WebProject.IGasStation)" line-rate="0" branch-rate="0" complexity="NaN">
               <lines>
@@ -3471,7 +3471,7 @@
             <line number="82" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="WebProject.Business_logic.RetrieveGasStations" filename="C:\Users\olgie\Desktop\New folder (3)\WebProject\WebProject\Business_logic\RetrieveGasStations.cs" line-rate="0" branch-rate="0" complexity="4">
+        <class name="WebProject.Business_logic.RetrieveGasStations" filename="C:\Users\kuora\Desktop\psi\PSI\WebProject\WebProject\Business_logic\RetrieveGasStations.cs" line-rate="0" branch-rate="0" complexity="4">
           <methods>
             <method name="getGasStations" signature="()" line-rate="0" branch-rate="0" complexity="3">
               <lines>
@@ -3575,7 +3575,7 @@
             <line number="73" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="WebProject.Business_logic.UpdateGasStationLocationPrice" filename="C:\Users\olgie\Desktop\New folder (3)\WebProject\WebProject\Business_logic\UpdateGasStationLocationPrice.cs" line-rate="0" branch-rate="0" complexity="1">
+        <class name="WebProject.Business_logic.UpdateGasStationLocationPrice" filename="C:\Users\kuora\Desktop\psi\PSI\WebProject\WebProject\Business_logic\UpdateGasStationLocationPrice.cs" line-rate="0" branch-rate="0" complexity="1">
           <methods>
             <method name="updateGasStationLocationPrice" signature="(System.Int32,System.Int32,System.Collections.Generic.List`1&lt;System.Int32&gt;,System.Collections.Generic.List`1&lt;System.Single&gt;)" line-rate="0" branch-rate="0" complexity="NaN">
               <lines>
@@ -3661,7 +3661,7 @@
             <line number="56" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="WebProject.Contact" filename="C:\Users\olgie\Desktop\New folder (3)\WebProject\WebProject\Presentation\Contact.aspx.cs" line-rate="0" branch-rate="1" complexity="NaN">
+        <class name="WebProject.Contact" filename="C:\Users\kuora\Desktop\psi\PSI\WebProject\WebProject\Presentation\Contact.aspx.cs" line-rate="0" branch-rate="1" complexity="NaN">
           <methods>
             <method name="Page_Load" signature="(System.Object,System.EventArgs)" line-rate="0" branch-rate="1" complexity="NaN">
               <lines>
@@ -3675,7 +3675,7 @@
             <line number="15" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="WebProject.Coords" filename="C:\Users\olgie\Desktop\New folder (3)\WebProject\WebProject\Data\Location.cs" line-rate="0" branch-rate="1" complexity="1">
+        <class name="WebProject.Coords" filename="C:\Users\kuora\Desktop\psi\PSI\WebProject\WebProject\Data\Location.cs" line-rate="0" branch-rate="1" complexity="1">
           <methods>
             <method name="X" signature="()" line-rate="0" branch-rate="1" complexity="NaN">
               <lines>
@@ -3711,7 +3711,7 @@
             <line number="39" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="WebProject.Data.ExceptionLogger" filename="C:\Users\olgie\Desktop\New folder (3)\WebProject\WebProject\Data\ExceptionLogger.cs" line-rate="0" branch-rate="0" complexity="3">
+        <class name="WebProject.Data.ExceptionLogger" filename="C:\Users\kuora\Desktop\psi\PSI\WebProject\WebProject\Data\ExceptionLogger.cs" line-rate="0" branch-rate="0" complexity="3">
           <methods>
             <method name="logAsync" signature="(T)" line-rate="0" branch-rate="1" complexity="NaN">
               <lines>
@@ -3761,7 +3761,7 @@
             <line number="34" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="WebProject.Data.ExistingGasModule" filename="C:\Users\olgie\Desktop\New folder (3)\WebProject\WebProject\Data\ExistingGasModule.cs" line-rate="0.53125" branch-rate="0.4" complexity="6">
+        <class name="WebProject.Data.ExistingGasModule" filename="C:\Users\kuora\Desktop\psi\PSI\WebProject\WebProject\Data\ExistingGasModule.cs" line-rate="0.53125" branch-rate="0.4" complexity="6">
           <methods>
             <method name="getModule" signature="(System.String)" line-rate="0.6" branch-rate="0.4" complexity="NaN">
               <lines>
@@ -3859,7 +3859,7 @@
             <line number="82" hits="2" branch="false" />
           </lines>
         </class>
-        <class name="WebProject.Data.GasStationDataContainer`2" filename="C:\Users\olgie\Desktop\New folder (3)\WebProject\WebProject\Data\GasStationDataContainer.cs" line-rate="0" branch-rate="1" complexity="NaN">
+        <class name="WebProject.Data.GasStationDataContainer`2" filename="C:\Users\kuora\Desktop\psi\PSI\WebProject\WebProject\Data\GasStationDataContainer.cs" line-rate="0" branch-rate="1" complexity="NaN">
           <methods>
             <method name="Item1" signature="()" line-rate="0" branch-rate="1" complexity="NaN">
               <lines>
@@ -3887,7 +3887,7 @@
             <line number="11" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="WebProject.Data.GasStationItemContainer`3" filename="C:\Users\olgie\Desktop\New folder (3)\WebProject\WebProject\Data\GasStationItemContainer.cs" line-rate="0" branch-rate="1" complexity="NaN">
+        <class name="WebProject.Data.GasStationItemContainer`3" filename="C:\Users\kuora\Desktop\psi\PSI\WebProject\WebProject\Data\GasStationItemContainer.cs" line-rate="0" branch-rate="1" complexity="NaN">
           <methods>
             <method name="Item1" signature="()" line-rate="0" branch-rate="1" complexity="NaN">
               <lines>
@@ -3926,7 +3926,7 @@
             <line number="12" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="WebProject.Data.GasTypes" filename="C:\Users\olgie\Desktop\New folder (3)\WebProject\WebProject\Data\GasTypes.cs" line-rate="0.2" branch-rate="1" complexity="5">
+        <class name="WebProject.Data.GasTypes" filename="C:\Users\kuora\Desktop\psi\PSI\WebProject\WebProject\Data\GasTypes.cs" line-rate="0.2" branch-rate="1" complexity="5">
           <methods>
             <method name="GetGasTypes" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
@@ -3982,7 +3982,7 @@
             <line number="49" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="WebProject.Data.JsonEntity.PredictedBox" filename="C:\Users\olgie\Desktop\New folder (3)\WebProject\WebProject\Data\JsonEntity\PredictedBox.cs" line-rate="1" branch-rate="1" complexity="NaN">
+        <class name="WebProject.Data.JsonEntity.PredictedBox" filename="C:\Users\kuora\Desktop\psi\PSI\WebProject\WebProject\Data\JsonEntity\PredictedBox.cs" line-rate="1" branch-rate="1" complexity="NaN">
           <methods>
             <method name="id" signature="()" line-rate="1" branch-rate="1" complexity="NaN">
               <lines>
@@ -4120,7 +4120,7 @@
             <line number="21" hits="4" branch="false" />
           </lines>
         </class>
-        <class name="WebProject.Data.JsonEntity.RawOcr" filename="C:\Users\olgie\Desktop\New folder (3)\WebProject\WebProject\Data\JsonEntity\RawOcr.cs" line-rate="1" branch-rate="1" complexity="NaN">
+        <class name="WebProject.Data.JsonEntity.RawOcr" filename="C:\Users\kuora\Desktop\psi\PSI\WebProject\WebProject\Data\JsonEntity\RawOcr.cs" line-rate="1" branch-rate="1" complexity="NaN">
           <methods>
             <method name="id" signature="()" line-rate="1" branch-rate="1" complexity="NaN">
               <lines>
@@ -4247,7 +4247,7 @@
             <line number="20" hits="4" branch="false" />
           </lines>
         </class>
-        <class name="WebProject.Data.JsonEntity.Root" filename="C:\Users\olgie\Desktop\New folder (3)\WebProject\WebProject\Data\JsonEntity\Root.cs" line-rate="1" branch-rate="1" complexity="NaN">
+        <class name="WebProject.Data.JsonEntity.Root" filename="C:\Users\kuora\Desktop\psi\PSI\WebProject\WebProject\Data\JsonEntity\Root.cs" line-rate="1" branch-rate="1" complexity="NaN">
           <methods>
             <method name="moderated_images_count" signature="()" line-rate="1" branch-rate="1" complexity="NaN">
               <lines>
@@ -4308,7 +4308,7 @@
             <line number="14" hits="2" branch="false" />
           </lines>
         </class>
-        <class name="WebProject.Data.JsonEntity.Rootobject" filename="C:\Users\olgie\Desktop\New folder (3)\WebProject\WebProject\Data\JsonEntity\Rootobject.cs" line-rate="0" branch-rate="1" complexity="NaN">
+        <class name="WebProject.Data.JsonEntity.Rootobject" filename="C:\Users\kuora\Desktop\psi\PSI\WebProject\WebProject\Data\JsonEntity\Rootobject.cs" line-rate="0" branch-rate="1" complexity="NaN">
           <methods>
             <method name="Property1" signature="()" line-rate="0" branch-rate="1" complexity="NaN">
               <lines>
@@ -4325,7 +4325,7 @@
             <line number="11" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="WebProject.Data.JsonEntity.SignedUrls" filename="C:\Users\olgie\Desktop\New folder (3)\WebProject\WebProject\Data\JsonEntity\SignedUrls.cs" line-rate="0" branch-rate="1" complexity="NaN">
+        <class name="WebProject.Data.JsonEntity.SignedUrls" filename="C:\Users\kuora\Desktop\psi\PSI\WebProject\WebProject\Data\JsonEntity\SignedUrls.cs" line-rate="0" branch-rate="1" complexity="NaN">
           <methods>
             <method name="Uploadedfiles856a88e18fae4bf9Be3eCd68e90051b0PredictionImages3edf015016d0435fB9ee1b6062e31422Jpeg" signature="()" line-rate="0" branch-rate="1" complexity="NaN">
               <lines>
@@ -4342,7 +4342,7 @@
             <line number="12" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="WebProject.Data.JsonEntity.Size" filename="C:\Users\olgie\Desktop\New folder (3)\WebProject\WebProject\Data\JsonEntity\Size.cs" line-rate="1" branch-rate="1" complexity="NaN">
+        <class name="WebProject.Data.JsonEntity.Size" filename="C:\Users\kuora\Desktop\psi\PSI\WebProject\WebProject\Data\JsonEntity\Size.cs" line-rate="1" branch-rate="1" complexity="NaN">
           <methods>
             <method name="width" signature="()" line-rate="1" branch-rate="1" complexity="NaN">
               <lines>
@@ -4370,7 +4370,7 @@
             <line number="11" hits="1" branch="false" />
           </lines>
         </class>
-        <class name="WebProject.Data.JsonEntity.UnmoderatedImage" filename="C:\Users\olgie\Desktop\New folder (3)\WebProject\WebProject\Data\JsonEntity\UnmoderatedImage.cs" line-rate="1" branch-rate="1" complexity="NaN">
+        <class name="WebProject.Data.JsonEntity.UnmoderatedImage" filename="C:\Users\kuora\Desktop\psi\PSI\WebProject\WebProject\Data\JsonEntity\UnmoderatedImage.cs" line-rate="1" branch-rate="1" complexity="NaN">
           <methods>
             <method name="model_id" signature="()" line-rate="1" branch-rate="1" complexity="NaN">
               <lines>
@@ -4750,7 +4750,7 @@
             <line number="43" hits="1" branch="false" />
           </lines>
         </class>
-        <class name="WebProject.Data.JsonEntity.UploadedFiles" filename="C:\Users\olgie\Desktop\New folder (3)\WebProject\WebProject\Data\JsonEntity\UploadedFiles.cs" line-rate="0" branch-rate="1" complexity="NaN">
+        <class name="WebProject.Data.JsonEntity.UploadedFiles" filename="C:\Users\kuora\Desktop\psi\PSI\WebProject\WebProject\Data\JsonEntity\UploadedFiles.cs" line-rate="0" branch-rate="1" complexity="NaN">
           <methods>
             <method name="original" signature="()" line-rate="0" branch-rate="1" complexity="NaN">
               <lines>
@@ -4833,7 +4833,7 @@
             <line number="16" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="WebProject.Data.LocationData" filename="C:\Users\olgie\Desktop\New folder (3)\WebProject\WebProject\Data\LocationData.cs" line-rate="0" branch-rate="0" complexity="NaN">
+        <class name="WebProject.Data.LocationData" filename="C:\Users\kuora\Desktop\psi\PSI\WebProject\WebProject\Data\LocationData.cs" line-rate="0" branch-rate="0" complexity="NaN">
           <methods>
             <method name="getData" signature="(System.String)" line-rate="0" branch-rate="0" complexity="NaN">
               <lines>
@@ -4873,7 +4873,7 @@
             <line number="31" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="WebProject.Data.MessageService" filename="C:\Users\olgie\Desktop\New folder (3)\WebProject\WebProject\Data\MessageService.cs" line-rate="0" branch-rate="1" complexity="NaN">
+        <class name="WebProject.Data.MessageService" filename="C:\Users\kuora\Desktop\psi\PSI\WebProject\WebProject\Data\MessageService.cs" line-rate="0" branch-rate="1" complexity="NaN">
           <methods>
             <method name="FileUpload" signature="(WebProject.Data.UploadHandling`1&lt;T&gt;,WebProject.Data.UploadHandling`1/UploadEventArgs&lt;T&gt;)" line-rate="0" branch-rate="1" complexity="NaN">
               <lines>
@@ -4885,7 +4885,7 @@
             <line number="11" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="WebProject.Data.Repositories.CheckValidation" filename="C:\Users\olgie\Desktop\New folder (3)\WebProject\WebProject\Business_logic\CheckValidation.cs" line-rate="0.876712328767123" branch-rate="0.785714285714286" complexity="NaN">
+        <class name="WebProject.Data.Repositories.CheckValidation" filename="C:\Users\kuora\Desktop\psi\PSI\WebProject\WebProject\Business_logic\CheckValidation.cs" line-rate="0.876712328767123" branch-rate="0.785714285714286" complexity="NaN">
           <methods>
             <method name="CheckIfEmpty" signature="(System.Collections.Generic.Dictionary`2&lt;System.String,System.Collections.Generic.List`1&lt;System.String&gt;&gt;,System.Collections.Generic.Dictionary`2&lt;System.String,System.Collections.Generic.List`1&lt;System.String&gt;&gt;)" line-rate="0.876712328767123" branch-rate="0.785714285714286" complexity="NaN">
               <lines>
@@ -5041,7 +5041,7 @@
             <line number="114" hits="3" branch="false" />
           </lines>
         </class>
-        <class name="WebProject.Data.Repositories.PictureParserClient" filename="C:\Users\olgie\Desktop\New folder (3)\WebProject\WebProject\Data\Repositories\PictureParserClient.cs" line-rate="0" branch-rate="1" complexity="NaN">
+        <class name="WebProject.Data.Repositories.PictureParserClient" filename="C:\Users\kuora\Desktop\psi\PSI\WebProject\WebProject\Data\Repositories\PictureParserClient.cs" line-rate="0" branch-rate="1" complexity="NaN">
           <methods>
             <method name=".ctor" signature="(WebProject.Data.Repositories.IPictureParserService)" line-rate="0" branch-rate="1" complexity="NaN">
               <lines>
@@ -5091,7 +5091,7 @@
             <line number="32" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="WebProject.Data.Repositories.PictureParserService" filename="C:\Users\olgie\Desktop\New folder (3)\WebProject\WebProject\Data\Repositories\PictureParserService.cs" line-rate="0.535714285714286" branch-rate="0.833333333333333" complexity="NaN">
+        <class name="WebProject.Data.Repositories.PictureParserService" filename="C:\Users\kuora\Desktop\psi\PSI\WebProject\WebProject\Data\Repositories\PictureParserService.cs" line-rate="0.535714285714286" branch-rate="0.833333333333333" complexity="NaN">
           <methods>
             <method name="RestPost" signature="(System.String,System.String)" line-rate="0" branch-rate="1" complexity="NaN">
               <lines>
@@ -5221,7 +5221,7 @@
             <line number="97" hits="1" branch="false" />
           </lines>
         </class>
-        <class name="WebProject.Data.Repositories.ResultValidation" filename="C:\Users\olgie\Desktop\New folder (3)\WebProject\WebProject\Business_logic\ResultValidation.cs" line-rate="0.806451612903226" branch-rate="0.625" complexity="NaN">
+        <class name="WebProject.Data.Repositories.ResultValidation" filename="C:\Users\kuora\Desktop\psi\PSI\WebProject\WebProject\Business_logic\ResultValidation.cs" line-rate="0.806451612903226" branch-rate="0.625" complexity="NaN">
           <methods>
             <method name="ValidateResult" signature="(System.Collections.Generic.Dictionary`2&lt;System.String,System.Collections.Generic.List`1&lt;System.String&gt;&gt;,System.Int32,System.Int32)" line-rate="0.806451612903226" branch-rate="0.625" complexity="NaN">
               <lines>
@@ -5355,7 +5355,7 @@
             <line number="104" hits="3" branch="false" />
           </lines>
         </class>
-        <class name="WebProject.Data.SelectedGasStationStatusExtensions" filename="C:\Users\olgie\Desktop\New folder (3)\WebProject\WebProject\Data\SelectedGasStationStatusExtensions.cs" line-rate="0.444444444444444" branch-rate="0.166666666666667" complexity="NaN">
+        <class name="WebProject.Data.SelectedGasStationStatusExtensions" filename="C:\Users\kuora\Desktop\psi\PSI\WebProject\WebProject\Data\SelectedGasStationStatusExtensions.cs" line-rate="0.444444444444444" branch-rate="0.166666666666667" complexity="NaN">
           <methods>
             <method name="GetGasTypes" signature="(WebProject.Data.SelectedGasStationStatus,WebProject.Data.SelectedGasStationStatus)" line-rate="0.444444444444444" branch-rate="0.166666666666667" complexity="NaN">
               <lines>
@@ -5383,7 +5383,7 @@
             <line number="29" hits="1" branch="false" />
           </lines>
         </class>
-        <class name="WebProject.Data.UploadHandling`1" filename="C:\Users\olgie\Desktop\New folder (3)\WebProject\WebProject\Data\UploadHandling.cs" line-rate="0" branch-rate="0" complexity="NaN">
+        <class name="WebProject.Data.UploadHandling`1" filename="C:\Users\kuora\Desktop\psi\PSI\WebProject\WebProject\Data\UploadHandling.cs" line-rate="0" branch-rate="0" complexity="NaN">
           <methods>
             <method name="Upload" signature="(System.String,System.String,System.String,System.Web.HttpPostedFile)" line-rate="0" branch-rate="0" complexity="NaN">
               <lines>
@@ -5469,7 +5469,7 @@
             <line number="61" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="WebProject.GasData" filename="C:\Users\olgie\Desktop\New folder (3)\WebProject\WebProject\Data\GasData.cs" line-rate="0" branch-rate="0" complexity="15">
+        <class name="WebProject.GasData" filename="C:\Users\kuora\Desktop\psi\PSI\WebProject\WebProject\Data\GasData.cs" line-rate="0" branch-rate="0" complexity="15">
           <methods>
             <method name="getData" signature="(WebProject.IGasStation)" line-rate="0" branch-rate="1" complexity="NaN">
               <lines>
@@ -5781,7 +5781,7 @@
             <line number="218" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="WebProject.GasEnumerator" filename="C:\Users\olgie\Desktop\New folder (3)\WebProject\WebProject\Data\GasStations.cs" line-rate="0" branch-rate="1" complexity="2">
+        <class name="WebProject.GasEnumerator" filename="C:\Users\kuora\Desktop\psi\PSI\WebProject\WebProject\Data\GasStations.cs" line-rate="0" branch-rate="1" complexity="2">
           <methods>
             <method name="em.Collections.IEnumerator.get_Current" signature="()" line-rate="0" branch-rate="1" complexity="NaN">
               <lines>
@@ -5853,7 +5853,7 @@
             <line number="120" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="WebProject.GasStation" filename="C:\Users\olgie\Desktop\New folder (3)\WebProject\WebProject\Data\GasStation.cs" line-rate="0" branch-rate="1" complexity="3">
+        <class name="WebProject.GasStation" filename="C:\Users\kuora\Desktop\psi\PSI\WebProject\WebProject\Data\GasStation.cs" line-rate="0" branch-rate="1" complexity="3">
           <methods>
             <method name="getID" signature="()" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -5919,7 +5919,7 @@
             <line number="53" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="WebProject.GasStations" filename="C:\Users\olgie\Desktop\New folder (3)\WebProject\WebProject\Data\GasStations.cs" line-rate="0" branch-rate="0" complexity="5">
+        <class name="WebProject.GasStations" filename="C:\Users\kuora\Desktop\psi\PSI\WebProject\WebProject\Data\GasStations.cs" line-rate="0" branch-rate="0" complexity="5">
           <methods>
             <method name=".ctor" signature="(WebProject.IGasStation[],System.String,System.Int32)" line-rate="0" branch-rate="0" complexity="NaN">
               <lines>
@@ -6035,7 +6035,7 @@
             <line number="75" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="WebProject.Global" filename="C:\Users\olgie\Desktop\New folder (3)\WebProject\WebProject\Global.asax.cs" line-rate="0" branch-rate="1" complexity="NaN">
+        <class name="WebProject.Global" filename="C:\Users\kuora\Desktop\psi\PSI\WebProject\WebProject\Global.asax.cs" line-rate="0" branch-rate="1" complexity="NaN">
           <methods>
             <method name="Application_Start" signature="(System.Object,System.EventArgs)" line-rate="0" branch-rate="1" complexity="NaN">
               <lines>
@@ -6053,7 +6053,7 @@
             <line number="19" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="WebProject.Insertion" filename="C:\Users\olgie\Desktop\New folder (3)\WebProject\WebProject\Presentation\Insertion.aspx.cs" line-rate="0.16260162601626" branch-rate="0.104651162790698" complexity="49">
+        <class name="WebProject.Insertion" filename="C:\Users\kuora\Desktop\psi\PSI\WebProject\WebProject\Presentation\Insertion.aspx.cs" line-rate="0.16260162601626" branch-rate="0.104651162790698" complexity="49">
           <methods>
             <method name="Page_Load" signature="(System.Object,System.EventArgs)" line-rate="0" branch-rate="0" complexity="NaN">
               <lines>
@@ -6913,7 +6913,7 @@
             <line number="538" hits="2" branch="false" />
           </lines>
         </class>
-        <class name="WebProject.Location" filename="C:\Users\olgie\Desktop\New folder (3)\WebProject\WebProject\Data\Location.cs" line-rate="0" branch-rate="1" complexity="1">
+        <class name="WebProject.Location" filename="C:\Users\kuora\Desktop\psi\PSI\WebProject\WebProject\Data\Location.cs" line-rate="0" branch-rate="1" complexity="1">
           <methods>
             <method name=".ctor" signature="(WebProject.Coords)" line-rate="0" branch-rate="1" complexity="NaN">
               <lines>
@@ -6951,7 +6951,7 @@
             <line number="25" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="WebProject.ProcessData" filename="C:\Users\olgie\Desktop\New folder (3)\WebProject\WebProject\Business_logic\ProcessData.cs" line-rate="0" branch-rate="0" complexity="NaN">
+        <class name="WebProject.ProcessData" filename="C:\Users\kuora\Desktop\psi\PSI\WebProject\WebProject\Business_logic\ProcessData.cs" line-rate="0" branch-rate="0" complexity="NaN">
           <methods>
             <method name="process" signature="(System.String,WebProject.IGasStation)" line-rate="0" branch-rate="0" complexity="NaN">
               <lines>
@@ -6959,48 +6959,48 @@
                 <line number="20" hits="0" branch="false" />
                 <line number="21" hits="0" branch="false" />
                 <line number="22" hits="0" branch="false" />
+                <line number="24" hits="0" branch="false" />
+                <line number="25" hits="0" branch="true" condition-coverage="0% (0/2)" />
+                <line number="26" hits="0" branch="false" />
+                <line number="27" hits="0" branch="false" />
+                <line number="28" hits="0" branch="false" />
+                <line number="29" hits="0" branch="false" />
+                <line number="30" hits="0" branch="false" />
+                <line number="31" hits="0" branch="false" />
+                <line number="32" hits="0" branch="true" condition-coverage="0% (0/2)" />
+                <line number="33" hits="0" branch="false" />
+                <line number="34" hits="0" branch="false" />
+                <line number="35" hits="0" branch="false" />
+                <line number="36" hits="0" branch="false" />
+                <line number="37" hits="0" branch="false" />
+                <line number="38" hits="0" branch="false" />
+                <line number="40" hits="0" branch="true" condition-coverage="0% (0/2)" />
+                <line number="41" hits="0" branch="false" />
+                <line number="42" hits="0" branch="false" />
+                <line number="43" hits="0" branch="false" />
+                <line number="45" hits="0" branch="false" />
+                <line number="46" hits="0" branch="false" />
+                <line number="47" hits="0" branch="false" />
+                <line number="48" hits="0" branch="false" />
+                <line number="49" hits="0" branch="false" />
+                <line number="50" hits="0" branch="false" />
+                <line number="51" hits="0" branch="false" />
+                <line number="52" hits="0" branch="false" />
+                <line number="53" hits="0" branch="false" />
+                <line number="54" hits="0" branch="false" />
+                <line number="55" hits="0" branch="false" />
+                <line number="56" hits="0" branch="false" />
+                <line number="58" hits="0" branch="true" condition-coverage="0% (0/2)" />
+                <line number="59" hits="0" branch="false" />
+                <line number="60" hits="0" branch="false" />
+                <line number="61" hits="0" branch="false" />
+                <line number="62" hits="0" branch="false" />
+                <line number="63" hits="0" branch="false" />
+                <line number="64" hits="0" branch="false" />
                 <line number="65" hits="0" branch="false" />
-                <line number="66" hits="0" branch="true" condition-coverage="0% (0/2)" />
+                <line number="66" hits="0" branch="false" />
                 <line number="67" hits="0" branch="false" />
                 <line number="68" hits="0" branch="false" />
-                <line number="69" hits="0" branch="false" />
-                <line number="70" hits="0" branch="false" />
-                <line number="71" hits="0" branch="false" />
-                <line number="72" hits="0" branch="false" />
-                <line number="73" hits="0" branch="true" condition-coverage="0% (0/2)" />
-                <line number="74" hits="0" branch="false" />
-                <line number="75" hits="0" branch="false" />
-                <line number="76" hits="0" branch="false" />
-                <line number="77" hits="0" branch="false" />
-                <line number="78" hits="0" branch="false" />
-                <line number="79" hits="0" branch="false" />
-                <line number="81" hits="0" branch="true" condition-coverage="0% (0/2)" />
-                <line number="82" hits="0" branch="false" />
-                <line number="83" hits="0" branch="false" />
-                <line number="84" hits="0" branch="false" />
-                <line number="86" hits="0" branch="false" />
-                <line number="87" hits="0" branch="false" />
-                <line number="88" hits="0" branch="false" />
-                <line number="89" hits="0" branch="false" />
-                <line number="90" hits="0" branch="false" />
-                <line number="91" hits="0" branch="false" />
-                <line number="92" hits="0" branch="false" />
-                <line number="93" hits="0" branch="false" />
-                <line number="94" hits="0" branch="false" />
-                <line number="95" hits="0" branch="false" />
-                <line number="96" hits="0" branch="false" />
-                <line number="97" hits="0" branch="false" />
-                <line number="99" hits="0" branch="true" condition-coverage="0% (0/2)" />
-                <line number="100" hits="0" branch="false" />
-                <line number="101" hits="0" branch="false" />
-                <line number="102" hits="0" branch="false" />
-                <line number="103" hits="0" branch="false" />
-                <line number="104" hits="0" branch="false" />
-                <line number="105" hits="0" branch="false" />
-                <line number="106" hits="0" branch="false" />
-                <line number="107" hits="0" branch="false" />
-                <line number="108" hits="0" branch="false" />
-                <line number="109" hits="0" branch="false" />
               </lines>
             </method>
           </methods>
@@ -7009,51 +7009,51 @@
             <line number="20" hits="0" branch="false" />
             <line number="21" hits="0" branch="false" />
             <line number="22" hits="0" branch="false" />
+            <line number="24" hits="0" branch="false" />
+            <line number="25" hits="0" branch="true" condition-coverage="0% (0/2)" />
+            <line number="26" hits="0" branch="false" />
+            <line number="27" hits="0" branch="false" />
+            <line number="28" hits="0" branch="false" />
+            <line number="29" hits="0" branch="false" />
+            <line number="30" hits="0" branch="false" />
+            <line number="31" hits="0" branch="false" />
+            <line number="32" hits="0" branch="true" condition-coverage="0% (0/2)" />
+            <line number="33" hits="0" branch="false" />
+            <line number="34" hits="0" branch="false" />
+            <line number="35" hits="0" branch="false" />
+            <line number="36" hits="0" branch="false" />
+            <line number="37" hits="0" branch="false" />
+            <line number="38" hits="0" branch="false" />
+            <line number="40" hits="0" branch="true" condition-coverage="0% (0/2)" />
+            <line number="41" hits="0" branch="false" />
+            <line number="42" hits="0" branch="false" />
+            <line number="43" hits="0" branch="false" />
+            <line number="45" hits="0" branch="false" />
+            <line number="46" hits="0" branch="false" />
+            <line number="47" hits="0" branch="false" />
+            <line number="48" hits="0" branch="false" />
+            <line number="49" hits="0" branch="false" />
+            <line number="50" hits="0" branch="false" />
+            <line number="51" hits="0" branch="false" />
+            <line number="52" hits="0" branch="false" />
+            <line number="53" hits="0" branch="false" />
+            <line number="54" hits="0" branch="false" />
+            <line number="55" hits="0" branch="false" />
+            <line number="56" hits="0" branch="false" />
+            <line number="58" hits="0" branch="true" condition-coverage="0% (0/2)" />
+            <line number="59" hits="0" branch="false" />
+            <line number="60" hits="0" branch="false" />
+            <line number="61" hits="0" branch="false" />
+            <line number="62" hits="0" branch="false" />
+            <line number="63" hits="0" branch="false" />
+            <line number="64" hits="0" branch="false" />
             <line number="65" hits="0" branch="false" />
-            <line number="66" hits="0" branch="true" condition-coverage="0% (0/2)" />
+            <line number="66" hits="0" branch="false" />
             <line number="67" hits="0" branch="false" />
             <line number="68" hits="0" branch="false" />
-            <line number="69" hits="0" branch="false" />
-            <line number="70" hits="0" branch="false" />
-            <line number="71" hits="0" branch="false" />
-            <line number="72" hits="0" branch="false" />
-            <line number="73" hits="0" branch="true" condition-coverage="0% (0/2)" />
-            <line number="74" hits="0" branch="false" />
-            <line number="75" hits="0" branch="false" />
-            <line number="76" hits="0" branch="false" />
-            <line number="77" hits="0" branch="false" />
-            <line number="78" hits="0" branch="false" />
-            <line number="79" hits="0" branch="false" />
-            <line number="81" hits="0" branch="true" condition-coverage="0% (0/2)" />
-            <line number="82" hits="0" branch="false" />
-            <line number="83" hits="0" branch="false" />
-            <line number="84" hits="0" branch="false" />
-            <line number="86" hits="0" branch="false" />
-            <line number="87" hits="0" branch="false" />
-            <line number="88" hits="0" branch="false" />
-            <line number="89" hits="0" branch="false" />
-            <line number="90" hits="0" branch="false" />
-            <line number="91" hits="0" branch="false" />
-            <line number="92" hits="0" branch="false" />
-            <line number="93" hits="0" branch="false" />
-            <line number="94" hits="0" branch="false" />
-            <line number="95" hits="0" branch="false" />
-            <line number="96" hits="0" branch="false" />
-            <line number="97" hits="0" branch="false" />
-            <line number="99" hits="0" branch="true" condition-coverage="0% (0/2)" />
-            <line number="100" hits="0" branch="false" />
-            <line number="101" hits="0" branch="false" />
-            <line number="102" hits="0" branch="false" />
-            <line number="103" hits="0" branch="false" />
-            <line number="104" hits="0" branch="false" />
-            <line number="105" hits="0" branch="false" />
-            <line number="106" hits="0" branch="false" />
-            <line number="107" hits="0" branch="false" />
-            <line number="108" hits="0" branch="false" />
-            <line number="109" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="WebProject.RouteConfig" filename="C:\Users\olgie\Desktop\New folder (3)\WebProject\WebProject\App_Start\RouteConfig.cs" line-rate="0" branch-rate="1" complexity="NaN">
+        <class name="WebProject.RouteConfig" filename="C:\Users\kuora\Desktop\psi\PSI\WebProject\WebProject\App_Start\RouteConfig.cs" line-rate="0" branch-rate="1" complexity="NaN">
           <methods>
             <method name="RegisterRoutes" signature="(System.Web.Routing.RouteCollection)" line-rate="0" branch-rate="1" complexity="NaN">
               <lines>
@@ -7073,7 +7073,7 @@
             <line number="16" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="WebProject.Site_Mobile" filename="C:\Users\olgie\Desktop\New folder (3)\WebProject\WebProject\Site.Mobile.Master.cs" line-rate="0" branch-rate="1" complexity="NaN">
+        <class name="WebProject.Site_Mobile" filename="C:\Users\kuora\Desktop\psi\PSI\WebProject\WebProject\Site.Mobile.Master.cs" line-rate="0" branch-rate="1" complexity="NaN">
           <methods>
             <method name="Page_Load" signature="(System.Object,System.EventArgs)" line-rate="0" branch-rate="1" complexity="NaN">
               <lines>
@@ -7087,7 +7087,7 @@
             <line number="15" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="WebProject.SiteMaster" filename="C:\Users\olgie\Desktop\New folder (3)\WebProject\WebProject\Site.Master.cs" line-rate="0" branch-rate="1" complexity="NaN">
+        <class name="WebProject.SiteMaster" filename="C:\Users\kuora\Desktop\psi\PSI\WebProject\WebProject\Site.Master.cs" line-rate="0" branch-rate="1" complexity="NaN">
           <methods>
             <method name="Page_Load" signature="(System.Object,System.EventArgs)" line-rate="0" branch-rate="1" complexity="NaN">
               <lines>
@@ -7101,63 +7101,105 @@
             <line number="15" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="WebProject.Table" filename="C:\Users\olgie\Desktop\New folder (3)\WebProject\WebProject\Presentation\Table.aspx.cs" line-rate="0" branch-rate="0" complexity="NaN">
+        <class name="WebProject.Table" filename="C:\Users\kuora\Desktop\psi\PSI\WebProject\WebProject\Presentation\Table.aspx.cs" line-rate="0" branch-rate="0" complexity="NaN">
           <methods>
             <method name="Page_Load" signature="(System.Object,System.EventArgs)" line-rate="0" branch-rate="0" complexity="NaN">
               <lines>
-                <line number="19" hits="0" branch="false" />
-                <line number="20" hits="0" branch="true" condition-coverage="0% (0/2)" />
-                <line number="21" hits="0" branch="false" />
-                <line number="22" hits="0" branch="false" />
-                <line number="29" hits="0" branch="false" />
-                <line number="30" hits="0" branch="false" />
-                <line number="31" hits="0" branch="false" />
-                <line number="32" hits="0" branch="false" />
-                <line number="33" hits="0" branch="false" />
+                <line number="24" hits="0" branch="false" />
+                <line number="25" hits="0" branch="true" condition-coverage="0% (0/2)" />
+                <line number="26" hits="0" branch="false" />
+                <line number="27" hits="0" branch="false" />
                 <line number="34" hits="0" branch="false" />
                 <line number="35" hits="0" branch="false" />
                 <line number="36" hits="0" branch="false" />
                 <line number="37" hits="0" branch="false" />
+                <line number="38" hits="0" branch="false" />
+                <line number="39" hits="0" branch="false" />
+                <line number="40" hits="0" branch="false" />
+                <line number="41" hits="0" branch="false" />
+                <line number="42" hits="0" branch="false" />
               </lines>
             </method>
-            <method name="GasStationSelected" signature="(System.Object,System.EventArgs)" line-rate="0" branch-rate="0" complexity="NaN">
+            <method name="GasStationSelected" signature="(System.Object,System.EventArgs)" line-rate="0" branch-rate="1" complexity="NaN">
               <lines>
-                <line number="40" hits="0" branch="false" />
-                <line number="43" hits="0" branch="false" />
-                <line number="44" hits="0" branch="false" />
-                <line number="46" hits="0" branch="true" condition-coverage="0% (0/2)" />
-                <line number="47" hits="0" branch="false" />
+                <line number="45" hits="0" branch="false" />
                 <line number="48" hits="0" branch="false" />
-                <line number="49" hits="0" branch="false" />
-                <line number="51" hits="0" branch="false" />
+                <line number="52" hits="0" branch="false" />
+                <line number="53" hits="0" branch="false" />
+                <line number="54" hits="0" branch="false" />
+                <line number="55" hits="0" branch="false" />
+                <line number="57" hits="0" branch="false" />
+                <line number="58" hits="0" branch="false" />
+                <line number="59" hits="0" branch="false" />
+                <line number="60" hits="0" branch="false" />
+                <line number="61" hits="0" branch="false" />
+                <line number="62" hits="0" branch="false" />
+                <line number="63" hits="0" branch="false" />
+                <line number="64" hits="0" branch="false" />
+                <line number="65" hits="0" branch="false" />
+                <line number="66" hits="0" branch="false" />
+                <line number="67" hits="0" branch="false" />
+                <line number="73" hits="0" branch="false" />
+                <line number="74" hits="0" branch="false" />
+                <line number="75" hits="0" branch="false" />
+                <line number="76" hits="0" branch="false" />
+                <line number="77" hits="0" branch="false" />
+                <line number="78" hits="0" branch="false" />
+                <line number="79" hits="0" branch="false" />
+                <line number="80" hits="0" branch="false" />
+                <line number="81" hits="0" branch="false" />
+                <line number="82" hits="0" branch="false" />
+                <line number="83" hits="0" branch="false" />
+                <line number="84" hits="0" branch="false" />
               </lines>
             </method>
           </methods>
           <lines>
-            <line number="19" hits="0" branch="false" />
-            <line number="20" hits="0" branch="true" condition-coverage="0% (0/2)" />
-            <line number="21" hits="0" branch="false" />
-            <line number="22" hits="0" branch="false" />
-            <line number="29" hits="0" branch="false" />
-            <line number="30" hits="0" branch="false" />
-            <line number="31" hits="0" branch="false" />
-            <line number="32" hits="0" branch="false" />
-            <line number="33" hits="0" branch="false" />
+            <line number="24" hits="0" branch="false" />
+            <line number="25" hits="0" branch="true" condition-coverage="0% (0/2)" />
+            <line number="26" hits="0" branch="false" />
+            <line number="27" hits="0" branch="false" />
             <line number="34" hits="0" branch="false" />
             <line number="35" hits="0" branch="false" />
             <line number="36" hits="0" branch="false" />
             <line number="37" hits="0" branch="false" />
+            <line number="38" hits="0" branch="false" />
+            <line number="39" hits="0" branch="false" />
             <line number="40" hits="0" branch="false" />
-            <line number="43" hits="0" branch="false" />
-            <line number="44" hits="0" branch="false" />
-            <line number="46" hits="0" branch="true" condition-coverage="0% (0/2)" />
-            <line number="47" hits="0" branch="false" />
+            <line number="41" hits="0" branch="false" />
+            <line number="42" hits="0" branch="false" />
+            <line number="45" hits="0" branch="false" />
             <line number="48" hits="0" branch="false" />
-            <line number="49" hits="0" branch="false" />
-            <line number="51" hits="0" branch="false" />
+            <line number="52" hits="0" branch="false" />
+            <line number="53" hits="0" branch="false" />
+            <line number="54" hits="0" branch="false" />
+            <line number="55" hits="0" branch="false" />
+            <line number="57" hits="0" branch="false" />
+            <line number="58" hits="0" branch="false" />
+            <line number="59" hits="0" branch="false" />
+            <line number="60" hits="0" branch="false" />
+            <line number="61" hits="0" branch="false" />
+            <line number="62" hits="0" branch="false" />
+            <line number="63" hits="0" branch="false" />
+            <line number="64" hits="0" branch="false" />
+            <line number="65" hits="0" branch="false" />
+            <line number="66" hits="0" branch="false" />
+            <line number="67" hits="0" branch="false" />
+            <line number="73" hits="0" branch="false" />
+            <line number="74" hits="0" branch="false" />
+            <line number="75" hits="0" branch="false" />
+            <line number="76" hits="0" branch="false" />
+            <line number="77" hits="0" branch="false" />
+            <line number="78" hits="0" branch="false" />
+            <line number="79" hits="0" branch="false" />
+            <line number="80" hits="0" branch="false" />
+            <line number="81" hits="0" branch="false" />
+            <line number="82" hits="0" branch="false" />
+            <line number="83" hits="0" branch="false" />
+            <line number="84" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="WebProject.ViewSwitcher" filename="C:\Users\olgie\Desktop\New folder (3)\WebProject\WebProject\ViewSwitcher.ascx.cs" line-rate="0" branch-rate="0" complexity="NaN">
+        <class name="WebProject.ViewSwitcher" filename="C:\Users\kuora\Desktop\psi\PSI\WebProject\WebProject\ViewSwitcher.ascx.cs" line-rate="0" branch-rate="0" complexity="NaN">
           <methods>
             <method name="CurrentView" signature="()" line-rate="0" branch-rate="1" complexity="NaN">
               <lines>
@@ -7232,7 +7274,7 @@
     </package>
     <package name="WebProjectTests" line-rate="0.956284153005464" branch-rate="0.5" complexity="33">
       <classes>
-        <class name="WebProjectTests.BusinessLogicTests" filename="C:\Users\olgie\Desktop\New folder (3)\WebProject\WebProjectTests\BusinessLogicTests.cs" line-rate="0.846153846153846" branch-rate="0.5" complexity="4">
+        <class name="WebProjectTests.BusinessLogicTests" filename="C:\Users\kuora\Desktop\psi\PSI\WebProject\WebProjectTests\BusinessLogicTests.cs" line-rate="0.846153846153846" branch-rate="0.5" complexity="4">
           <methods>
             <method name="_resultValidation" signature="()" line-rate="1" branch-rate="1" complexity="NaN">
               <lines>
@@ -7372,7 +7414,7 @@
             <line number="127" hits="3" branch="false" />
           </lines>
         </class>
-        <class name="WebProjectTests.ExistingGasStationServiceTests" filename="C:\Users\olgie\Desktop\New folder (3)\WebProject\WebProjectTests\ExistingGasStationServiceTests.cs" line-rate="1" branch-rate="1" complexity="3">
+        <class name="WebProjectTests.ExistingGasStationServiceTests" filename="C:\Users\kuora\Desktop\psi\PSI\WebProject\WebProjectTests\ExistingGasStationServiceTests.cs" line-rate="1" branch-rate="1" complexity="3">
           <methods>
             <method name="Setup" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
@@ -7420,7 +7462,7 @@
             <line number="54" hits="1" branch="false" />
           </lines>
         </class>
-        <class name="WebProjectTests.GasModuleServiceTests" filename="C:\Users\olgie\Desktop\New folder (3)\WebProject\WebProjectTests\GasModuleServiceTests.cs" line-rate="1" branch-rate="1" complexity="4">
+        <class name="WebProjectTests.GasModuleServiceTests" filename="C:\Users\kuora\Desktop\psi\PSI\WebProject\WebProjectTests\GasModuleServiceTests.cs" line-rate="1" branch-rate="1" complexity="4">
           <methods>
             <method name="_existingGasModule" signature="()" line-rate="1" branch-rate="1" complexity="NaN">
               <lines>
@@ -7480,7 +7522,7 @@
             <line number="48" hits="1" branch="false" />
           </lines>
         </class>
-        <class name="WebProjectTests.PictureParserServiceTests" filename="C:\Users\olgie\Desktop\New folder (3)\WebProject\WebProjectTests\PictureParserServiceTests.cs" line-rate="1" branch-rate="1" complexity="3">
+        <class name="WebProjectTests.PictureParserServiceTests" filename="C:\Users\kuora\Desktop\psi\PSI\WebProject\WebProjectTests\PictureParserServiceTests.cs" line-rate="1" branch-rate="1" complexity="3">
           <methods>
             <method name="_pictureParserService" signature="()" line-rate="1" branch-rate="1" complexity="NaN">
               <lines>
@@ -7546,7 +7588,7 @@
             <line number="48" hits="1" branch="false" />
           </lines>
         </class>
-        <class name="WebProjectUnit.Tests.InsertionClassTests" filename="C:\Users\olgie\Desktop\New folder (3)\WebProject\WebProjectTests\InsertionClassTests.cs" line-rate="1" branch-rate="1" complexity="13">
+        <class name="WebProjectUnit.Tests.InsertionClassTests" filename="C:\Users\kuora\Desktop\psi\PSI\WebProject\WebProjectTests\InsertionClassTests.cs" line-rate="1" branch-rate="1" complexity="13">
           <methods>
             <method name="_insertionClass" signature="()" line-rate="1" branch-rate="1" complexity="NaN">
               <lines>

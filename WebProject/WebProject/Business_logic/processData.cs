@@ -20,48 +20,7 @@ namespace WebProject
             List<GasStations> list = GasData.getData(gasStation);
             List<HtmlTableRow> rows = new List<HtmlTableRow>();
             List<string> keywords = new List<string> { "Location", "Compony" };
-            /*
-            // ******************** Olgierd's additional linq method usage with query
-            // trying to create a linq ienumerable method and write down a query with select
-            IEnumerable<GasStations> query =
-                from gasStation in list
-                where gasStation.getName().Contains(selectedGasStation)
-                select gasStation;
-
-            // print query
-            foreach (GasStations gasStation in query)
-            {
-                HtmlTableRow row = new HtmlTableRow();
-                HtmlTableCell cell = new HtmlTableCell();
-                cell.InnerText = gasStation.getName();
-                row.Cells.Add(cell);
-                rows.Add(row);
-                foreach (GasStation station in gasStation.getStations())
-                {
-                    HtmlTableRow row2 = new HtmlTableRow();
-                    HtmlTableCell cell2 = new HtmlTableCell();
-                    cell2.InnerText = station.getAddress();
-                    row2.Cells.Add(cell2);
-                    rows.Add(row2);
-                    foreach (string price in station.getPrices())
-                    {
-                        HtmlTableRow row3 = new HtmlTableRow();
-                        HtmlTableCell cell3 = new HtmlTableCell();
-                        cell3.InnerText = price;
-                        row3.Cells.Add(cell3);
-                        rows.Add(row3);
-                    }
-                }
-            }
-            // ***********************
-            */
-
-
-
-
            
-
-
             HtmlTableRow firstRow = new HtmlTableRow();
             for (int i = 0; i < keywords.Count(); i++)
             {
