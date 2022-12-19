@@ -53,10 +53,10 @@ namespace WebProject
             var request2 = new RestRequest("/WeatherForecast?id=" + GasStation.Items.IndexOf(GasStation.Items.FindByText(selectedGasStation)), Method.Get);
             RestResponse response2 = client2.Execute(request2);
             List<List<string>> output = JsonConvert.DeserializeObject<List<List<string>>>(response2.Content);
-            
+                
+
 
             
-
             foreach (var rows in output)
             {
                 HtmlTableRow row = new HtmlTableRow();

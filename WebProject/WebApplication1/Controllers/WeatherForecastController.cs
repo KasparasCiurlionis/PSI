@@ -26,5 +26,6 @@ namespace WebApplication1.Controllers
             lines.Insert(0, "All");
             return ProcessData.process(lines[id], new GasStation());
         }
+        
     }
 }
