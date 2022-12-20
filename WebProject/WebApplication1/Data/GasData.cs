@@ -20,7 +20,7 @@ namespace WebApplication1
 {
     public class GasData 
     {
-        private readonly static string ConnectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\""+ Environment.CurrentDirectory + "\\App_Data\\Database1.mdf\";Integrated Security = True";
+        private readonly static string ConnectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\kuora\\Desktop\\New folder\\PSI\\WebProject\\WebApplication1\\App_Data\\Database1.mdf\";Integrated Security = True";
     //ConfigurationManager.ConnectionStrings["myConnectionString"].ConnectionString;
 
         private static IGasStation gasStaionInj;
@@ -33,7 +33,7 @@ namespace WebApplication1
         }
 
         //read all brand names from DB, create a GasStations for each of them, put them in a list
-        static List<GasStations> createGasStations()
+        public static List<GasStations> createGasStations()
         {
             List<GasStations> gasStations = new List<GasStations>();
             using (var conn = new SqlConnection(ConnectionString))
@@ -107,7 +107,7 @@ namespace WebApplication1
         }
 
         //read all gas prices from DB from a specific station, create a price array 
-        static string[] createPrices(string LocationName)
+        public static string[] createPrices(string LocationName)
         {
             
             List<String> gasTypes = getTypes();

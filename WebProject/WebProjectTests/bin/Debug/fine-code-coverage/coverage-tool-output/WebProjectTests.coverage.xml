@@ -2,17 +2,17 @@
 <CoverageSession xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="4.7.922.0">
   <Summary numSequencePoints="5437" visitedSequencePoints="1081" numBranchPoints="4156" visitedBranchPoints="531" sequenceCoverage="19.88" branchCoverage="12.78" maxCyclomaticComplexity="30" minCyclomaticComplexity="1" maxCrapScore="930" minCrapScore="1" visitedClasses="75" numClasses="311" visitedMethods="265" numMethods="1321" />
   <Modules>
-    <Module hash="46-2C-69-24-AB-F8-36-6F-27-8C-5F-9C-D1-4A-B3-67-95-21-64-DB">
+    <Module hash="86-B1-C3-41-FD-A5-66-73-8D-E2-7C-8B-AF-54-A7-8B-92-11-F9-F4">
       <Summary numSequencePoints="194" visitedSequencePoints="184" numBranchPoints="44" visitedBranchPoints="38" sequenceCoverage="94.85" branchCoverage="86.36" maxCyclomaticComplexity="6" minCyclomaticComplexity="1" maxCrapScore="7.99" minCrapScore="1" visitedClasses="5" numClasses="5" visitedMethods="34" numMethods="36" />
-      <ModulePath>C:\Users\kuora\Desktop\psi\PSI\WebProject\WebProjectTests\bin\Debug\fine-code-coverage\build-output\WebProjectTests.dll</ModulePath>
-      <ModuleTime>2022-12-19T13:22:16.2133773Z</ModuleTime>
+      <ModulePath>C:\Users\kuora\Desktop\New folder\PSI\WebProject\WebProjectTests\bin\Debug\fine-code-coverage\build-output\WebProjectTests.dll</ModulePath>
+      <ModuleTime>2022-12-19T20:11:02.5243932Z</ModuleTime>
       <ModuleName>WebProjectTests</ModuleName>
       <Files>
-        <File uid="1" fullPath="C:\Users\kuora\Desktop\psi\PSI\WebProject\WebProjectTests\InsertionClassTests.cs" />
-        <File uid="2" fullPath="C:\Users\kuora\Desktop\psi\PSI\WebProject\WebProjectTests\BusinessLogicTests.cs" />
-        <File uid="3" fullPath="C:\Users\kuora\Desktop\psi\PSI\WebProject\WebProjectTests\ExistingGasStationServiceTests.cs" />
-        <File uid="4" fullPath="C:\Users\kuora\Desktop\psi\PSI\WebProject\WebProjectTests\GasModuleServiceTests.cs" />
-        <File uid="5" fullPath="C:\Users\kuora\Desktop\psi\PSI\WebProject\WebProjectTests\PictureParserServiceTests.cs" />
+        <File uid="1" fullPath="C:\Users\kuora\Desktop\New folder\PSI\WebProject\WebProjectTests\InsertionClassTests.cs" />
+        <File uid="2" fullPath="C:\Users\kuora\Desktop\New folder\PSI\WebProject\WebProjectTests\BusinessLogicTests.cs" />
+        <File uid="3" fullPath="C:\Users\kuora\Desktop\New folder\PSI\WebProject\WebProjectTests\ExistingGasStationServiceTests.cs" />
+        <File uid="4" fullPath="C:\Users\kuora\Desktop\New folder\PSI\WebProject\WebProjectTests\GasModuleServiceTests.cs" />
+        <File uid="5" fullPath="C:\Users\kuora\Desktop\New folder\PSI\WebProject\WebProjectTests\PictureParserServiceTests.cs" />
       </Files>
       <Classes>
         <Class>
@@ -618,53 +618,53 @@
         </Class>
       </Classes>
     </Module>
-    <Module hash="32-7C-37-40-D2-59-6C-77-AD-81-A5-DE-21-71-12-79-E7-59-8A-50">
+    <Module hash="BF-EF-31-42-49-5F-E7-06-F7-E2-19-C4-F2-EC-B0-C9-C5-85-84-32">
       <Summary numSequencePoints="1454" visitedSequencePoints="349" numBranchPoints="484" visitedBranchPoints="128" sequenceCoverage="24.00" branchCoverage="26.45" maxCyclomaticComplexity="18" minCyclomaticComplexity="1" maxCrapScore="90" minCrapScore="1" visitedClasses="14" numClasses="65" visitedMethods="88" numMethods="286" />
-      <ModulePath>C:\Users\kuora\Desktop\psi\PSI\WebProject\WebProjectTests\bin\Debug\fine-code-coverage\build-output\WebProject.dll</ModulePath>
-      <ModuleTime>2022-12-19T13:22:15.2885666Z</ModuleTime>
+      <ModulePath>C:\Users\kuora\Desktop\New folder\PSI\WebProject\WebProjectTests\bin\Debug\fine-code-coverage\build-output\WebProject.dll</ModulePath>
+      <ModuleTime>2022-12-19T20:10:59.0572555Z</ModuleTime>
       <ModuleName>WebProject</ModuleName>
       <Files>
-        <File uid="11" fullPath="C:\Users\kuora\Desktop\psi\PSI\WebProject\WebProject\App_Start\BundleConfig.cs" />
-        <File uid="12" fullPath="C:\Users\kuora\Desktop\psi\PSI\WebProject\WebProject\Data\GasStations.cs" />
-        <File uid="14" fullPath="C:\Users\kuora\Desktop\psi\PSI\WebProject\WebProject\Data\Location.cs" />
-        <File uid="16" fullPath="C:\Users\kuora\Desktop\psi\PSI\WebProject\WebProject\Presentation\About.aspx.cs" />
-        <File uid="17" fullPath="C:\Users\kuora\Desktop\psi\PSI\WebProject\WebProject\App_Start\RouteConfig.cs" />
-        <File uid="18" fullPath="C:\Users\kuora\Desktop\psi\PSI\WebProject\WebProject\Presentation\Contact.aspx.cs" />
-        <File uid="19" fullPath="C:\Users\kuora\Desktop\psi\PSI\WebProject\WebProject\Default.aspx.cs" />
-        <File uid="20" fullPath="C:\Users\kuora\Desktop\psi\PSI\WebProject\WebProject\Data\GasData.cs" />
-        <File uid="21" fullPath="C:\Users\kuora\Desktop\psi\PSI\WebProject\WebProject\Data\GasStation.cs" />
-        <File uid="22" fullPath="C:\Users\kuora\Desktop\psi\PSI\WebProject\WebProject\Global.asax.cs" />
-        <File uid="23" fullPath="C:\Users\kuora\Desktop\psi\PSI\WebProject\WebProject\Presentation\Insertion.aspx.cs" />
-        <File uid="33" fullPath="C:\Users\kuora\Desktop\psi\PSI\WebProject\WebProject\Business_logic\ProcessData.cs" />
-        <File uid="35" fullPath="C:\Users\kuora\Desktop\psi\PSI\WebProject\WebProject\Site.Master.cs" />
-        <File uid="36" fullPath="C:\Users\kuora\Desktop\psi\PSI\WebProject\WebProject\Site.Mobile.Master.cs" />
-        <File uid="37" fullPath="C:\Users\kuora\Desktop\psi\PSI\WebProject\WebProject\Presentation\Table.aspx.cs" />
-        <File uid="38" fullPath="C:\Users\kuora\Desktop\psi\PSI\WebProject\WebProject\ViewSwitcher.ascx.cs" />
-        <File uid="39" fullPath="C:\Users\kuora\Desktop\psi\PSI\WebProject\WebProject\Data\ExceptionLogger.cs" />
-        <File uid="42" fullPath="C:\Users\kuora\Desktop\psi\PSI\WebProject\WebProject\Data\LocationData.cs" />
-        <File uid="43" fullPath="C:\Users\kuora\Desktop\psi\PSI\WebProject\WebProject\Data\ExistingGasModule.cs" />
-        <File uid="49" fullPath="C:\Users\kuora\Desktop\psi\PSI\WebProject\WebProject\Data\GasStationDataContainer.cs" />
-        <File uid="50" fullPath="C:\Users\kuora\Desktop\psi\PSI\WebProject\WebProject\Data\GasStationItemContainer.cs" />
-        <File uid="51" fullPath="C:\Users\kuora\Desktop\psi\PSI\WebProject\WebProject\Data\GasTypes.cs" />
-        <File uid="56" fullPath="C:\Users\kuora\Desktop\psi\PSI\WebProject\WebProject\Data\MessageService.cs" />
-        <File uid="57" fullPath="C:\Users\kuora\Desktop\psi\PSI\WebProject\WebProject\Data\SelectedGasStationStatusExtensions.cs" />
-        <File uid="58" fullPath="C:\Users\kuora\Desktop\psi\PSI\WebProject\WebProject\Data\UploadHandling.cs" />
-        <File uid="60" fullPath="C:\Users\kuora\Desktop\psi\PSI\WebProject\WebProject\Business_logic\CheckValidation.cs" />
-        <File uid="61" fullPath="C:\Users\kuora\Desktop\psi\PSI\WebProject\WebProject\Data\Repositories\PictureParserClient.cs" />
-        <File uid="62" fullPath="C:\Users\kuora\Desktop\psi\PSI\WebProject\WebProject\Data\Repositories\PictureParserService.cs" />
-        <File uid="63" fullPath="C:\Users\kuora\Desktop\psi\PSI\WebProject\WebProject\Business_logic\ResultValidation.cs" />
-        <File uid="64" fullPath="C:\Users\kuora\Desktop\psi\PSI\WebProject\WebProject\Data\JsonEntity\PredictedBox.cs" />
-        <File uid="65" fullPath="C:\Users\kuora\Desktop\psi\PSI\WebProject\WebProject\Data\JsonEntity\RawOcr.cs" />
-        <File uid="66" fullPath="C:\Users\kuora\Desktop\psi\PSI\WebProject\WebProject\Data\JsonEntity\Root.cs" />
-        <File uid="67" fullPath="C:\Users\kuora\Desktop\psi\PSI\WebProject\WebProject\Data\JsonEntity\Rootobject.cs" />
-        <File uid="68" fullPath="C:\Users\kuora\Desktop\psi\PSI\WebProject\WebProject\Data\JsonEntity\SignedUrls.cs" />
-        <File uid="69" fullPath="C:\Users\kuora\Desktop\psi\PSI\WebProject\WebProject\Data\JsonEntity\Size.cs" />
-        <File uid="70" fullPath="C:\Users\kuora\Desktop\psi\PSI\WebProject\WebProject\Data\JsonEntity\UnmoderatedImage.cs" />
-        <File uid="71" fullPath="C:\Users\kuora\Desktop\psi\PSI\WebProject\WebProject\Data\JsonEntity\UploadedFiles.cs" />
-        <File uid="72" fullPath="C:\Users\kuora\Desktop\psi\PSI\WebProject\WebProject\Business_logic\RetrieveGasStationLocationPrice.cs" />
-        <File uid="73" fullPath="C:\Users\kuora\Desktop\psi\PSI\WebProject\WebProject\Business_logic\RetrieveGasStationLocations.cs" />
-        <File uid="74" fullPath="C:\Users\kuora\Desktop\psi\PSI\WebProject\WebProject\Business_logic\RetrieveGasStations.cs" />
-        <File uid="75" fullPath="C:\Users\kuora\Desktop\psi\PSI\WebProject\WebProject\Business_logic\UpdateGasStationLocationPrice.cs" />
+        <File uid="11" fullPath="C:\Users\kuora\Desktop\New folder\PSI\WebProject\WebProject\App_Start\BundleConfig.cs" />
+        <File uid="12" fullPath="C:\Users\kuora\Desktop\New folder\PSI\WebProject\WebProject\Data\GasStations.cs" />
+        <File uid="14" fullPath="C:\Users\kuora\Desktop\New folder\PSI\WebProject\WebProject\Data\Location.cs" />
+        <File uid="16" fullPath="C:\Users\kuora\Desktop\New folder\PSI\WebProject\WebProject\Presentation\About.aspx.cs" />
+        <File uid="17" fullPath="C:\Users\kuora\Desktop\New folder\PSI\WebProject\WebProject\App_Start\RouteConfig.cs" />
+        <File uid="18" fullPath="C:\Users\kuora\Desktop\New folder\PSI\WebProject\WebProject\Presentation\Contact.aspx.cs" />
+        <File uid="19" fullPath="C:\Users\kuora\Desktop\New folder\PSI\WebProject\WebProject\Default.aspx.cs" />
+        <File uid="20" fullPath="C:\Users\kuora\Desktop\New folder\PSI\WebProject\WebProject\Data\GasData.cs" />
+        <File uid="21" fullPath="C:\Users\kuora\Desktop\New folder\PSI\WebProject\WebProject\Data\GasStation.cs" />
+        <File uid="22" fullPath="C:\Users\kuora\Desktop\New folder\PSI\WebProject\WebProject\Global.asax.cs" />
+        <File uid="23" fullPath="C:\Users\kuora\Desktop\New folder\PSI\WebProject\WebProject\Presentation\Insertion.aspx.cs" />
+        <File uid="33" fullPath="C:\Users\kuora\Desktop\New folder\PSI\WebProject\WebProject\Business_logic\ProcessData.cs" />
+        <File uid="35" fullPath="C:\Users\kuora\Desktop\New folder\PSI\WebProject\WebProject\Site.Master.cs" />
+        <File uid="36" fullPath="C:\Users\kuora\Desktop\New folder\PSI\WebProject\WebProject\Site.Mobile.Master.cs" />
+        <File uid="37" fullPath="C:\Users\kuora\Desktop\New folder\PSI\WebProject\WebProject\Presentation\Table.aspx.cs" />
+        <File uid="38" fullPath="C:\Users\kuora\Desktop\New folder\PSI\WebProject\WebProject\ViewSwitcher.ascx.cs" />
+        <File uid="39" fullPath="C:\Users\kuora\Desktop\New folder\PSI\WebProject\WebProject\Data\ExceptionLogger.cs" />
+        <File uid="42" fullPath="C:\Users\kuora\Desktop\New folder\PSI\WebProject\WebProject\Data\LocationData.cs" />
+        <File uid="43" fullPath="C:\Users\kuora\Desktop\New folder\PSI\WebProject\WebProject\Data\ExistingGasModule.cs" />
+        <File uid="49" fullPath="C:\Users\kuora\Desktop\New folder\PSI\WebProject\WebProject\Data\GasStationDataContainer.cs" />
+        <File uid="50" fullPath="C:\Users\kuora\Desktop\New folder\PSI\WebProject\WebProject\Data\GasStationItemContainer.cs" />
+        <File uid="51" fullPath="C:\Users\kuora\Desktop\New folder\PSI\WebProject\WebProject\Data\GasTypes.cs" />
+        <File uid="56" fullPath="C:\Users\kuora\Desktop\New folder\PSI\WebProject\WebProject\Data\MessageService.cs" />
+        <File uid="57" fullPath="C:\Users\kuora\Desktop\New folder\PSI\WebProject\WebProject\Data\SelectedGasStationStatusExtensions.cs" />
+        <File uid="58" fullPath="C:\Users\kuora\Desktop\New folder\PSI\WebProject\WebProject\Data\UploadHandling.cs" />
+        <File uid="60" fullPath="C:\Users\kuora\Desktop\New folder\PSI\WebProject\WebProject\Business_logic\CheckValidation.cs" />
+        <File uid="61" fullPath="C:\Users\kuora\Desktop\New folder\PSI\WebProject\WebProject\Data\Repositories\PictureParserClient.cs" />
+        <File uid="62" fullPath="C:\Users\kuora\Desktop\New folder\PSI\WebProject\WebProject\Data\Repositories\PictureParserService.cs" />
+        <File uid="63" fullPath="C:\Users\kuora\Desktop\New folder\PSI\WebProject\WebProject\Business_logic\ResultValidation.cs" />
+        <File uid="64" fullPath="C:\Users\kuora\Desktop\New folder\PSI\WebProject\WebProject\Data\JsonEntity\PredictedBox.cs" />
+        <File uid="65" fullPath="C:\Users\kuora\Desktop\New folder\PSI\WebProject\WebProject\Data\JsonEntity\RawOcr.cs" />
+        <File uid="66" fullPath="C:\Users\kuora\Desktop\New folder\PSI\WebProject\WebProject\Data\JsonEntity\Root.cs" />
+        <File uid="67" fullPath="C:\Users\kuora\Desktop\New folder\PSI\WebProject\WebProject\Data\JsonEntity\Rootobject.cs" />
+        <File uid="68" fullPath="C:\Users\kuora\Desktop\New folder\PSI\WebProject\WebProject\Data\JsonEntity\SignedUrls.cs" />
+        <File uid="69" fullPath="C:\Users\kuora\Desktop\New folder\PSI\WebProject\WebProject\Data\JsonEntity\Size.cs" />
+        <File uid="70" fullPath="C:\Users\kuora\Desktop\New folder\PSI\WebProject\WebProject\Data\JsonEntity\UnmoderatedImage.cs" />
+        <File uid="71" fullPath="C:\Users\kuora\Desktop\New folder\PSI\WebProject\WebProject\Data\JsonEntity\UploadedFiles.cs" />
+        <File uid="72" fullPath="C:\Users\kuora\Desktop\New folder\PSI\WebProject\WebProject\Business_logic\RetrieveGasStationLocationPrice.cs" />
+        <File uid="73" fullPath="C:\Users\kuora\Desktop\New folder\PSI\WebProject\WebProject\Business_logic\RetrieveGasStationLocations.cs" />
+        <File uid="74" fullPath="C:\Users\kuora\Desktop\New folder\PSI\WebProject\WebProject\Business_logic\RetrieveGasStations.cs" />
+        <File uid="75" fullPath="C:\Users\kuora\Desktop\New folder\PSI\WebProject\WebProject\Business_logic\UpdateGasStationLocationPrice.cs" />
       </Files>
       <Classes>
         <Class>
@@ -6274,8 +6274,8 @@
     </Module>
     <Module hash="46-1A-FF-F8-99-55-D7-14-59-86-16-A6-1D-3D-17-A8-03-13-B1-12">
       <Summary numSequencePoints="2873" visitedSequencePoints="485" numBranchPoints="2437" visitedBranchPoints="323" sequenceCoverage="16.88" branchCoverage="13.25" maxCyclomaticComplexity="30" minCyclomaticComplexity="0" maxCrapScore="930" minCrapScore="0" visitedClasses="43" numClasses="146" visitedMethods="116" numMethods="536" />
-      <ModulePath>C:\Users\kuora\Desktop\psi\PSI\WebProject\WebProjectTests\bin\Debug\fine-code-coverage\build-output\Unity.Container.dll</ModulePath>
-      <ModuleTime>2022-12-19T12:37:07.940193Z</ModuleTime>
+      <ModulePath>C:\Users\kuora\Desktop\New folder\PSI\WebProject\WebProjectTests\bin\Debug\fine-code-coverage\build-output\Unity.Container.dll</ModulePath>
+      <ModuleTime>2022-12-19T19:56:30.1739417Z</ModuleTime>
       <ModuleName>Unity.Container</ModuleName>
       <Files>
         <File uid="141" fullPath="C:\projects\unity\Container\src\Extensions\DefaultLifetime.cs" />
@@ -19885,8 +19885,8 @@
     </Module>
     <Module hash="C1-28-21-36-A5-D8-42-B0-62-7B-64-4C-2C-2F-DF-D7-BD-F9-D0-18">
       <Summary numSequencePoints="916" visitedSequencePoints="63" numBranchPoints="1191" visitedBranchPoints="42" sequenceCoverage="6.88" branchCoverage="3.53" maxCyclomaticComplexity="14" minCyclomaticComplexity="1" maxCrapScore="210" minCrapScore="1" visitedClasses="13" numClasses="95" visitedMethods="27" numMethods="463" />
-      <ModulePath>C:\Users\kuora\Desktop\psi\PSI\WebProject\WebProjectTests\bin\Debug\fine-code-coverage\build-output\Unity.Abstractions.dll</ModulePath>
-      <ModuleTime>2022-12-19T12:37:07.9372014Z</ModuleTime>
+      <ModulePath>C:\Users\kuora\Desktop\New folder\PSI\WebProject\WebProjectTests\bin\Debug\fine-code-coverage\build-output\Unity.Abstractions.dll</ModulePath>
+      <ModuleTime>2022-12-19T19:56:30.1707096Z</ModuleTime>
       <ModuleName>Unity.Abstractions</ModuleName>
       <Files>
         <File uid="459" fullPath="C:\projects\unity\Abstractions\src\Extensions\Reflection\IntrospectionExtensions.cs" />

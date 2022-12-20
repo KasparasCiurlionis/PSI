@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "IthwY+mApIPrNnx7rZx9v9GDcjUhzDNnhS4WAKZR6/Bxkwvbeb/fbdTCR05EOH2vp9/58unoxH+hSSozpUntyg==",
+  "dgSpecHash": "wZE3YrchSIWhIBCZNuMTE78nQRn75Ms8LHVrpwc+m8Ff4lMv6i4S1huLEGaUv/MlT0UEYd7+92svkk8R1lXo1Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\kuora\\Desktop\\psi\\PSI\\WebProject\\WebApplication1\\WebApplication1.csproj",
+  "projectFilePath": "C:\\Users\\kuora\\Desktop\\New folder\\PSI\\WebProject\\WebApplication1\\WebApplication1.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\kuora\\.nuget\\packages\\autofac\\6.5.0\\autofac.6.5.0.nupkg.sha512",
     "C:\\Users\\kuora\\.nuget\\packages\\autofac.extensions.dependencyinjection\\8.0.0\\autofac.extensions.dependencyinjection.8.0.0.nupkg.sha512",
