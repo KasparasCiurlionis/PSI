@@ -28,7 +28,7 @@ namespace WebProjectUnit.Tests
             //Assign
             string gasPrice = "1.999";
             List<string> gasInfo = new List<string>();
-
+            
             //Act
             var result = _insertionClass.PriceValidation(gasPrice, gasInfo);
             var last = result.Last();
