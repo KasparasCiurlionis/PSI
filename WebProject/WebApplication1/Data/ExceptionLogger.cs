@@ -20,8 +20,12 @@ namespace WebApplication1.Data
 
         static void dologging<T>(T text)
         {
-            
-            string file = System.AppDomain.CurrentDomain.BaseDirectory + "/App_Data/ExceptionLog.txt";
+
+            //string file = System.AppDomain.CurrentDomain.BaseDirectory + "/App_Data/ExceptionLog.txt";
+            // system gets wrong path to that file, it goes to the bin
+            // to the bin/debug/net6.0
+            // lets create a normal path// the full path is:C:\Users\olgie\Desktop\New folder (2)\WebProject\WebApplication1\App_Data\ExceptionLog.txt
+            string file = "C:\\Users\\olgie\\Desktop\\New folder (2)\\WebProject\\WebApplication1\\App_Data\\ExceptionLog.txt";
             if (!File.Exists(file))
             {
                 //File.CreateText(file);

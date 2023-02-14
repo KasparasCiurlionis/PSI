@@ -21,6 +21,9 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Security.Cryptography.X509Certificates;
 using Unity;
+using WebProject.Data.Repositories.EFQuerying;
+using RestSharp;
+using Newtonsoft.Json;
 
 namespace WebProject
 {
@@ -32,18 +35,21 @@ namespace WebProject
         protected void Page_Load(object sender, EventArgs e) // this line 
         {
 
-            // once the page loads it should initialise with data once
             if (!IsPostBack)
-            {
-                GasStation.Items.Clear();
-                foreach (var item in RetrieveGasStations.getGasStations())
                 {
-                    // now we can add items to the DropDownList
-                    GasStation.Items.Add(item.getName());
-                }
-                GasStationSelected(sender, e);
+                var client2 = new RestClient("http://localhost:5050");
+                var request2 = new RestRequest("/GetGasStationList", Method.Get);
+                RestResponse response2 = client2.Execute(request2);
+                List<WebProject.Data.Repositories.GasStation> data = JsonConvert.DeserializeObject<List<WebProject.Data.Repositories.GasStation>>(response2.Content);
 
-            }
+                foreach (var item in data)
+                    {
+                    // now we can add items to the DropDownList
+                    GasStation.Items.Add(item.GasStationName);
+                }
+                    GasStationSelected(sender, e);
+
+                }
         }
 
         protected void GasStationSelected(object sender, EventArgs e)
@@ -53,12 +59,17 @@ namespace WebProject
 
             List<string> locations = new List<string>();
             int pkey = RetrieveGasStations.getGasStationID(selectedGasStation);
-            var obj = RetrieveGasStationLocations.getGasStationLocations(selectedGasStation, pkey, new GasStation());
+            //var obj = RetrieveGasStationLocations.getGasStationLocations(selectedGasStation, pkey, new GasStation());
 
-            // use enum to iterate through the array?
-            foreach (var item in obj.getStations())
+            var client2 = new RestClient("http://localhost:5050");
+            var request2 = new RestRequest("/GetGasStationLocation?pkey=" + pkey, Method.Get);
+            RestResponse response2 = client2.Execute(request2);
+            List<WebProject.Data.Repositories.Location> data = JsonConvert.DeserializeObject<List<WebProject.Data.Repositories.Location>>(response2.Content);
+
+            foreach (var item in data)
             {
-                Location.Items.Add(item.getAddress());
+                //      Location.Items.Add(item.getAddress());
+                Location.Items.Add(item.LocationName);
             }
             // update the manual module
             ManualGasStation.Text = selectedGasStation;

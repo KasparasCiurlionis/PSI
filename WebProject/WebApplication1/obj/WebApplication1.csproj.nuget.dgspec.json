@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\kuora\\Desktop\\psi\\PSI\\WebProject\\WebApplication1\\WebApplication1.csproj": {}
+    "C:\\Users\\olgie\\Desktop\\New folder (2)\\WebProject\\WebApplication1\\WebApplication1.csproj": {}
   },
   "projects": {
-    "C:\\Users\\kuora\\Desktop\\psi\\PSI\\WebProject\\WebApplication1\\WebApplication1.csproj": {
+    "C:\\Users\\olgie\\Desktop\\New folder (2)\\WebProject\\WebApplication1\\WebApplication1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\kuora\\Desktop\\psi\\PSI\\WebProject\\WebApplication1\\WebApplication1.csproj",
+        "projectUniqueName": "C:\\Users\\olgie\\Desktop\\New folder (2)\\WebProject\\WebApplication1\\WebApplication1.csproj",
         "projectName": "WebApplication1",
-        "projectPath": "C:\\Users\\kuora\\Desktop\\psi\\PSI\\WebProject\\WebApplication1\\WebApplication1.csproj",
-        "packagesPath": "C:\\Users\\kuora\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\kuora\\Desktop\\psi\\PSI\\WebProject\\WebApplication1\\obj\\",
+        "projectPath": "C:\\Users\\olgie\\Desktop\\New folder (2)\\WebProject\\WebApplication1\\WebApplication1.csproj",
+        "packagesPath": "C:\\Users\\olgie\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\olgie\\Desktop\\New folder (2)\\WebProject\\WebApplication1\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\kuora\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\olgie\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -40,6 +40,10 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "ADO.Net.Client.Core": {
+              "target": "Package",
+              "version": "[1.4.5, )"
+            },
             "Autofac": {
               "target": "Package",
               "version": "[6.5.0, )"
@@ -51,6 +55,18 @@
             "Autofac.Extras.DynamicProxy": {
               "target": "Package",
               "version": "[6.0.1, )"
+            },
+            "Castle.Core": {
+              "target": "Package",
+              "version": "[5.1.0, )"
+            },
+            "EntityFramework": {
+              "target": "Package",
+              "version": "[6.4.4, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.0, )"
             },
             "Newtonsoft.Json": {
               "target": "Package",
@@ -96,7 +112,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }
