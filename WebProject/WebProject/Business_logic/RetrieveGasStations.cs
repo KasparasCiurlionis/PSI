@@ -8,6 +8,9 @@ using System.Linq;
 using System.Web;
 using WebProject.Data;
 
+
+// if con string is:Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename="C:\Users\olgie\Desktop\New folder (2)\WebProject\WebProject\App_Data\Database1.mdf";Integrated Security=True
+// in web.config, it will look like this: <add name="ConnectionString" connectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=&quot;C:\Users\olgie\Desktop\New folder (2)\WebProject\WebProject\App_Data\Database1.mdf&quot;;Integrated Security=True" providerName="System.Data.SqlClient" />
 namespace WebProject.Business_logic
 {
     public class RetrieveGasStations

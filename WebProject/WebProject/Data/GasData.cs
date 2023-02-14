@@ -70,7 +70,7 @@ namespace WebProject
         }
 
         //read all station addreses from DB from a specific brand, create a GasStation for each of them, put them in a list
-        static List<IGasStation> createStation(string stationName)
+       public static List<IGasStation> createStation(string stationName)
         {
             List<IGasStation> gasStation = new List<IGasStation>();
             using (var conn = new SqlConnection(ConnectionString))
@@ -109,7 +109,7 @@ namespace WebProject
         }
 
         //read all gas prices from DB from a specific station, create a price array 
-        static string[] createPrices(string LocationName)
+       public static string[] createPrices(string LocationName)
         {
             
             List<String> gasTypes = getTypes();

@@ -66,7 +66,7 @@ namespace WebProject
             return new GasEnumerator(_gasStation);
         }
 
-        internal IEnumerable<IGasStation> getStations()
+        public IEnumerable<IGasStation> getStations()
         {
             // we need to get the stations
             return _gasStation;

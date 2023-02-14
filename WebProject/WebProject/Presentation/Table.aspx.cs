@@ -51,7 +51,6 @@ namespace WebProject
 
             var client2 = new RestClient("http://localhost:5050"); 
             var request2 = new RestRequest("/GasStationTable?id=" + GasStation.Items.IndexOf(GasStation.Items.FindByText(selectedGasStation)), Method.Get);
-            List<List<string>> output=null;
             RestResponse response2 = client2.Execute(request2);
             List<List<string>> output = JsonConvert.DeserializeObject<List<List<string>>>(response2.Content);
             

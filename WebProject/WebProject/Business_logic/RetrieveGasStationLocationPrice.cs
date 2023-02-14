@@ -13,6 +13,27 @@ namespace WebProject.Business_logic
         private readonly static string ConnectionString =
         ConfigurationManager.ConnectionStrings["myConnectionString"].ConnectionString;
 
+        public static float retrieveGasStationLocationPrice(int locationID, int gasTypeID)
+        {
+            float gasPrice = 0;
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            {
+                connection.Open();
+                string query = "SELECT Price FROM Prices WHERE LocationID = @locationID AND GasTypeID = @gasTypeID";
+                SqlCommand command = new SqlCommand(query
+                   , connection);
+                command.Parameters.AddWithValue("@locationID", locationID);
+                command.Parameters.AddWithValue("@gasTypeID", gasTypeID);
+                SqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    gasPrice = (float)reader.GetDouble(0);
+                }
+            }
+
+            return gasPrice;
+        }
+
         public static List<int> getGasTypesID(string[] gasTypes)
         {
             List<int> gasTypesID = new List<int>();
